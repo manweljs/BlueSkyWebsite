@@ -1,3 +1,4 @@
+//@ts-nocheck
 // https://github.com/studio-freight/lenis
 // TODO refactor for app-directory
 // See https://github.com/pmndrs/react-three-next/pull/123

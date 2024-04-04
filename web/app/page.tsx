@@ -11,8 +11,10 @@ import { Physics, RigidBody } from "@react-three/rapier";
 import { TransformControls } from "three-stdlib";
 import { Island } from "@/components/models/Island";
 import { BlueSky } from "@/components/models/BlueSky";
+import { BlueSkyStatue } from "@/components/models/BlueSkyStatue";
 
-const baseColor = "#8dc2ff"
+
+const baseColor = "#72b4ff"
 const primaryColor = "#0062ff"
 
 function CameraController() {
@@ -30,7 +32,7 @@ function CameraController() {
 export default function Page() {
   return (
     <div className={style.home}>
-      <Suspense>
+      <Suspense >
         <Canvas shadows>
           <CameraController />
           <OrbitControls maxPolarAngle={1.2} />
@@ -39,16 +41,16 @@ export default function Page() {
           <directionalLight
 
             castShadow
-            position={[5, 15, 5]}
-            intensity={1.5}
+            position={[15, 65, 15]}
+            intensity={1}
             shadow-mapSize-width={1024}
             shadow-mapSize-height={1024}
             shadow-camera-near={0.2}
             shadow-camera-far={500}
-            shadow-camera-left={-50}
-            shadow-camera-right={50}
-            shadow-camera-top={50}
-            shadow-camera-bottom={-50}
+            shadow-camera-left={-130}
+            shadow-camera-right={130}
+            shadow-camera-top={130}
+            shadow-camera-bottom={-130}
           />
 
           {/* <directionalLight
@@ -68,7 +70,7 @@ export default function Page() {
             color={"#bcdbff"} /> */}
 
           <BlueSky />
-
+          <BlueSkyStatue />
 
           {/* <Car scale={6} position={[0, 8, 0]} /> */}
           {/* <Physics gravity={[0, -5, 0]} colliders="hull"  >
