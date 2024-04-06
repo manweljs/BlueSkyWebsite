@@ -33,11 +33,7 @@ export function BlueSky(props) {
           <mesh name="Floor001" receiveShadow geometry={nodes.Floor001.geometry} material={materials.Base} position={[-31.993, 0.568, -58.068]} />
           <mesh name="Floor010" receiveShadow geometry={nodes.Floor010.geometry} material={materials.Base} position={[-0.394, 0, 31.471]} />
           <mesh name="Floor" receiveShadow geometry={nodes.Floor.geometry} material={materials.Base} position={[15.502, 0, 47.63]} />
-          <group name="Island" position={[0.215, -2.717, -1.233]} scale={75}>
-            <mesh name="Plane290" receiveShadow geometry={nodes.Plane290.geometry} material={materials.Land} />
-            <mesh name="Plane290_1" receiveShadow geometry={nodes.Plane290_1.geometry} material={materials.Grass} />
-            <mesh name="Plane290_2" receiveShadow geometry={nodes.Plane290_2.geometry} material={materials.Sand} />
-          </group>
+
         </group>
 
 
@@ -579,22 +575,7 @@ export function BlueSky(props) {
           <mesh name="Cube011" castShadow geometry={nodes.Cube011.geometry} material={materials.Primary} />
           <mesh name="Cube011_1" castShadow geometry={nodes.Cube011_1.geometry} material={materials.Base} />
         </group>
-        <group name="Train" position={[26.797, -0.113, 12.666]} scale={0.618}>
-          <mesh name="Plane134" castShadow geometry={nodes.Plane134.geometry} material={materials.Base} />
-          <mesh name="Plane134_1" castShadow geometry={nodes.Plane134_1.geometry} material={materials.Glass} />
-        </group>
-        <group name="Train001" position={[26.802, -0.098, 3.031]} scale={0.618}>
-          <mesh name="Plane135" castShadow geometry={nodes.Plane135.geometry} material={materials.Base} />
-          <mesh name="Plane135_1" castShadow geometry={nodes.Plane135_1.geometry} material={materials.Glass} />
-        </group>
-        <group name="Train002" position={[26.802, -0.098, -3.198]} scale={0.618}>
-          <mesh name="Plane166" castShadow geometry={nodes.Plane166.geometry} material={materials.Base} />
-          <mesh name="Plane166_1" castShadow geometry={nodes.Plane166_1.geometry} material={materials.Glass} />
-        </group>
-        <group name="Train003" position={[26.802, -0.098, -9.463]} scale={0.618}>
-          <mesh name="Plane167" castShadow geometry={nodes.Plane167.geometry} material={materials.Base} />
-          <mesh name="Plane167_1" castShadow geometry={nodes.Plane167_1.geometry} material={materials.Glass} />
-        </group>
+
         <group name="tree" position={[8.903, 0.452, 14.658]} scale={1.223}>
           <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
           <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
