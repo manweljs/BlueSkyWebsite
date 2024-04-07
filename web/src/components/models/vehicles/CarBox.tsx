@@ -41,8 +41,8 @@ export function CarBox(props: JSX.IntrinsicElements['group']) {
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <group name="CarBox" position={[14.921, 0.617, -44.757]} rotation={[0, -1.554, 0]}>
-          <mesh name="mesh980636007008" geometry={nodes.mesh980636007008.geometry} material={materials.Base} />
-          <mesh name="mesh980636007008_1" geometry={nodes.mesh980636007008_1.geometry} material={materials.Primary} />
+          <mesh name="mesh980636007008" geometry={nodes.mesh980636007008.geometry} material={materials.Base} castShadow />
+          <mesh name="mesh980636007008_1" geometry={nodes.mesh980636007008_1.geometry} material={materials.Primary} castShadow />
         </group>
       </group>
     </group>

@@ -27,7 +27,6 @@ export function BlueSky(props) {
           <mesh name="Floor009" receiveShadow geometry={nodes.Floor009.geometry} material={materials.Base} position={[15.502, 0, 31.471]} />
           <mesh name="Floor010" receiveShadow geometry={nodes.Plane010.geometry} material={materials.Base} position={[15.502, 0, 15.661]} />
           <mesh name="Floor011" receiveShadow geometry={nodes.Floor011.geometry} material={materials.Base} position={[-6.82, 0, 47.63]} />
-          <mesh name="Sea" receiveShadow geometry={nodes.Sea.geometry} material={materials.Water} position={[0.215, -3.832, -1.664]} scale={79.16} />
           <mesh name="Road" receiveShadow geometry={nodes.Road.geometry} material={materials.Road} position={[0, -4.519, -0.108]} rotation={[0, 0, -Math.PI]} scale={[-25.869, -11.423, -56.849]} />
           <mesh name="Floor008" receiveShadow geometry={nodes.Floor008.geometry} material={materials.Base} position={[15.381, 0, -34.414]} />
           <mesh name="Floor001" receiveShadow geometry={nodes.Floor001.geometry} material={materials.Base} position={[-31.993, 0.568, -58.068]} />

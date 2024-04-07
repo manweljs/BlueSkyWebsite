@@ -8,35 +8,31 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 
-type GLTFAction = THREE.AnimationAction
-
 type GLTFResult = GLTF & {
   nodes: {
     Plane290: THREE.Mesh
     Plane290_1: THREE.Mesh
     Plane290_2: THREE.Mesh
+    Ocean: THREE.Mesh
   }
   materials: {
     Land: THREE.MeshStandardMaterial
     Grass: THREE.MeshStandardMaterial
     Sand: THREE.MeshStandardMaterial
+    Water: THREE.MeshPhysicalMaterial
   }
-  animations: GLTFAction[]
 }
 
 type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicElements['mesh']>>
-
 
 export function Island(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/models/floors/Island.glb') as GLTFResult
   return (
     <group {...props} dispose={null}>
-
-      <group position={[0.215, -2.717, -1.233]} scale={75}>
-        <mesh geometry={nodes.Plane290.geometry} material={materials.Land} receiveShadow />
-        <mesh geometry={nodes.Plane290_1.geometry} material={materials.Grass} receiveShadow />
-        <mesh geometry={nodes.Plane290_2.geometry} material={materials.Sand} receiveShadow />
-      </group>
+      <mesh geometry={nodes.Ocean.geometry} material={materials.Water} receiveShadow />
+      <mesh geometry={nodes.Plane290.geometry} material={materials.Land} receiveShadow />
+      <mesh geometry={nodes.Plane290_1.geometry} material={materials.Grass} receiveShadow />
+      <mesh geometry={nodes.Plane290_2.geometry} material={materials.Sand} receiveShadow />
     </group>
   )
 }

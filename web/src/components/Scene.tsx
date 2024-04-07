@@ -1,5 +1,5 @@
 "use client";
-import { Environment, Text3D, OrbitControls, PerspectiveCamera, Plane, SpotLight, Stars, OrthographicCamera, ContactShadows, RoundedBox } from "@react-three/drei";
+import { Environment, Text3D, OrbitControls, PerspectiveCamera, Plane, SpotLight, Stars, OrthographicCamera, ContactShadows, RoundedBox, Sky } from "@react-three/drei";
 import { Canvas, Vector3, useFrame, useThree } from "@react-three/fiber";
 import { Suspense, useEffect, useRef } from "react";
 import * as THREE from "three";
@@ -8,11 +8,12 @@ import { BlueSkyStatue } from "@/components/models/BlueSkyStatue";
 import { Island } from "./models/floors/Island";
 import VehicleCollection from "./models/vehicles/VehicleCollection";
 import BuildingCollection from "./models/buildings/BuildingCollection";
+import { Text001 } from "./models/texts/Text001";
 
 
 
 
-const baseColor = "#72b4ff"
+const baseColor = "#7dc0ff"
 const primaryColor = "#0062ff"
 
 function CameraController() {
@@ -29,16 +30,16 @@ function CameraController() {
 export default function Scene() {
     return (
         <Suspense >
-            <Canvas shadows>
+            <Canvas shadows className="main-canvas">
                 <CameraController />
-                <OrbitControls maxPolarAngle={1.2} />
+                <OrbitControls maxPolarAngle={1.2} maxDistance={120} maxZoom={5} />
                 <PerspectiveCamera makeDefault position={[-5, 30, 45]} fov={45} />
 
                 <directionalLight
 
                     castShadow
                     position={[15, 65, 15]}
-                    intensity={1}
+                    intensity={.7}
                     shadow-mapSize-width={1024}
                     shadow-mapSize-height={1024}
                     shadow-camera-near={0.2}
@@ -49,12 +50,16 @@ export default function Scene() {
                     shadow-camera-bottom={-130}
                 />
 
+                <Text001 />
                 <BlueSky />
                 <BlueSkyStatue />
                 <Island />
                 <VehicleCollection />
                 <BuildingCollection />
                 <BaseEnvirontment />
+
+                <fog attach="fog" args={["#9fc8e1", 130, 210]} />
+                {/* Warna, jarak awal, jarak akhir */}
             </Canvas>
         </Suspense>
     )
