@@ -9,6 +9,7 @@ import { Island } from "./models/floors/Island";
 import VehicleCollection from "./models/vehicles/VehicleCollection";
 import BuildingCollection from "./models/buildings/BuildingCollection";
 import { Text001 } from "./models/texts/Text001";
+import { WindMils } from "./models/windmils/Windmils";
 
 
 
@@ -57,6 +58,7 @@ export default function Scene() {
                 <VehicleCollection />
                 <BuildingCollection />
                 <BaseEnvirontment />
+                <WindMils />
 
                 <fog attach="fog" args={["#9fc8e1", 130, 210]} />
                 {/* Warna, jarak awal, jarak akhir */}
