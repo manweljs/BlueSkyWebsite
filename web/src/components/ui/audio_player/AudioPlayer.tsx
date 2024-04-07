@@ -1,10 +1,15 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-// import style from "./style.module.sass"
 
 export default function AudioPlayer() {
-    const [audio] = useState(typeof Audio !== "undefined" ? new Audio('/audio/Home - Bluesky Creations.mp3') : undefined);
+    const [audio] = useState(() => {
+        if (typeof Audio !== "undefined") {
+            const newAudio = new Audio('/audio/Home - Bluesky Creations.mp3');
+            newAudio.loop = true; // Menetapkan audio untuk loop
+            return newAudio;
+        }
+    });
 
     useEffect(() => {
         // Fungsi untuk memulai audio
