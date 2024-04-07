@@ -33,9 +33,9 @@ export function Island(props: JSX.IntrinsicElements['group']) {
     <group {...props} dispose={null}>
 
       <group position={[0.215, -2.717, -1.233]} scale={75}>
-        <mesh geometry={nodes.Plane290.geometry} material={materials.Land} />
-        <mesh geometry={nodes.Plane290_1.geometry} material={materials.Grass} />
-        <mesh geometry={nodes.Plane290_2.geometry} material={materials.Sand} />
+        <mesh geometry={nodes.Plane290.geometry} material={materials.Land} receiveShadow />
+        <mesh geometry={nodes.Plane290_1.geometry} material={materials.Grass} receiveShadow />
+        <mesh geometry={nodes.Plane290_2.geometry} material={materials.Sand} receiveShadow />
       </group>
     </group>
   )

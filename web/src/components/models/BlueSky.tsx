@@ -44,10 +44,7 @@ export function BlueSky(props) {
         <mesh name="AC003" castShadow receiveShadow geometry={nodes.AC003.geometry} material={materials.Base} position={[3.155, 3.344, 30.907]} rotation={[0, 1.571, 0]} />
         <mesh name="AC004" castShadow receiveShadow geometry={nodes.AC004.geometry} material={materials.Base} position={[3.837, 3.344, 30.907]} rotation={[0, 1.571, 0]} />
 
-        <group name="airplane" position={[-29.509, 3.222, 4.763]} rotation={[-0.23, 0, 0]}>
-          <mesh name="Cube003" castShadow geometry={nodes.Cube003.geometry} material={materials.Base} />
-          <mesh name="Cube003_1" castShadow geometry={nodes.Cube003_1.geometry} material={materials.Primary} />
-        </group>
+
         <group name="airplane001" position={[-42.313, 0.747, -44.42]} rotation={[-Math.PI, 1.197, -Math.PI]}>
           <mesh name="Cube004" castShadow geometry={nodes.Cube004.geometry} material={materials.Base} />
           <mesh name="Cube004_1" castShadow geometry={nodes.Cube004_1.geometry} material={materials.Primary} />
