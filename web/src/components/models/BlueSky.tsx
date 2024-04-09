@@ -71,8 +71,8 @@ export function BlueSky(props) {
         </group>
         <mesh name="BaseCamp" castShadow geometry={nodes.BaseCamp.geometry} material={materials.Base} position={[-70.952, 15.314, 20.997]} rotation={[-Math.PI / 2, 1.548, Math.PI / 2]} scale={0.504} />
         <mesh name="BaseCamp001" castShadow geometry={nodes.BaseCamp001.geometry} material={materials.Base} position={[-70.952, 15.314, 26.963]} rotation={[-Math.PI / 2, 1.548, Math.PI / 2]} scale={0.504} />
-        <mesh name="boat" castShadow geometry={nodes.boat.geometry} material={materials.Base} position={[7.512, -0.859, 70.43]} scale={1.271} />
-        <mesh name="boat001" castShadow geometry={nodes.boat001.geometry} material={materials.Base} position={[11.53, -0.859, 71.787]} rotation={[-Math.PI, Math.PI / 3, -Math.PI]} />
+        {/* <mesh name="boat" castShadow geometry={nodes.boat.geometry} material={materials.Base} position={[7.512, -0.859, 70.43]} scale={1.271} />
+        <mesh name="boat001" castShadow geometry={nodes.boat001.geometry} material={materials.Base} position={[11.53, -0.859, 71.787]} rotation={[-Math.PI, Math.PI / 3, -Math.PI]} /> */}
         <mesh name="boat002" castShadow geometry={nodes.boat002.geometry} material={materials.Base} position={[-28.459, -0.859, 71.485]} />
         <mesh name="boat003" castShadow geometry={nodes.boat003.geometry} material={materials.Base} position={[-26.255, -0.859, 70.002]} rotation={[0, Math.PI / 3, 0]} />
         <group name="Bus" position={[8.061, 0.393, 1.603]} scale={0.472}>

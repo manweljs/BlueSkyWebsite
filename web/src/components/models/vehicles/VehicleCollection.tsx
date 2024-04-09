@@ -4,6 +4,7 @@ import { Train } from './Train'
 import { AirPlaneBoarding } from './AirPlaneBoarding'
 import { AirPlaneTakeOff } from './AirPlaneTakeOff'
 import { CarBox } from './CarBox'
+import { SpeedBoat } from './SpeedBoat'
 
 export default function VehicleCollection() {
     return (
@@ -13,6 +14,7 @@ export default function VehicleCollection() {
             <Train />
             <AirPlaneBoarding />
             <AirPlaneTakeOff />
+            <SpeedBoat />
         </group>
     )
 }
