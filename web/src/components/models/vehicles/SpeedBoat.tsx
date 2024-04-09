@@ -7,6 +7,7 @@ import * as THREE from 'three'
 import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import Smoke from '../Smoke'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -41,12 +42,14 @@ export function SpeedBoat(props: JSX.IntrinsicElements['group']) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="BoatTravel001">
+
         <group name="SpeedBoat" position={[11.721, -0.749, 69.166]} rotation={[0, 1.44, 0]}>
           <mesh name="Plane158" geometry={nodes.Plane158.geometry} material={materials.Base} />
           <mesh name="Plane158_1" geometry={nodes.Plane158_1.geometry} material={materials.Primary} />
           <mesh name="Icosphere006" geometry={nodes.Icosphere006.geometry} material={nodes.Icosphere006.material} position={[2.123, -0.414, -0.068]} scale={0.113} />
         </group>
       </group>
+      {/* <Smoke position={} /> */}
     </group>
   )
 }

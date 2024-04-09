@@ -6,14 +6,39 @@ Command: npx gltfjsx@6.2.16 public/models/BlueSky.glb
 
 import React, { Suspense, useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import Marker from '../ui/Marker';
+import { ICON_SIZE, PRIMARY_COLOR, SECTION } from '@/consts';
+import { useUserContext } from '@/context/UserContext';
+import Image from 'next/image';
+import { Tooltip } from 'antd';
 
 export function BlueSky(props) {
   const { nodes, materials } = useGLTF('./models/BlueSkyMap.glb');
-
+  const { setActiveSection } = useUserContext()
 
   return (
     <Suspense fallback={null}>
       <group {...props} dispose={null}>
+        {/* ------------------------------ Main Scene  -------------------------------- */}
+        <Marker position={[-8, 5, 32]} rotation={[0, Math.PI / 2, 0]} scale={3}>
+          <Tooltip title={"Collaboration"} color={PRIMARY_COLOR}>
+            <Image
+              src={"/img/collaboration.png"}
+              width={ICON_SIZE}
+              height={ICON_SIZE}
+              onClick={() => setActiveSection(SECTION.COLLABORATION)}
+            />
+          </Tooltip>
+        </Marker>
+
+        <group name="Coles" position={[4.876, 1.06, 31.453]} rotation={[0, Math.PI / 2, 0]} scale={0.911}>
+          <mesh name="Plane081" castShadow geometry={nodes.Plane081.geometry} material={materials.Base} />
+          <mesh name="Plane081_1" castShadow geometry={nodes.Plane081_1.geometry} material={materials.Primary} />
+          <mesh name="Plane081_2" castShadow geometry={nodes.Plane081_2.geometry} material={materials.Coles} />
+          <mesh name="Plane081_3" castShadow geometry={nodes.Plane081_3.geometry} material={materials.Glass} />
+        </group>
+
+
         {/* ------------------------------ Floor -------------------------------- */}
         <group name="Floor" position={[0, 0, 0]} scale={[1, 1, 1]}>
           <mesh name="Floor004" receiveShadow geometry={nodes.Floor004.geometry} material={materials.Base} position={[-15.962, 0, -19.689]} scale={[1, 1, 0.86]} />
@@ -32,7 +57,6 @@ export function BlueSky(props) {
           <mesh name="Floor001" receiveShadow geometry={nodes.Floor001.geometry} material={materials.Base} position={[-31.993, 0.568, -58.068]} />
           <mesh name="Floor010" receiveShadow geometry={nodes.Floor010.geometry} material={materials.Base} position={[-0.394, 0, 31.471]} />
           <mesh name="Floor" receiveShadow geometry={nodes.Floor.geometry} material={materials.Base} position={[15.502, 0, 47.63]} />
-
         </group>
 
 
@@ -91,12 +115,9 @@ export function BlueSky(props) {
           <mesh name="Plane143" castShadow geometry={nodes.Plane143.geometry} material={materials.Primary} />
           <mesh name="Plane143_1" castShadow geometry={nodes.Plane143_1.geometry} material={materials.Base} />
         </group>
-        <group name="Coles" position={[4.876, 1.06, 31.453]} rotation={[0, Math.PI / 2, 0]} scale={0.911}>
-          <mesh name="Plane081" castShadow geometry={nodes.Plane081.geometry} material={materials.Base} />
-          <mesh name="Plane081_1" castShadow geometry={nodes.Plane081_1.geometry} material={materials.Primary} />
-          <mesh name="Plane081_2" castShadow geometry={nodes.Plane081_2.geometry} material={materials.Coles} />
-          <mesh name="Plane081_3" castShadow geometry={nodes.Plane081_3.geometry} material={materials.Glass} />
-        </group>
+
+
+
         <group name="Dump_Truck" position={[-60.146, 9.003, 40.615]} rotation={[Math.PI, 0, 3.122]} scale={0.525}>
           <mesh name="Plane256" castShadow geometry={nodes.Plane256.geometry} material={materials.Primary} />
           <mesh name="Plane256_1" castShadow geometry={nodes.Plane256_1.geometry} material={materials.Base} />

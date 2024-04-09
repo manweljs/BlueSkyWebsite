@@ -21,7 +21,7 @@ export default function AudioPlayer() {
         };
 
         // Menambahkan event listener untuk klik pertama
-        window.addEventListener('click', playAudio);
+        window.addEventListener('click', null);
 
         return () => {
             window.removeEventListener('click', playAudio);
