@@ -4,8 +4,8 @@ import * as THREE from 'three'
 
 export default function Marker(props: {
     children: React.ReactNode
-    position: THREE.Vector3
-    scale: number
+    position?: THREE.Vector3 | [number, number, number]
+    scale?: number
     onClick?: () => void
 }) {
     const { children, onClick } = props;

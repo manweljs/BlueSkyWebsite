@@ -1,19 +1,19 @@
 
 import { Suspense } from "react"
 import style from "../styles/style.module.sass"
-import Scene from "@/components/Scene"
 import Navbar from "@/components/ui/navbar/Navbar"
 import AudioPlayer from "@/components/ui/audio_player/AudioPlayer"
 import { Spin } from "antd"
+import Experience from "@/components/Experience"
+import ControlGuide from "@/components/ui/ControlGuide"
 
 export default function Page() {
   return (
     <div className={style.home}>
-      <Suspense fallback={<Loading />} >
-        <Scene />
-      </Suspense>
+      <Experience />
       <Navbar />
       <AudioPlayer />
+      <ControlGuide />
     </div>
   )
 }
