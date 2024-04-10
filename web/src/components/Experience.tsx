@@ -17,6 +17,8 @@ import { UserProvider, useUserContext } from "@/context/UserContext";
 import Marker from "./ui/Marker";
 import { sectionData } from "@/consts";
 import Leva from "./Leva";
+import Scenes from "./models/scenes/Scenes";
+import AudioPlayer from "./ui/audio_player/AudioPlayer";
 
 
 const baseColor = "#7dc0ff"
@@ -77,6 +79,7 @@ function CameraController(props: {
 export default function Experience() {
     return (
         <UserProvider>
+            <AudioPlayer />
             <Sections />
             <Suspense >
                 <Canvas shadows className="main-canvas">
@@ -123,7 +126,7 @@ const Scene = () => {
         <Suspense>
             {camera &&
                 <>
-                    <Leva active />
+                    <Leva active={false} />
                     <CameraControls
                         ref={cameraControlsRef}
                         camera={camera}
@@ -157,6 +160,7 @@ const Scene = () => {
                     <Beach />
                     <Island />
                     <BaseEnvirontment />
+                    <Scenes />
 
                     <fog attach="fog" args={["#9fc8e1", 165, 210]} />
                 </>

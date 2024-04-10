@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import Collaboration from './Collaboration'
 import { Drawer } from 'antd'
 import { useUserContext } from '@/context/UserContext'
 import style from "@/style.module.sass"
 import { SECTION, sectionData } from '@/consts'
+import AboutSection from './AboutSection'
+import CollaborationSection from './CollaborationSection'
 
 export default function Sections() {
     const { activeSection, setActiveSection, cameraControlsRef } = useUserContext()
@@ -21,6 +22,13 @@ export default function Sections() {
                 cameraControlsRef.current.setLookAt(
                     ...sectionData.collaboration.lookAt.pos,
                     ...sectionData.collaboration.lookAt.target,
+                    true
+                )
+                break;
+            case SECTION.ABOUT:
+                cameraControlsRef.current.setLookAt(
+                    ...sectionData.about.lookAt.pos,
+                    ...sectionData.about.lookAt.target,
                     true
                 )
                 break;
@@ -49,7 +57,8 @@ export default function Sections() {
     return (
         <div className={style.drawer}>
             <Drawer open={showDrawer} onClose={handleClose} width={800} >
-                <Collaboration />
+                {activeSection === SECTION.ABOUT && <AboutSection />}
+                {activeSection === SECTION.COLLABORATION && <CollaborationSection />}
             </Drawer>
         </div>
     )

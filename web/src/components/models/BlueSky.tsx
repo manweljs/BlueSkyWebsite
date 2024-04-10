@@ -20,23 +20,8 @@ export function BlueSky(props) {
     <Suspense fallback={null}>
       <group {...props} dispose={null}>
         {/* ------------------------------ Main Scene  -------------------------------- */}
-        <Marker position={[-8, 5, 32]} rotation={[0, Math.PI / 2, 0]} scale={3}>
-          <Tooltip title={"Collaboration"} color={PRIMARY_COLOR}>
-            <Image
-              src={"/img/collaboration.png"}
-              width={ICON_SIZE}
-              height={ICON_SIZE}
-              onClick={() => setActiveSection(SECTION.COLLABORATION)}
-            />
-          </Tooltip>
-        </Marker>
 
-        <group name="Coles" position={[4.876, 1.06, 31.453]} rotation={[0, Math.PI / 2, 0]} scale={0.911}>
-          <mesh name="Plane081" castShadow geometry={nodes.Plane081.geometry} material={materials.Base} />
-          <mesh name="Plane081_1" castShadow geometry={nodes.Plane081_1.geometry} material={materials.Primary} />
-          <mesh name="Plane081_2" castShadow geometry={nodes.Plane081_2.geometry} material={materials.Coles} />
-          <mesh name="Plane081_3" castShadow geometry={nodes.Plane081_3.geometry} material={materials.Glass} />
-        </group>
+
 
 
         {/* ------------------------------ Floor -------------------------------- */}
@@ -366,10 +351,7 @@ export function BlueSky(props) {
           <mesh name="Plane005_1" castShadow geometry={nodes.Plane005_1.geometry} material={materials.Base} />
           <mesh name="Plane005_2" castShadow geometry={nodes.Plane005_2.geometry} material={materials['Grass.001']} />
         </group>
-        <group name="Office" position={[-15.208, 2.421, -0.064]} rotation={[0, Math.PI / 2, 0]} scale={1.288}>
-          <mesh name="Plane003" castShadow geometry={nodes.Plane003.geometry} material={materials.Base} />
-          <mesh name="Plane003_1" castShadow geometry={nodes.Plane003_1.geometry} material={materials.Glass} />
-        </group>
+
         <group name="Office001" position={[-18.283, 0.474, -9.466]} rotation={[-Math.PI, 0, -Math.PI]} scale={0.711}>
           <mesh name="Plane247" castShadow geometry={nodes.Plane247.geometry} material={materials.Primary} />
           <mesh name="Plane247_1" castShadow geometry={nodes.Plane247_1.geometry} material={materials.Base} />
@@ -407,11 +389,7 @@ export function BlueSky(props) {
 
 
 
-        <group name="Plane019" position={[-14.17, 0.484, 31.278]} scale={[5.62, 7.668, 5.265]}>
-          <mesh name="Plane071" castShadow geometry={nodes.Plane071.geometry} material={materials.Glass} />
-          <mesh name="Plane071_1" castShadow geometry={nodes.Plane071_1.geometry} material={materials.Base} />
-          <mesh name="Plane071_2" castShadow geometry={nodes.Plane071_2.geometry} material={materials.Primary} />
-        </group>
+
 
 
         <mesh name="Plane020" castShadow geometry={nodes.Plane020.geometry} material={materials.Grass} position={[0, 0.031, -15.966]} />
@@ -523,7 +501,6 @@ export function BlueSky(props) {
           <mesh name="Circle001_2" castShadow geometry={nodes.Circle001_2.geometry} material={materials.Water} />
         </group> */}
 
-        <mesh name="statue001" castShadow geometry={nodes.statue001.geometry} material={materials.Base} position={[-12.029, 1.458, -0.498]} rotation={[-Math.PI / 2, 1.515, Math.PI / 2]} scale={1.374} />
         <group name="Store" position={[3.774, 0.568, -23.958]} rotation={[0, Math.PI / 2, 0]} scale={0.75}>
           <mesh name="Plane141" castShadow geometry={nodes.Plane141.geometry} material={materials.Base} />
           <mesh name="Plane141_1" castShadow geometry={nodes.Plane141_1.geometry} material={materials.Glass} />
@@ -633,14 +610,7 @@ export function BlueSky(props) {
           <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
           <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
         </group>
-        <group name="tree060" position={[-10.398, 0.667, 1.93]} rotation={[0.043, 0, 0]} scale={1.477}>
-          <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
-          <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
-        </group>
-        <group name="tree061" position={[-10.59, 0.665, -4.2]} rotation={[-0.055, 0, 0]} scale={1.477}>
-          <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
-          <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
-        </group>
+
         <group name="tree070" position={[-21.013, 0.547, 27.749]} scale={0.978}>
           <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
           <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
@@ -1033,30 +1003,7 @@ export function BlueSky(props) {
           <mesh name="Icosphere001" castShadow geometry={nodes.Icosphere001.geometry} material={materials.Tree} />
           <mesh name="Icosphere001_1" castShadow geometry={nodes.Icosphere001_1.geometry} material={materials.Wood} />
         </group>
-        <group name="tree062" position={[-20.391, 0.474, 1.996]} scale={0.101}>
-          <mesh name="Plane006_1" castShadow geometry={nodes.Plane006_1.geometry} material={materials.Tree} />
-          <mesh name="Plane006_2" castShadow geometry={nodes.Plane006_2.geometry} material={materials.Wood} />
-        </group>
-        <group name="tree063" position={[-19.1, 0.474, 1.996]} scale={0.094}>
-          <mesh name="Plane008" castShadow geometry={nodes.Plane008.geometry} material={materials.Tree} />
-          <mesh name="Plane008_1" castShadow geometry={nodes.Plane008_1.geometry} material={materials.Wood} />
-        </group>
-        <group name="tree064" position={[-17.794, 0.474, 1.996]} scale={0.101}>
-          <mesh name="Plane009" castShadow geometry={nodes.Plane009.geometry} material={materials.Tree} />
-          <mesh name="Plane009_1" castShadow geometry={nodes.Plane009_1.geometry} material={materials.Wood} />
-        </group>
-        <group name="tree065" position={[-20.391, 0.474, -3.826]} scale={0.101}>
-          <mesh name="Plane019_1" castShadow geometry={nodes.Plane019_1.geometry} material={materials.Tree} />
-          <mesh name="Plane019_2" castShadow geometry={nodes.Plane019_2.geometry} material={materials.Wood} />
-        </group>
-        <group name="tree066" position={[-19.1, 0.474, -3.826]} scale={0.101}>
-          <mesh name="Plane021" castShadow geometry={nodes.Plane021.geometry} material={materials.Tree} />
-          <mesh name="Plane021_1" castShadow geometry={nodes.Plane021_1.geometry} material={materials.Wood} />
-        </group>
-        <group name="tree067" position={[-17.794, 0.474, -3.826]} scale={0.077}>
-          <mesh name="Plane025_1" castShadow geometry={nodes.Plane025_1.geometry} material={materials.Tree} />
-          <mesh name="Plane025_2" castShadow geometry={nodes.Plane025_2.geometry} material={materials.Wood} />
-        </group>
+
         <mesh name="tree068" castShadow geometry={nodes.tree068.geometry} material={materials.Base} position={[19.377, 0.013, 63.127]} rotation={[0.17, 0, 0]} />
         <group name="tree069" position={[-20.61, 0.5, 28.743]} scale={0.064}>
           <mesh name="Plane077" castShadow geometry={nodes.Plane077.geometry} material={materials.Tree} />
