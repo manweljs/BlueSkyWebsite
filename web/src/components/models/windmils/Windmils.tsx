@@ -52,7 +52,7 @@ export function WindMils(props: JSX.IntrinsicElements['group']) {
 
     // Fungsi helper untuk menjadwalkan animasi dengan delay
     const scheduleAnimation = (actionName: string) => {
-      const delay = Math.floor(Math.random() * 800);
+      const delay = Math.floor(Math.random() * 1200);
       const timeoutId = setTimeout(() => {
         actions[actionName]?.play();
       }, delay);

@@ -17,6 +17,7 @@
     "@react-three/rapier": "^1.3.0",
     "@studio-freight/lenis": "^1.0.42",
     "antd": "^5.16.1",
+    "framer-motion": "^11.0.28",
     "glsl-random": "^0.0.5",
     "leva": "^0.9.35",
     "next": "^14.0.4",

@@ -14,8 +14,11 @@ export interface SectionType {
         url: string
         position: PositionType
     },
-    contents?: {
-        title: string
-        paragraph: string[]
-    }
+    contents?: ContentType
+}
+
+export interface ContentType {
+    title: string
+    videoId: string
+    paragraph: string[]
 }

@@ -4,7 +4,8 @@ import { useUserContext } from '@/context/UserContext'
 import style from "@/styles/style.module.sass"
 import { SECTION, sectionData } from '@/consts'
 import AboutSection from './AboutSection'
-import CollaborationSection from './CollaborationSection'
+import CollaborationSection from './SectionBody'
+import SectionBody from './SectionBody'
 
 export default function Sections() {
     const { activeSection, setActiveSection, cameraControlsRef } = useUserContext()
@@ -40,10 +41,12 @@ export default function Sections() {
         <>
             <div className={style.drawer}>
                 <Drawer open={showDrawer} onClose={handleClose} width={800} >
-                    {activeSection === 2 && <AboutSection />}
-                    {activeSection === 1 && <CollaborationSection />}
+                    {activeSection > 0 &&
+                        <SectionBody contents={sectionData[activeSection].contents} />
+                    }
                 </Drawer>
             </div>
         </>
     )
 }
+

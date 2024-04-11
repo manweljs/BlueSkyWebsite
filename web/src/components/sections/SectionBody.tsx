@@ -1,18 +1,17 @@
 import React, { useEffect, useRef } from 'react'
 import style from "@/styles/style.module.sass"
-import { Drawer } from 'antd'
 import YouTube from 'react-youtube';
-import { useUserContext } from '@/context/UserContext';
-import { SECTION, sectionData } from '@/consts';
+import { ContentType } from '@/types';
 
 const videoId = "HtiGijgbmZU"
 
-export default function CollaborationSection() {
+export default function SectionBody(props: {
+    contents: ContentType
+}) {
 
-    const contents = sectionData[1].contents
+    const { contents } = props
 
     const ref = useRef(null);
-    const { activeSection } = useUserContext()
 
     const opts = {
         height: '390',
@@ -36,21 +35,24 @@ export default function CollaborationSection() {
             }
         };
 
-        if (activeSection === 1) {
+        if (contents.videoId) {
             playVideo()
         } else {
             stopVideo()
         }
 
-    }, [activeSection]);
+    }, [contents.videoId]);
 
     return (
         <div className={style.collaboration}>
 
-            <YouTube videoId={videoId} opts={opts} ref={ref} />
+            {contents.videoId &&
+                <YouTube videoId={contents.videoId} opts={opts} ref={ref} />
+            }
+
             <h2 className={style.h2}>{contents.title}</h2>
             {
-                contents.paragraph.map((p, i) => <p key={i} style={{ marginBottom: ".75rem" }} >{p}</p>)
+                contents.paragraph.map((p, i) => <p key={i} style={{ marginBottom: ".75rem", fontSize: "1rem" }} >{p}</p>)
             }
 
         </div>
