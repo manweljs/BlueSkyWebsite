@@ -11,6 +11,8 @@ interface UserContextType {
     camera: THREE.PerspectiveCamera | THREE.OrthographicCamera | undefined
     setCamera: (param: THREE.PerspectiveCamera | THREE.OrthographicCamera) => void
     cameraControlsRef?: any
+    startExperience?: boolean
+    setStartExperience?: (param: boolean) => void
 }
 
 // Membuat context dengan tipe yang didefinisikan
@@ -34,6 +36,7 @@ interface UserProviderProps {
 export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [activeSection, setActiveSection] = useState<ActiveSectionType>(null);
     const [camera, setCamera] = useState<THREE.PerspectiveCamera | THREE.OrthographicCamera | undefined>(undefined);
+    const [startExperience, setStartExperience] = useState<boolean>(false);
     const cameraControlsRef = useRef(null)
 
     const value = {
@@ -41,7 +44,9 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         setActiveSection,
         camera,
         setCamera,
-        cameraControlsRef
+        cameraControlsRef,
+        startExperience,
+        setStartExperience
     }
 
     return (

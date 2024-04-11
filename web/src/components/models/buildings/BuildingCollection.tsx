@@ -1,10 +1,6 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import { TrainGate } from './TrainGate'
 
 export default function BuildingCollection() {
-    return (
-        <Suspense>
-            <TrainGate />
-        </Suspense>
-    )
+    return <TrainGate />
 }

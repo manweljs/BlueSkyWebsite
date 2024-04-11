@@ -1,14 +1,11 @@
 "use client"
 
-import { SECTION } from '@/consts';
 import { useUserContext } from '@/context/UserContext';
 import React, { useEffect, useState } from 'react'
 
-export default function AudioPlayer(props: {
-    play?: boolean;
-}) {
+export default function AudioPlayer() {
 
-    const { play = false } = props;
+    const { startExperience } = useUserContext()
     const [audio] = useState(() => {
         if (typeof Audio !== "undefined") {
             const newAudio = new Audio('/audio/Home - Bluesky Creations.mp3');
@@ -19,7 +16,7 @@ export default function AudioPlayer(props: {
 
     const { activeSection } = useUserContext()
     const playAudio = () => {
-        if (!play) return;
+        if (!startExperience) return;
         audio?.play()
             .catch((error) => console.error("Error playing the audio", error));
         // Menghapus event listener setelah audio diputar
@@ -43,9 +40,9 @@ export default function AudioPlayer(props: {
         if (activeSection === 1) {
             audio?.pause();
         } else {
-            play && audio?.play();
+            startExperience && audio?.play();
         }
-    }, [activeSection]);
+    }, [activeSection, startExperience]);
 
     return null; // Komponen ini tidak perlu me-render apa-apa
 };

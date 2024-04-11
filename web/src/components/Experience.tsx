@@ -1,5 +1,5 @@
 "use client";
-import { Environment, Text3D, OrbitControls, PerspectiveCamera, Plane, SpotLight, Stars, OrthographicCamera, ContactShadows, RoundedBox, Sky, Html, CameraControls } from "@react-three/drei";
+import { Environment, Text3D, OrbitControls, PerspectiveCamera, Plane, SpotLight, Stars, OrthographicCamera, ContactShadows, RoundedBox, Sky, Html, CameraControls, useProgress } from "@react-three/drei";
 import { Canvas, Vector3, useFrame, useThree } from "@react-three/fiber";
 import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
@@ -19,24 +19,47 @@ import Scenes from "./models/scenes/Scenes";
 import AudioPlayer from "./ui/audio_player/AudioPlayer";
 
 import Markers from "./ui/markers/Markers";
+import Navbar from "./ui/navbar/Navbar";
+import ControlGuide from "./ui/ControlGuide";
+import LoadingExperience from "./ui/LoadingExperience";
+import { AnimatePresence } from "framer-motion";
 
 const baseColor = "#7dc0ff"
 
-export default function Experience() {
+export default function APP() {
     return (
         <UserProvider>
+            <Experience />
+        </UserProvider>
+    )
+
+}
+
+const Experience = () => {
+
+
+    return (
+        <>
             <AudioPlayer />
             <Sections />
-            <Suspense >
-                <Canvas shadows className="main-canvas">
+            <LoadingExperience />
+            <Navbar />
+            <ControlGuide />
+            <Canvas shadows className="main-canvas">
+                <Suspense fallback={<LoadingModel />} >
                     <Scene />
-                </Canvas>
-            </Suspense>
-        </UserProvider>
+                </Suspense>
+            </Canvas>
+        </>
+
     )
 }
 
-
+const LoadingModel = () => {
+    const { progress } = useProgress()
+    console.log('progress', progress)
+    return <Html center>{progress} % loaded</Html>
+}
 
 
 const Scene = () => {
@@ -69,7 +92,7 @@ const Scene = () => {
 
 
     return (
-        <Suspense>
+        <>
             {camera &&
                 <>
                     {process.env.NODE_ENV === 'development' &&
@@ -81,9 +104,10 @@ const Scene = () => {
                         maxPolarAngle={1.2}
                         maxDistance={120}
                         minDistance={25}
+                        makeDefault
                     />
                     {/* <OrbitControls maxPolarAngle={1.2} maxDistance={120} maxZoom={5} onChange={handleOrbitChange} camera={camera} /> */}
-                    <PerspectiveCamera makeDefault position={[75, 25, 30]} fov={55} />
+                    <PerspectiveCamera fov={55} />
 
                     <directionalLight
                         castShadow
@@ -118,7 +142,7 @@ const Scene = () => {
 
                 </>
             }
-        </Suspense>
+        </>
     )
 }
 
