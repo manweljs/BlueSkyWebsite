@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import style from "@/style.module.sass"
+import style from "@/styles/style.module.sass"
 import { Drawer } from 'antd'
 import YouTube from 'react-youtube';
 import { useUserContext } from '@/context/UserContext';
@@ -9,7 +9,7 @@ const videoId = "HtiGijgbmZU"
 
 export default function CollaborationSection() {
 
-    const contents = sectionData.collaboration.contents
+    const contents = sectionData[1].contents
 
     const ref = useRef(null);
     const { activeSection } = useUserContext()
@@ -36,7 +36,7 @@ export default function CollaborationSection() {
             }
         };
 
-        if (activeSection === SECTION.COLLABORATION) {
+        if (activeSection === 1) {
             playVideo()
         } else {
             stopVideo()

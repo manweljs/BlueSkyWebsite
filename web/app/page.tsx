@@ -1,6 +1,6 @@
 
 import { Suspense } from "react"
-import style from "../styles/style.module.sass"
+import style from "@/styles/style.module.sass"
 import Navbar from "@/components/ui/navbar/Navbar"
 import { Spin } from "antd"
 import Experience from "@/components/Experience"

@@ -7,12 +7,12 @@ import * as THREE from 'three'
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
-import Marker from '@/components/ui/Marker'
 import Image from 'next/image'
 import { ICON_SIZE, PRIMARY_COLOR, SECTION, sectionData } from '@/consts'
 import { useUserContext } from '@/context/UserContext'
-import style from '@/style.module.sass'
+import style from '@/styles/style.module.sass'
 import { Tooltip } from 'antd'
+import { PositionType } from '@/types'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -48,23 +48,9 @@ type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicE
 export function About(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/models/scenes/About.glb') as GLTFResult
 
-  const { setActiveSection } = useUserContext()
 
   return (
     <group {...props} dispose={null}>
-      <Marker position={[-15.208, 10, 0.196]}>
-        <Tooltip title={sectionData.about.title} color={PRIMARY_COLOR}>
-          <div className={style.section_icon}>
-            <Image
-              src={sectionData.about.iconUrl}
-              width={ICON_SIZE}
-              height={ICON_SIZE}
-              onClick={() => setActiveSection(SECTION.ABOUT)}
-              alt='Collaboration'
-            />
-          </div>
-        </Tooltip>
-      </Marker>
       <group name="Office" position={[-15.208, 2.421, 0.196]} rotation={[0, Math.PI / 2, 0]} scale={1.288}>
         <mesh name="Plane003" castShadow geometry={nodes.Plane003.geometry} material={materials.Base} />
         <mesh name="Plane003_1" castShadow geometry={nodes.Plane003_1.geometry} material={materials.Glass} />

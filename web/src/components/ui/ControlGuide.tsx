@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react'
-import style from "@/style.module.sass"
+import style from "@/styles/style.module.sass"
 import { Button } from 'antd'
 
 

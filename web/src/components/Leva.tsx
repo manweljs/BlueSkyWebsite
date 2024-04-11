@@ -5,13 +5,11 @@ import * as THREE from 'three'
 
 const { DEG2RAD } = THREE.MathUtils
 
-export default function Leva({ active = false }: {
-    active: boolean
-}) {
+export default function Leva() {
 
     const { cameraControlsRef, camera } = useUserContext()
 
-    const { minDistance, enabled, verticalDragToForward, dollyToCursor, infinityDolly } = active && useControls({
+    const { minDistance, enabled, verticalDragToForward, dollyToCursor, infinityDolly } = useControls({
         thetaGrp: buttonGroup({
             label: 'rotate theta',
             opts: {

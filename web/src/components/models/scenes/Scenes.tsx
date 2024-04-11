@@ -7,6 +7,7 @@ export default function Scenes() {
         <>
             <About />
             <Collaboration />
+
         </>
     )
 }

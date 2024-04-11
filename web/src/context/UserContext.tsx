@@ -2,7 +2,7 @@ import { SECTION } from '@/consts';
 import React, { createContext, useContext, useState, ReactNode, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
-type ActiveSectionType = string | null | undefined;
+type ActiveSectionType = number | null | undefined;
 
 // Mendefinisikan tipe untuk konteks
 interface UserContextType {
@@ -36,17 +36,6 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [camera, setCamera] = useState<THREE.PerspectiveCamera | THREE.OrthographicCamera | undefined>(undefined);
     const cameraControlsRef = useRef(null)
 
-    const updateCamera = (pos: THREE.Vector3, rot: THREE.Vector3) => {
-        camera.position.set(pos.x, pos.y, pos.z);
-        camera.rotation.set(rot.x, rot.y, rot.z);
-        camera.updateProjectionMatrix();
-
-    }
-
-    useEffect(() => {
-        handleUpdateCamera(camera, activeSection);
-    }, [activeSection]);
-
     const value = {
         activeSection,
         setActiveSection,
@@ -63,17 +52,3 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
 };
 
 
-const handleUpdateCamera = (camera: THREE.PerspectiveCamera | THREE.OrthographicCamera, activeSection: string) => {
-
-    if (!camera) return;
-
-    switch (activeSection) {
-        case SECTION.COLLABORATION:
-            camera.position.set(30, 5, -10);
-            break;
-        default:
-            camera.position.set(75, 10, 30);
-    }
-    camera.updateProjectionMatrix();
-
-}

@@ -6,7 +6,7 @@ Command: npx gltfjsx@6.2.16 public/models/BlueSky.glb
 
 import React, { Suspense, useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
-import Marker from '../ui/Marker';
+import Marker from '../ui/markers/Marker';
 import { ICON_SIZE, PRIMARY_COLOR, SECTION } from '@/consts';
 import { useUserContext } from '@/context/UserContext';
 import Image from 'next/image';

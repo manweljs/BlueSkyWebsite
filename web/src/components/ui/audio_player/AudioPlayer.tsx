@@ -4,7 +4,11 @@ import { SECTION } from '@/consts';
 import { useUserContext } from '@/context/UserContext';
 import React, { useEffect, useState } from 'react'
 
-export default function AudioPlayer() {
+export default function AudioPlayer(props: {
+    play?: boolean;
+}) {
+
+    const { play = false } = props;
     const [audio] = useState(() => {
         if (typeof Audio !== "undefined") {
             const newAudio = new Audio('/audio/Home - Bluesky Creations.mp3');
@@ -15,6 +19,7 @@ export default function AudioPlayer() {
 
     const { activeSection } = useUserContext()
     const playAudio = () => {
+        if (!play) return;
         audio?.play()
             .catch((error) => console.error("Error playing the audio", error));
         // Menghapus event listener setelah audio diputar
@@ -26,6 +31,7 @@ export default function AudioPlayer() {
 
 
         // Menambahkan event listener untuk klik pertama
+
         window.addEventListener('click', playAudio);
 
         return () => {
@@ -34,10 +40,10 @@ export default function AudioPlayer() {
     }, [audio]);
 
     useEffect(() => {
-        if (activeSection === SECTION.COLLABORATION) {
+        if (activeSection === 1) {
             audio?.pause();
         } else {
-            audio?.play();
+            play && audio?.play();
         }
     }, [activeSection]);
 

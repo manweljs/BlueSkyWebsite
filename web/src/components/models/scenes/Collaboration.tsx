@@ -7,12 +7,6 @@ import * as THREE from 'three'
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
-import Marker from '@/components/ui/Marker'
-import { ICON_SIZE, PRIMARY_COLOR, SECTION } from '@/consts'
-import { Tooltip } from 'antd'
-import Image from 'next/image'
-import { useUserContext } from '@/context/UserContext'
-import style from '@/style.module.sass'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -37,23 +31,8 @@ type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicE
 export function Collaboration(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/models/scenes/Collaboration.glb') as GLTFResult
 
-  const { setActiveSection } = useUserContext()
   return (
     <group {...props} dispose={null}>
-      <Marker position={[-8, 7, 32]} rotation={[0, Math.PI / 2, 0]} scale={3}>
-        <Tooltip title={"Collaboration"} color={PRIMARY_COLOR}>
-          <div className={style.section_icon}>
-
-            <Image
-              src={"/img/collaboration.png"}
-              width={ICON_SIZE}
-              height={ICON_SIZE}
-              onClick={() => setActiveSection(SECTION.COLLABORATION)}
-              alt='Collaboration'
-            />
-          </div>
-        </Tooltip>
-      </Marker>
       <group name="Coles" position={[4.876, 1.06, 31.453]} rotation={[0, Math.PI / 2, 0]} scale={0.911}>
         <mesh name="Plane081" castShadow geometry={nodes.Plane081.geometry} material={materials.Base} />
         <mesh name="Plane081_1" castShadow geometry={nodes.Plane081_1.geometry} material={materials.Primary} />
