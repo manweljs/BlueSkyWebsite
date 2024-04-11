@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Drawer } from 'antd'
 import { useUserContext } from '@/context/UserContext'
 import style from "@/styles/style.module.sass"
-import { SECTION, sectionData } from '@/consts'
-import AboutSection from './AboutSection'
-import CollaborationSection from './SectionBody'
+import { sectionData } from '@/consts'
 import SectionBody from './SectionBody'
 
 export default function Sections() {
