@@ -33,7 +33,7 @@ export const sectionData = [
             target: [-20, 0, 30]
         },
         icon: {
-            url: "/img/collaboration.png",
+            url: "/img/collab.png",
             position: [-8, ICON_Y, 32]
         },
         contents: {

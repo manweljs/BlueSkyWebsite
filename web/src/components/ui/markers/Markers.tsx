@@ -16,8 +16,7 @@ export default function Markers() {
             {Object.keys(sectionData).map((key: string, index: number) => {
                 if (index === 0) return
                 const section = sectionData[index] as SectionType
-                // console.log('section', section)
-                // return null
+
                 return (
 
                     <Marker
