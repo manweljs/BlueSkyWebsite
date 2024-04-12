@@ -22,9 +22,11 @@ import Markers from "./ui/markers/Markers";
 import Navbar from "./ui/navbar/Navbar";
 import ControlGuide from "./ui/ControlGuide";
 import LoadingExperience from "./ui/LoadingExperience";
-import { AnimatePresence } from "framer-motion";
+import { DepthOfField, EffectComposer } from "@react-three/postprocessing";
 
-const baseColor = "#7dc0ff"
+
+
+const baseColor = "#9fd0fd"
 
 export default function APP() {
     return (
@@ -48,6 +50,8 @@ const Experience = () => {
             <Canvas shadows className="main-canvas">
                 <Suspense fallback={<LoadingModel />} >
                     <Scene />
+                    <fog attach="fog" args={[baseColor, 130, 200]} />
+
                 </Suspense>
             </Canvas>
         </>
@@ -85,9 +89,11 @@ const Scene = () => {
                 ...sectionData[0].lookAt.target,
 
             )
+            cameraControlsRef.current.zoom(camera.zoom / 3, true)
             setInitialScene(true)
         }
     }, [cameraControlsRef.current, initialScene]);
+
 
 
 
@@ -102,17 +108,18 @@ const Scene = () => {
                         ref={cameraControlsRef}
                         camera={camera}
                         maxPolarAngle={1.2}
-                        maxDistance={120}
+                        maxDistance={100}
                         minDistance={25}
+
                         makeDefault
                     />
-                    {/* <OrbitControls maxPolarAngle={1.2} maxDistance={120} maxZoom={5} onChange={handleOrbitChange} camera={camera} /> */}
-                    <PerspectiveCamera fov={55} />
+
+                    <PerspectiveCamera zoom={2} />
 
                     <directionalLight
                         castShadow
                         position={[15, 65, 15]}
-                        intensity={.7}
+                        intensity={1}
                         shadow-mapSize-width={1024}
                         shadow-mapSize-height={1024}
                         shadow-camera-near={0.2}
@@ -135,10 +142,16 @@ const Scene = () => {
                     <Scenes />
                     <Markers />
 
-                    <fog attach="fog" args={["#9fc8e1", 165, 210]} />
 
+                    <EffectComposer
 
-
+                    >
+                        <DepthOfField
+                            focusDistance={0.01}
+                            focalLength={0.15}
+                            bokehScale={2}
+                        />
+                    </EffectComposer>
 
                 </>
             }

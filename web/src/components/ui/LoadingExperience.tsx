@@ -29,14 +29,17 @@ export default function LoadingExperience() {
                 >
                     <MyIcon />
                     {!isLoading && (
-                        <Button
-                            className={style.button_enter}
-                            onClick={() => { setStartExperience(true) }}
-                            shape="round"
-                            ghost
-                        >
-                            Enter
-                        </Button>
+                        <motion.div>
+
+                            <Button
+                                className={style.button_enter}
+                                onClick={() => { setStartExperience(true) }}
+                                shape="round"
+                                ghost
+                            >
+                                Enter
+                            </Button>
+                        </motion.div>
                     )}
                 </motion.div>
             )}

@@ -1,7 +1,10 @@
 "use client"
 
 import { useUserContext } from '@/context/UserContext';
+import { Button, FloatButton } from 'antd';
 import React, { useEffect, useState } from 'react'
+import { PauseCircleOutlined, PlayCircleOutlined } from '@ant-design/icons';
+import style from '@/styles/style.module.sass'
 
 export default function AudioPlayer() {
 
@@ -14,35 +17,55 @@ export default function AudioPlayer() {
         }
     });
 
+    const [play, setPlay] = useState(false);
+
     const { activeSection } = useUserContext()
-    const playAudio = () => {
-        if (!startExperience) return;
-        audio?.play()
-            .catch((error) => console.error("Error playing the audio", error));
-        // Menghapus event listener setelah audio diputar
-        window.removeEventListener('click', playAudio);
-    };
-
-    useEffect(() => {
-        // Fungsi untuk memulai audio
-
-
-        // Menambahkan event listener untuk klik pertama
-
-        window.addEventListener('click', playAudio);
-
-        return () => {
-            window.removeEventListener('click', playAudio);
-        };
-    }, [audio]);
 
     useEffect(() => {
         if (activeSection === 1) {
-            audio?.pause();
+            setPlay(false);
         } else {
             startExperience && audio?.play();
+            setPlay(true);
         }
     }, [activeSection, startExperience]);
 
-    return null; // Komponen ini tidak perlu me-render apa-apa
+    useEffect(() => {
+        // Fungsi untuk menghandle visibility change
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === 'visible') {
+                if (play) {
+                    audio?.play();
+                }
+            } else {
+                audio?.pause();
+            }
+        };
+
+        // Menambahkan event listener ketika komponen di-mount
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
+        // Pemutaran atau penjedaan audio berdasarkan state `play`
+        if (play) {
+            audio?.play();
+        } else {
+            audio?.pause();
+        }
+
+        // Cleanup function untuk menghapus event listener
+        return () => {
+            audio?.pause();
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+        };
+    }, [play, audio]);
+
+    return (
+        <FloatButton
+            onClick={() => setPlay(!play)}
+            className={style.button_audio}
+            shape='circle'
+            icon={play ? <PauseCircleOutlined /> : <PlayCircleOutlined />}
+        />
+
+    )
 };

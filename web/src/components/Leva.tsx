@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useUserContext } from '@/context/UserContext'
 import { useControls, button, buttonGroup, folder } from 'leva'
 import * as THREE from 'three'
+import { Bloom, DepthOfField, EffectComposer, ToneMapping } from '@react-three/postprocessing'
+import { useThree } from '@react-three/fiber'
 
 const { DEG2RAD } = THREE.MathUtils
 
 export default function Leva() {
 
+    const { gl, scene } = useThree();
     const { cameraControlsRef, camera } = useUserContext()
 
     const { minDistance, enabled, verticalDragToForward, dollyToCursor, infinityDolly } = useControls({
@@ -106,5 +109,23 @@ export default function Leva() {
         infinityDolly: { value: false, label: 'infinity dolly' }
     })
 
-    return null
+    const { focusDistance, focalLength, bokehScale } = useControls({
+        DoF: folder({
+            focusDistance: { value: 0.02, step: 0.001, min: 0, max: 1, label: 'Focus Distance' },
+            focalLength: { value: 0.1, step: 0.01, min: 0, max: 1, label: 'Focal Length' },
+            bokehScale: { value: 2, step: 0.1, min: 0, max: 10, label: 'Bokeh Scale' },
+        }),
+    });
+
+
+
+
+    return (
+        <>
+            {/* <EffectComposer >
+
+                <DepthOfField focusDistance={focusDistance} focalLength={focalLength} bokehScale={bokehScale} />
+            </EffectComposer> */}
+        </>
+    )
 }
