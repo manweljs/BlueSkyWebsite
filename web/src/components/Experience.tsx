@@ -63,11 +63,7 @@ const LoadingModel = () => {
 const Scene = () => {
     const { camera: mainCamera } = useThree()
 
-    const { setIsNight, isNight } = useUserContext()
-
-    useEffect(() => {
-        setIsNight(true)
-    }, []);
+    const { isNight } = useUserContext()
 
     const { camera, setCamera, cameraControlsRef } = useUserContext()
     const [initialScene, setInitialScene] = useState(false)
