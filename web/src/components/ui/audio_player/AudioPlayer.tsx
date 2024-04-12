@@ -60,20 +60,11 @@ export default function AudioPlayer() {
     }, [play, audio]);
 
     return (
-        <>
-            <FloatButton
-                onClick={() => setPlay(!play)}
-                className={style.button_audio}
-                shape='circle'
-                icon={play ? <PauseCircleOutlined /> : <PlayCircleOutlined />}
-            />
-            <FloatButton
-                onClick={() => setIsNight(!isNight)}
-                className={style.button_night}
-                shape='circle'
-                icon={isNight ? <SunOutlined /> : <MoonOutlined />}
-            />
-        </>
-
+        <FloatButton
+            onClick={() => setPlay(!play)}
+            className={style.button_audio}
+            shape='circle'
+            icon={play ? <PauseCircleOutlined /> : <PlayCircleOutlined />}
+        />
     )
 };
