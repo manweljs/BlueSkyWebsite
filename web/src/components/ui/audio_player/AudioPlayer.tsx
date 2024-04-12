@@ -3,12 +3,12 @@
 import { useUserContext } from '@/context/UserContext';
 import { Button, FloatButton } from 'antd';
 import React, { useEffect, useState } from 'react'
-import { PauseCircleOutlined, PlayCircleOutlined } from '@ant-design/icons';
+import { PauseCircleOutlined, PlayCircleOutlined, MoonOutlined, SunOutlined } from '@ant-design/icons';
 import style from '@/styles/style.module.sass'
 
 export default function AudioPlayer() {
 
-    const { startExperience } = useUserContext()
+    const { startExperience, isNight, setIsNight } = useUserContext()
     const [audio] = useState(() => {
         if (typeof Audio !== "undefined") {
             const newAudio = new Audio('/audio/Home - Bluesky Creations.mp3');
@@ -60,12 +60,20 @@ export default function AudioPlayer() {
     }, [play, audio]);
 
     return (
-        <FloatButton
-            onClick={() => setPlay(!play)}
-            className={style.button_audio}
-            shape='circle'
-            icon={play ? <PauseCircleOutlined /> : <PlayCircleOutlined />}
-        />
+        <>
+            <FloatButton
+                onClick={() => setPlay(!play)}
+                className={style.button_audio}
+                shape='circle'
+                icon={play ? <PauseCircleOutlined /> : <PlayCircleOutlined />}
+            />
+            <FloatButton
+                onClick={() => setIsNight(!isNight)}
+                className={style.button_night}
+                shape='circle'
+                icon={isNight ? <SunOutlined /> : <MoonOutlined />}
+            />
+        </>
 
     )
 };

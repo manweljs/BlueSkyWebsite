@@ -1,6 +1,6 @@
 "use client";
-import { Environment, Text3D, OrbitControls, PerspectiveCamera, Plane, SpotLight, Stars, OrthographicCamera, ContactShadows, RoundedBox, Sky, Html, CameraControls, useProgress } from "@react-three/drei";
-import { Canvas, Vector3, useFrame, useThree } from "@react-three/fiber";
+import { Environment, PerspectiveCamera, Stars, Html, CameraControls, useProgress } from "@react-three/drei";
+import { Canvas, useThree } from "@react-three/fiber";
 import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { BlueSky } from "@/components/models/BlueSky";
@@ -12,7 +12,7 @@ import { Text001 } from "./models/texts/Text001";
 import { WindMils } from "./models/windmils/Windmils";
 import { Beach } from "./models/beach/Beach";
 import Sections from "./sections/Sections";
-import { UserProvider, useUserContext } from "@/context/UserContext";
+import { useUserContext } from "@/context/UserContext";
 import { sectionData } from "@/consts";
 import Leva from "./Leva";
 import Scenes from "./models/scenes/Scenes";
@@ -22,24 +22,18 @@ import Markers from "./ui/markers/Markers";
 import Navbar from "./ui/navbar/Navbar";
 import ControlGuide from "./ui/ControlGuide";
 import LoadingExperience from "./ui/LoadingExperience";
-import { DepthOfField, EffectComposer } from "@react-three/postprocessing";
+import { Bloom, DepthOfField, EffectComposer } from "@react-three/postprocessing";
+import { TreesAndRocks } from "./models/trees/TreesAndRocks";
+import { RoadAndFloors } from "./models/floors/RoadAndFloors";
 
 
 
 const baseColor = "#9fd0fd"
+const nightColor = "#0a0e24"
 
-export default function APP() {
-    return (
-        <UserProvider>
-            <Experience />
-        </UserProvider>
-    )
 
-}
 
 const Experience = () => {
-
-
     return (
         <>
             <AudioPlayer />
@@ -50,7 +44,7 @@ const Experience = () => {
             <Canvas shadows className="main-canvas">
                 <Suspense fallback={<LoadingModel />} >
                     <Scene />
-                    <fog attach="fog" args={[baseColor, 130, 200]} />
+
 
                 </Suspense>
             </Canvas>
@@ -61,7 +55,7 @@ const Experience = () => {
 
 const LoadingModel = () => {
     const { progress } = useProgress()
-    console.log('progress', progress)
+    // console.log('progress', progress)
     return <Html center>{progress} % loaded</Html>
 }
 
@@ -69,6 +63,11 @@ const LoadingModel = () => {
 const Scene = () => {
     const { camera: mainCamera } = useThree()
 
+    const { setIsNight, isNight } = useUserContext()
+
+    useEffect(() => {
+        setIsNight(true)
+    }, []);
 
     const { camera, setCamera, cameraControlsRef } = useUserContext()
     const [initialScene, setInitialScene] = useState(false)
@@ -119,7 +118,7 @@ const Scene = () => {
                     <directionalLight
                         castShadow
                         position={[15, 65, 15]}
-                        intensity={1}
+                        intensity={isNight ? 0.1 : 1}
                         shadow-mapSize-width={1024}
                         shadow-mapSize-height={1024}
                         shadow-camera-near={0.2}
@@ -141,17 +140,21 @@ const Scene = () => {
                     <BaseEnvirontment />
                     <Scenes />
                     <Markers />
-
+                    <TreesAndRocks />
+                    <RoadAndFloors />
+                    <Bloom mipmapBlur luminanceThreshold={1} />
+                    <fog attach="fog" args={[isNight ? nightColor : baseColor, 130, 200]} />
 
                     <EffectComposer
 
                     >
                         <DepthOfField
-                            focusDistance={0.01}
+                            focusDistance={0.02}
                             focalLength={0.15}
                             bokehScale={2}
                         />
                     </EffectComposer>
+
 
                 </>
             }
@@ -160,13 +163,19 @@ const Scene = () => {
 }
 
 const BaseEnvirontment = () => {
+    const { isNight } = useUserContext()
     return (
-        <Environment background  >
-            <mesh castShadow receiveShadow>
-                <sphereGeometry args={[100, 100, 100]} />
-                <meshBasicMaterial color={baseColor} side={THREE.BackSide} />
-            </mesh>
-        </Environment>
+        <>
+            {isNight && <Stars radius={300} speed={1} count={300} saturation={9} fade factor={5} depth={0.1} />}
+            <Environment background  >
+                <mesh castShadow receiveShadow>
+                    <sphereGeometry args={[500, 500, 500]} />
+                    <meshBasicMaterial color={isNight ? nightColor : baseColor} side={THREE.BackSide} />
+                </mesh>
+            </Environment>
+        </>
     )
 }
 
+
+export default Experience
