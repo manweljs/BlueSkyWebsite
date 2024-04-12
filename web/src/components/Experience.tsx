@@ -105,7 +105,7 @@ const Scene = () => {
                         ref={cameraControlsRef}
                         camera={camera}
                         maxPolarAngle={1.2}
-                        // maxDistance={100}
+                        maxDistance={100}
                         minDistance={25}
 
                         makeDefault
