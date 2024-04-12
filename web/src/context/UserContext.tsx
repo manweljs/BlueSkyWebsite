@@ -39,7 +39,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [activeSection, setActiveSection] = useState<ActiveSectionType>(null);
     const [camera, setCamera] = useState<THREE.PerspectiveCamera | THREE.OrthographicCamera | undefined>(undefined);
     const [startExperience, setStartExperience] = useState<boolean>(false);
-    const [isNight, setIsNight] = useState<boolean>(true);
+    const [isNight, setIsNight] = useState<boolean>(false);
     const cameraControlsRef = useRef(null)
 
     const value = {
