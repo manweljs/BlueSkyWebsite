@@ -15,6 +15,8 @@ interface UserContextType {
     setStartExperience?: (param: boolean) => void
     isNight?: boolean
     setIsNight?: (param: boolean) => void
+    streetLightLoaded?: boolean
+    setStreetLightLoaded?: (param: boolean) => void
 }
 
 // Membuat context dengan tipe yang didefinisikan
@@ -40,6 +42,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [camera, setCamera] = useState<THREE.PerspectiveCamera | THREE.OrthographicCamera | undefined>(undefined);
     const [startExperience, setStartExperience] = useState<boolean>(false);
     const [isNight, setIsNight] = useState<boolean>(false);
+    const [streetLightLoaded, setStreetLightLoaded] = useState<boolean>(false);
     const cameraControlsRef = useRef(null)
 
     const value = {
@@ -51,7 +54,9 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         startExperience,
         setStartExperience,
         isNight,
-        setIsNight
+        setIsNight,
+        streetLightLoaded,
+        setStreetLightLoaded
     }
 
     return (

@@ -204,50 +204,61 @@ type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicE
 export function Streetlights(props: JSX.IntrinsicElements['group']) {
     const { nodes } = useGLTF('/models/streetlights/Streetlights.glb') as GLTFResult
 
-    const { isNight } = useUserContext()
+    const { isNight, setStreetLightLoaded } = useUserContext()
+    const spotlightsRef = useRef([])
     const groupRef = useRef(null);
     // Setup spotlight untuk semua lampu sekali saja
     async function addSpotlights() {
-        const promises = [];
-        groupRef.current.children.forEach((childGroup) => {
-
-            promises.push(new Promise((resolve) => {
-                console.log('aku dipanggil')
+        const promises = groupRef.current.children.map((childGroup, index) =>
+            new Promise((resolve) => {
                 const lampMesh = childGroup.children.find((child) => child.name.includes('_1'));
-                if (lampMesh && !lampMesh.spotlight) {
+                if (lampMesh && !spotlightsRef.current[index]) {
                     const spotlight = new THREE.SpotLight(0xffffe0, 3, 50, Math.PI / 1.75, 0.2, 1.5);
                     spotlight.position.set(lampMesh.position.x + 0.1, lampMesh.position.y + 1, lampMesh.position.z - 0.2);
                     spotlight.target.position.set(lampMesh.position.x, lampMesh.position.y, lampMesh.position.z - 3);
                     childGroup.add(spotlight);
                     childGroup.add(spotlight.target);
-                    lampMesh.spotlight = spotlight;
-                    resolve(undefined); // Memberikan argumen `undefined` ke resolve
+                    spotlightsRef.current[index] = spotlight; // Menyimpan spotlight ke dalam ref
+                    resolve(undefined);
                 } else {
-                    resolve(undefined); // Memberikan argumen `undefined` ke resolve
+                    resolve(undefined);
                 }
-            }));
-        });
+            })
+        );
 
         await Promise.all(promises);
+        setStreetLightLoaded(true); // Memperbarui state ketika semua spotlight selesai dimuat
     }
 
     // Panggil fungsi async ketika komponen dimount
     useEffect(() => {
-        addSpotlights();
+        if (groupRef.current) {
+
+            addSpotlights();
+        }
     }, []); // Hanya dijalankan sekali pada saat komponen dimount
 
     // Kontrol visibilitas spotlight berdasarkan waktu siang atau malam
     useEffect(() => {
-        if (groupRef.current) {
-            groupRef.current.children.forEach((childGroup) => {
-                const lampMesh = childGroup.children.find((child) => child.name.includes('_1'));
-                if (lampMesh && lampMesh.spotlight) {
-                    lampMesh.spotlight.visible = isNight;
-                    lampMesh.spotlight.target.visible = isNight;
+        let timeoutId;
+        const updateVisibilityAsync = () => {
+            spotlightsRef.current.forEach((spotlight) => {
+                if (spotlight) {
+                    setTimeout(() => {
+                        spotlight.visible = isNight;
+                        spotlight.target.visible = isNight;
+                    }, 0); // Menjalankan pembaruan di next event loop
                 }
             });
-        }
+        };
+
+        updateVisibilityAsync();
+
+        return () => {
+            clearTimeout(timeoutId); // Membersihkan timeout saat komponen di-unmount
+        };
     }, [isNight]);
+
 
     return (
         <group {...props} dispose={null} ref={groupRef}>
