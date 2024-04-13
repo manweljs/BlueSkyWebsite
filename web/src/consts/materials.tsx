@@ -13,15 +13,19 @@ export const materials = {
         opacity: 0.8,
         reflectivity: 0.9,
     }),
-    Glass: new THREE.MeshPhysicalMaterial({
-        color: new THREE.Color("#c4e4ff"),
+    Glass: new THREE.MeshStandardMaterial({
+        color: new THREE.Color("#469cff"),
         roughness: 0.0,
         metalness: 0.1,
-        transparent: true,
-        opacity: 0.5,
-        transmission: 0.9, // Enables refraction
-        reflectivity: 0.9,
     }),
+    GlassNight: new THREE.MeshStandardMaterial({
+        color: new THREE.Color("#88a4ff"),
+        emissive: new THREE.Color("#88a4ff"),
+        emissiveIntensity: 2,
+        roughness: 0.5,
+        metalness: 0,
+    }),
+
     Wood: new THREE.MeshStandardMaterial({
         color: new THREE.Color("#8b5a2b"),
         roughness: 0.6,
@@ -34,6 +38,7 @@ export const materials = {
         roughness: 0.5,
         metalness: 0.1,
     }),
+
     Leaf: new THREE.MeshStandardMaterial({
         color: new THREE.Color("#3d9e3d"),
         roughness: 0.8,

@@ -5,7 +5,7 @@ import style from '@/styles/style.module.sass'
 import { Button } from 'antd';
 import { useUserContext } from '@/context/UserContext';
 
-const waitTime = 6000;
+const waitTime = 5000;
 
 export default function LoadingExperience() {
     const [isLoading, setIsLoading] = useState(true);
@@ -26,13 +26,12 @@ export default function LoadingExperience() {
             {!startExperience && (
                 <motion.div className={style.loading_experience}
                     initial={{ opacity: 1 }}
-                    animate={{ opacity: 1 }}
+                    animate={{ opacity: !isLoading ? .95 : 1 }}
                     exit={{ opacity: 0, transition: { duration: 0.5 } }}
                 >
                     <MyIcon />
                     {!isLoading && (
                         <motion.div>
-
                             <Button
                                 className={style.button_enter}
                                 onClick={() => { setStartExperience(true) }}

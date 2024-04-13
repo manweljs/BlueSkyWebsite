@@ -2,34 +2,43 @@
 import React, { useState } from 'react'
 import style from "@/styles/style.module.sass"
 import { Button } from 'antd'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useUserContext } from '@/context/UserContext';
 
 
 export default function ControlGuide() {
     const [showGuide, setShowGuide] = useState(true)
-
+    const { startExperience } = useUserContext();
     return (
-        <>
+        <AnimatePresence mode='wait'>
             {showGuide &&
-                <div className={style.control_guide}>
-                    <>
-                        <div className={style.controls}>
-                            {contents.controls.map((control, index) => (
-                                <div key={index} className={style.control}>
-                                    <div className={style.icon_box}>
-                                        {control.icon}
-                                    </div>
-                                    <p>{control.title}</p>
+                <motion.div
+                    className={style.control_guide}
+                    initial={{ y: 500, opacity: 0 }}
+                    animate={{
+                        y: startExperience ? 0 : 500,
+                        opacity: 1,
+                        transition: { duration: 0.5, type: "spring", delay: .5 }
+                    }}
+                    exit={{ y: 500, opacity: 0, transition: { duration: 0.5, type: "spring" } }}
+                >
+                    <div className={style.controls}>
+                        {contents.controls.map((control, index) => (
+                            <div key={index} className={style.control}>
+                                <div className={style.icon_box}>
+                                    {control.icon}
                                 </div>
-                            ))}
-                        </div>
-                        <Button type="primary" shape="round" style={{ width: "100%" }}
-                            onClick={() => setShowGuide(false)}
-                        >Got it!</Button>
-                    </>
+                                <p>{control.title}</p>
+                            </div>
+                        ))}
+                    </div>
+                    <Button type="primary" shape="round" style={{ width: "100%" }}
+                        onClick={() => setShowGuide(false)}
+                    >Got it!</Button>
 
-                </div>
+                </motion.div>
             }
-        </>
+        </AnimatePresence>
     )
 }
 

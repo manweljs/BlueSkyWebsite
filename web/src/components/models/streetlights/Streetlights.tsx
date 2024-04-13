@@ -10,7 +10,14 @@ import { GLTF } from 'three-stdlib'
 import { materials } from '@/consts/materials'
 import { useUserContext } from '@/context/UserContext'
 
-const percentLamp = 0.15
+
+const PERCENT_LAMP = 0.1 // Persentase lampu yang akan dinyalakan
+const SPOTLIGHT_COLOR = 0xffffe0; // Warna cahaya
+const SPOTLIGHT_INTENSITY = 2; // Intensitas cahaya
+const SPOTLIGHT_DISTANCE = 10; // Jarak maksimal cahaya
+const SPOTLIGHT_ANGLE = Math.PI / 2; // Sudut penyebaran cahaya
+const SPOTLIGHT_PENUMBRA = 0.2; // Penumbra, mengatur kelembutan tepi cahaya
+const SPOTLIGHT_DECAY = 1; // Seberapa cepat cahaya meredup dengan jarak
 
 
 type GLTFResult = GLTF & {
@@ -214,7 +221,7 @@ export function Streetlights(props: JSX.IntrinsicElements['group']) {
     async function addSpotlights() {
         const childGroups = groupRef.current.children;
         const totalLamps = childGroups.length;
-        const activeCount = Math.floor(totalLamps * percentLamp); // % dari total lampu
+        const activeCount = Math.floor(totalLamps * PERCENT_LAMP); // % dari total lampu
 
         // Memilih indeks acak untuk lampu yang akan diaktifkan
         let activeIndexes = new Set();
@@ -228,9 +235,17 @@ export function Streetlights(props: JSX.IntrinsicElements['group']) {
                 if (activeIndexes.has(index)) {
                     const lampMesh = childGroup.children.find((child) => child.name.includes('_1'));
                     if (lampMesh && !spotlightsRef.current[index]) {
-                        const spotlight = new THREE.SpotLight(0xffffe0, 3, 50, Math.PI / 1.75, 0.2, 1.5);
+                        const spotlight = new THREE.SpotLight(
+                            SPOTLIGHT_COLOR,
+                            SPOTLIGHT_INTENSITY,
+                            SPOTLIGHT_DISTANCE,
+                            SPOTLIGHT_ANGLE,
+                            SPOTLIGHT_PENUMBRA,
+                            SPOTLIGHT_DECAY
+                        );
                         spotlight.position.set(lampMesh.position.x + 0.1, lampMesh.position.y + 1, lampMesh.position.z - 0.2);
                         spotlight.target.position.set(lampMesh.position.x, lampMesh.position.y, lampMesh.position.z - 3);
+                        spotlight.castShadow = false;
                         childGroup.add(spotlight);
                         childGroup.add(spotlight.target);
                         spotlightsRef.current[index] = spotlight; // Menyimpan spotlight ke dalam ref

@@ -8,22 +8,17 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import { useFrame, useThree } from '@react-three/fiber'
+import { materials } from '@/consts/materials'
+import { useUserContext } from '@/context/UserContext'
 
 type GLTFResult = GLTF & {
   nodes: {
-    Plane259: THREE.Mesh
-    Plane259_1: THREE.Mesh
-    ClipEnter: THREE.Mesh
-    ClipExit: THREE.Mesh
-    Plane135: THREE.Mesh
-    Plane135_1: THREE.Mesh
-    Plane254: THREE.Mesh
-    Plane254_1: THREE.Mesh
+    Plane099: THREE.Mesh
+    Plane099_1: THREE.Mesh
   }
   materials: {
     Base: THREE.MeshStandardMaterial
     Glass: THREE.MeshPhysicalMaterial
-    Primary: THREE.MeshStandardMaterial
   }
   animations: GLTFAction[]
 }
@@ -36,7 +31,7 @@ type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicE
 
 export function Train(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
-  const { nodes, materials, animations } = useGLTF('/models/vehicles/Train.glb') as GLTFResult
+  const { nodes, animations } = useGLTF('/models/vehicles/Train.glb') as GLTFResult
   const { actions } = useAnimations(animations, group)
   const { scene, gl } = useThree()
 
@@ -46,6 +41,7 @@ export function Train(props: JSX.IntrinsicElements['group']) {
   const clipExitA = useRef(null);
   const clipExitB = useRef(null);
 
+  const { isNight } = useUserContext();
 
   const clipPlanes = [
     new THREE.Plane(new THREE.Vector3(0, 0, -1), 50), // Plane untuk ClipEnter 
@@ -54,7 +50,8 @@ export function Train(props: JSX.IntrinsicElements['group']) {
   ];
 
   useEffect(() => {
-    actions['Train'].play();
+    actions['Train.001'].play();
+
 
     // Setiap material pada objek kereta harus memiliki clipping planes.
     Object.values(materials).forEach(material => {
@@ -84,16 +81,17 @@ export function Train(props: JSX.IntrinsicElements['group']) {
       group.current.remove(clipEnterB.current);
 
     }
-  }, [actions, materials, clipPlanes]);
 
+
+  }, [actions, materials, clipPlanes, isNight]);
 
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
-        <group name="Train006" position={[26.793, 0.529, -86.874]} rotation={[-0.001, 0, -0.014]} scale={0.596}>
-          <mesh name="Plane259" geometry={nodes.Plane259.geometry} material={materials.Base} />
-          <mesh name="Plane259_1" geometry={nodes.Plane259_1.geometry} material={materials.Glass} />
+        <group name="Train001" position={[26.793, 0.529, -86.874]} rotation={[-0.001, 0, -0.014]} scale={0.596}>
+          <mesh name="Plane099" geometry={nodes.Plane099.geometry} material={materials.Base} />
+          <mesh name="Plane099_1" geometry={nodes.Plane099_1.geometry} material={isNight ? materials.GlassNight : materials.Glass} />
         </group>
       </group>
     </group>
