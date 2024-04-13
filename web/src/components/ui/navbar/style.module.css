@@ -1,0 +1,19 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  cursor: pointer;
+  width: 100vw;
+  padding: 16px;
+}
+.navbar .navbar_end {
+  position: absolute;
+  border-radius: 20px;
+  height: 50px;
+  width: 50px;
+  background-color: #fff;
+}
+
+.logo {
+  width: 220px;
+}/*# sourceMappingURL=style.module.css.map */

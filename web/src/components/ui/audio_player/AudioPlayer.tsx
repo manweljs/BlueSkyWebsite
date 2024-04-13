@@ -1,17 +1,19 @@
 "use client"
 
 import { useUserContext } from '@/context/UserContext';
-import { Button, FloatButton } from 'antd';
+import { FloatButton } from 'antd';
 import React, { useEffect, useState } from 'react'
-import { PauseCircleOutlined, PlayCircleOutlined, MoonOutlined, SunOutlined } from '@ant-design/icons';
+import { PauseCircleOutlined, PlayCircleOutlined } from '@ant-design/icons';
 import style from '@/styles/style.module.sass'
 
 export default function AudioPlayer() {
 
-    const { startExperience, isNight, setIsNight } = useUserContext()
+    const num = Math.floor(Math.random() * 7) + 1;
+    const audioUrl = `/audio/audio0${num}.mp3`;
+    const { startExperience, activeSection } = useUserContext()
     const [audio] = useState(() => {
         if (typeof Audio !== "undefined") {
-            const newAudio = new Audio('/audio/Home - Bluesky Creations.mp3');
+            const newAudio = new Audio(audioUrl);
             newAudio.loop = true; // Menetapkan audio untuk loop
             return newAudio;
         }
@@ -19,7 +21,6 @@ export default function AudioPlayer() {
 
     const [play, setPlay] = useState(false);
 
-    const { activeSection } = useUserContext()
 
     useEffect(() => {
         if (activeSection === 1) {

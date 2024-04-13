@@ -371,13 +371,15 @@ export function BlueSky(props) {
       <mesh name="Plane015" castShadow geometry={nodes.Plane015.geometry} material={materials.Grass} position={[18.664, 0, 15.862]} scale={[1.391, 1, 1.159]} />
       <mesh name="Plane016" castShadow geometry={nodes.Plane016.geometry} material={materials.Grass} position={[-16.015, 0.265, 3.64]} />
 
-      <group name="Railway_Station" position={[23.252, 0.568, 30.129]} rotation={[0, -Math.PI / 2, 0]} scale={0.613}>
+      {/* <group name="Railway_Station" position={[23.252, 0.568, 30.129]} rotation={[0, -Math.PI / 2, 0]} scale={0.613}>
         <mesh name="Plane069" castShadow geometry={nodes.Plane069.geometry} material={materials['Grass.001']} />
         <mesh name="Plane069_1" castShadow geometry={nodes.Plane069_1.geometry} material={materials.Base} />
         <mesh name="Plane069_2" castShadow geometry={nodes.Plane069_2.geometry} material={materials.Primary} />
       </group>
       <mesh name="Railway_Track" castShadow geometry={nodes.Railway_Track.geometry} material={materials.Base} position={[26.839, -0.062, 71.677]} rotation={[0, Math.PI / 2, 0]} scale={[0.039, 0.333, 0.333]} />
       <mesh name="Railway_Track001" castShadow geometry={nodes.Railway_Track001.geometry} material={materials.Base} position={[28.35, -0.062, 71.677]} rotation={[0, Math.PI / 2, 0]} scale={[0.039, 0.333, 0.333]} />
+ */}
+
       <mesh name="rock001" castShadow geometry={nodes.rock001.geometry} material={materials.Base} position={[19.542, 0.398, -20.511]} rotation={[0, 0.934, 0]} scale={0.199} />
       <mesh name="rock002" castShadow geometry={nodes.rock002.geometry} material={materials.Base} position={[19.542, 0.398, -18.872]} scale={0.199} />
       <mesh name="rock010" castShadow geometry={nodes.rock010.geometry} material={materials.Base} position={[-64.415, 9.777, 13.553]} rotation={[3.116, -0.847, 3.107]} />

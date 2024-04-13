@@ -5,6 +5,8 @@ import style from '@/styles/style.module.sass'
 import { Button } from 'antd';
 import { useUserContext } from '@/context/UserContext';
 
+const waitTime = 6000;
+
 export default function LoadingExperience() {
     const [isLoading, setIsLoading] = useState(true);
     const { setStartExperience, startExperience } = useUserContext();
@@ -12,7 +14,7 @@ export default function LoadingExperience() {
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             setIsLoading(false);
-        }, 3000);
+        }, waitTime);
 
         return () => {
             clearTimeout(timeoutId);
@@ -52,7 +54,7 @@ const strokeAnimation = {
     animate: {
         pathLength: 1,
         transition: {
-            default: { duration: 3, ease: "easeInOut" },
+            default: { duration: waitTime / 1000, ease: "easeInOut" },
         }
     }
 };

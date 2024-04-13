@@ -10,17 +10,17 @@ import { GLTF } from 'three-stdlib'
 
 type GLTFResult = GLTF & {
   nodes: {
-    Plane290: THREE.Mesh
-    Plane290_1: THREE.Mesh
-    Plane290_2: THREE.Mesh
-    Plane290_3: THREE.Mesh
     Ocean: THREE.Mesh
+    Plane111: THREE.Mesh
+    Plane111_1: THREE.Mesh
+    Plane111_2: THREE.Mesh
+    Plane111_3: THREE.Mesh
   }
   materials: {
+    Water: THREE.MeshPhysicalMaterial
     Land: THREE.MeshStandardMaterial
     Grass: THREE.MeshStandardMaterial
     Sand: THREE.MeshStandardMaterial
-    Water: THREE.MeshPhysicalMaterial
   }
 }
 
@@ -31,10 +31,10 @@ export function Island(props: JSX.IntrinsicElements['group']) {
   return (
     <group {...props} dispose={null}>
       <mesh name="Ocean" receiveShadow geometry={nodes.Ocean.geometry} material={materials.Water} />
-      <mesh name="Plane290" receiveShadow geometry={nodes.Plane290.geometry} material={materials.Land} />
-      <mesh name="Plane290_1" receiveShadow geometry={nodes.Plane290_1.geometry} material={materials.Grass} />
-      <mesh name="Plane290_2" receiveShadow geometry={nodes.Plane290_2.geometry} material={materials.Sand} />
-      <mesh name="Plane290_3" receiveShadow geometry={nodes.Plane290_3.geometry} material={materials.Water} />
+      <mesh name="Plane111" receiveShadow geometry={nodes.Plane111.geometry} material={materials.Land} />
+      <mesh name="Plane111_1" receiveShadow geometry={nodes.Plane111_1.geometry} material={materials.Grass} />
+      <mesh name="Plane111_2" receiveShadow geometry={nodes.Plane111_2.geometry} material={materials.Sand} />
+      <mesh name="Plane111_3" receiveShadow geometry={nodes.Plane111_3.geometry} material={materials.Water} />
     </group>
   )
 }

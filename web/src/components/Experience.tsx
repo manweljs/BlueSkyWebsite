@@ -1,5 +1,5 @@
 "use client";
-import { Environment, PerspectiveCamera, Stars, Html, CameraControls, useProgress } from "@react-three/drei";
+import { Environment, PerspectiveCamera, Stars, Html, CameraControls, useProgress, PerformanceMonitor, Stats } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
@@ -26,13 +26,10 @@ import { Bloom, DepthOfField, EffectComposer } from "@react-three/postprocessing
 import { TreesAndRocks } from "./models/trees/TreesAndRocks";
 import { RoadAndFloors } from "./models/floors/RoadAndFloors";
 import DayNightControls from "./ui/DayNightControls";
-
-
-
-const baseColor = "#9fd0fd"
-const nightColor = "#0a0e24"
-
-
+import { isMobile } from "react-device-detect";
+import BaseEnvironment from "./BaseEnvironment";
+import style from "@/styles/style.module.sass"
+import { Streetlights } from "./models/streetlights/Streetlights";
 
 
 const Experience = () => {
@@ -44,7 +41,8 @@ const Experience = () => {
             <LoadingExperience />
             <Navbar />
             <ControlGuide />
-            <Canvas shadows className="main-canvas">
+            <Canvas shadows className="main-canvas" >
+                <Stats className={style.stats} />
                 <Suspense fallback={<LoadingModel />} >
                     <Scene />
                 </Suspense>
@@ -56,17 +54,12 @@ const Experience = () => {
 
 const LoadingModel = () => {
     const { progress } = useProgress()
-    // console.log('progress', progress)
     return <Html center>{progress} % loaded</Html>
 }
 
 
 const Scene = () => {
     const { camera: mainCamera } = useThree()
-
-
-    const { isNight, setIsNight } = useUserContext()
-
     const { camera, setCamera, cameraControlsRef } = useUserContext()
     const [initialScene, setInitialScene] = useState(false)
 
@@ -98,9 +91,9 @@ const Scene = () => {
             {camera &&
                 <>
 
-                    {process.env.NODE_ENV === 'development' &&
+                    {/* {process.env.NODE_ENV === 'development' &&
                         <Leva />
-                    }
+                    } */}
                     <CameraControls
                         ref={cameraControlsRef}
                         camera={camera}
@@ -122,22 +115,26 @@ const Scene = () => {
                     <WindMils />
                     <Beach />
                     <Island />
-                    <BaseEnvironment />
+                    <Streetlights />
                     <Scenes />
                     <Markers />
                     <TreesAndRocks />
                     <RoadAndFloors />
                     <Bloom mipmapBlur luminanceThreshold={1} />
 
-                    <EffectComposer
 
-                    >
-                        <DepthOfField
-                            focusDistance={0.02}
-                            focalLength={0.15}
-                            bokehScale={2}
-                        />
-                    </EffectComposer>
+                    {!isMobile &&
+                        <EffectComposer>
+                            <DepthOfField
+                                focusDistance={0.02}
+                                focalLength={0.15}
+                                bokehScale={2}
+                            />
+                        </EffectComposer>
+                    }
+
+                    <PerformanceMonitor ms={60} />
+                    <BaseEnvironment />
 
 
                 </>
@@ -146,76 +143,5 @@ const Scene = () => {
     )
 }
 
-const BaseEnvironment = () => {
-    const { isNight } = useUserContext();
-    const ref = useRef(null);
-    const lightRef = useRef(null);
-    const { scene } = useThree(); // Hook dari react-three-fiber untuk mengakses scene
-    const [environmentColor, setEnvironmentColor] = useState(new THREE.Color(baseColor));
-    const [intensity, setIntensity] = useState(1); // Intensitas cahaya default
 
-    // Warna target berdasarkan siang atau malam
-    const targetColor = new THREE.Color(isNight ? nightColor : baseColor);
-    const targetIntensity = isNight ? 0.6 : 1; // Target intensitas untuk malam dan siang
-
-    useEffect(() => {
-        scene.fog = new THREE.Fog(environmentColor, 130, 200);
-    }, []);
-
-    useFrame(() => {
-        if (ref.current && scene.fog) {
-            ref.current.material.color.lerp(targetColor, 0.05);
-            setEnvironmentColor(ref.current.material.color);
-            scene.fog.color.set(environmentColor);
-
-            if (lightRef.current) {
-                // Lerp intensitas cahaya secara manual
-                lightRef.current.intensity += (targetIntensity - lightRef.current.intensity) * 0.05;
-            }
-        }
-    });
-
-    useFrame(() => {
-        if (ref.current && scene.fog) {
-            ref.current.material.color.lerp(targetColor, 0.05);
-            setEnvironmentColor(ref.current.material.color);
-            scene.fog.color.set(environmentColor);
-
-            if (lightRef.current) {
-                // Lerp intensitas cahaya secara manual
-                lightRef.current.intensity += (targetIntensity - lightRef.current.intensity) * 0.05;
-                setIntensity(lightRef.current.intensity);
-            }
-        }
-    });
-
-    return (
-        <>
-            {isNight && <Stars radius={300} speed={1} count={300} saturation={0.9} fade={true} factor={5} depth={0.1} />}
-
-            <directionalLight
-                ref={lightRef}
-                castShadow
-                position={[15, 65, 15]}
-                intensity={intensity}
-                shadow-mapSize-width={1024}
-                shadow-mapSize-height={1024}
-                shadow-camera-near={0.2}
-                shadow-camera-far={500}
-                shadow-camera-left={-130}
-                shadow-camera-right={130}
-                shadow-camera-top={130}
-                shadow-camera-bottom={-130}
-                color={isNight ? "#5b8fff" : "white"}
-            />
-            <Environment background>
-
-                <mesh ref={ref}>
-                    <sphereGeometry args={[800, 800, 800]} />
-                    <meshBasicMaterial color={environmentColor} side={THREE.BackSide} />
-                </mesh>
-            </Environment>
-        </>
-    );
-};
 export default Experience

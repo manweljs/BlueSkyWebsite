@@ -63,14 +63,436 @@ type GLTFResult = GLTF & {
     rock048: THREE.Mesh
     Plane307: THREE.Mesh
     Plane307_1: THREE.Mesh
-
-
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
+    Plane307: THREE.Mesh
+    Plane307_1: THREE.Mesh
     Icosphere004: THREE.Mesh
     Icosphere004_1: THREE.Mesh
-
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
+    Icosphere004: THREE.Mesh
+    Icosphere004_1: THREE.Mesh
     Plane310: THREE.Mesh
     Plane310_1: THREE.Mesh
-
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane310: THREE.Mesh
+    Plane310_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
+    Plane313: THREE.Mesh
+    Plane313_1: THREE.Mesh
     Plane313: THREE.Mesh
     Plane313_1: THREE.Mesh
     Plane006: THREE.Mesh
@@ -188,8 +610,8 @@ type GLTFResult = GLTF & {
     Icosphere003_1: THREE.Mesh
     Icosphere005: THREE.Mesh
     Icosphere005_1: THREE.Mesh
+    Icosphere006: THREE.Mesh
     Icosphere006_1: THREE.Mesh
-    Icosphere006_2: THREE.Mesh
     Icosphere007: THREE.Mesh
     Icosphere007_1: THREE.Mesh
     Icosphere008: THREE.Mesh
@@ -254,14 +676,16 @@ type GLTFResult = GLTF & {
     Plane195_1: THREE.Mesh
     Plane196: THREE.Mesh
     Plane196_1: THREE.Mesh
-
+    Icosphere013: THREE.Mesh
+    Icosphere013_1: THREE.Mesh
     Icosphere013: THREE.Mesh
     Icosphere013_1: THREE.Mesh
     Plane197: THREE.Mesh
     Plane197_1: THREE.Mesh
     Plane198: THREE.Mesh
     Plane198_1: THREE.Mesh
-
+    Icosphere014: THREE.Mesh
+    Icosphere014_1: THREE.Mesh
     Icosphere014: THREE.Mesh
     Icosphere014_1: THREE.Mesh
     Plane199: THREE.Mesh
@@ -394,16 +818,226 @@ type GLTFResult = GLTF & {
     Icosphere035_1: THREE.Mesh
     Plane312: THREE.Mesh
     Plane312_1: THREE.Mesh
-
     Plane287: THREE.Mesh
     Plane287_1: THREE.Mesh
-
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
+    Plane287: THREE.Mesh
+    Plane287_1: THREE.Mesh
     Plane095: THREE.Mesh
     Plane095_1: THREE.Mesh
-
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
+    Plane095: THREE.Mesh
+    Plane095_1: THREE.Mesh
     Plane303: THREE.Mesh
     Plane303_1: THREE.Mesh
-    Icosphere006: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
+    Plane303: THREE.Mesh
+    Plane303_1: THREE.Mesh
   }
   materials: {
     Stone: THREE.MeshStandardMaterial
@@ -414,6 +1048,7 @@ type GLTFResult = GLTF & {
     Water: THREE.MeshPhysicalMaterial
     CoconutTree: THREE.MeshStandardMaterial
   }
+  animations: GLTFAction[]
 }
 
 type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicElements['mesh']>>
@@ -1341,7 +1976,6 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane313" castShadow geometry={nodes.Plane313.geometry} material={materials.Tree} />
         <mesh name="Plane313_1" castShadow geometry={nodes.Plane313_1.geometry} material={materials.Wood} />
       </group>
-
       <group name="tree062" position={[-20.391, 0.474, 2.382]} scale={0.101}>
         <mesh name="Plane006" castShadow geometry={nodes.Plane006.geometry} material={materials.Tree} />
         <mesh name="Plane006_1" castShadow geometry={nodes.Plane006_1.geometry} material={materials.Wood} />
@@ -1566,8 +2200,8 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Icosphere005_1" castShadow geometry={nodes.Icosphere005_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree102" position={[-1.981, 0.615, -40.341]} scale={0.759}>
-        <mesh name="Icosphere006_1" castShadow geometry={nodes.Icosphere006_1.geometry} material={materials['Soft Green']} />
-        <mesh name="Icosphere006_2" castShadow geometry={nodes.Icosphere006_2.geometry} material={materials.Wood} />
+        <mesh name="Icosphere006" castShadow geometry={nodes.Icosphere006.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere006_1" castShadow geometry={nodes.Icosphere006_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree103" position={[0.702, 0.615, -40.341]} scale={0.759}>
         <mesh name="Icosphere007" castShadow geometry={nodes.Icosphere007.geometry} material={materials['Soft Green']} />
@@ -2421,7 +3055,6 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
-      <mesh name="Icosphere006" castShadow geometry={nodes.Icosphere006.geometry} material={nodes.Icosphere006.material} position={[11.931, -1.163, 67.052]} rotation={[0, 1.44, 0]} scale={0.113} />
     </group>
   )
 }

@@ -48,7 +48,7 @@ export function Train(props: JSX.IntrinsicElements['group']) {
 
 
   const clipPlanes = [
-    new THREE.Plane(new THREE.Vector3(0, 0, -1), 68.041), // Plane untuk ClipEnter 
+    new THREE.Plane(new THREE.Vector3(0, 0, -1), 50), // Plane untuk ClipEnter 
     new THREE.Plane(new THREE.Vector3(0, 0, 1), 75),// Plane untuk ClipExit
 
   ];
