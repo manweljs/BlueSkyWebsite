@@ -10,6 +10,8 @@ import { GLTF } from 'three-stdlib'
 import { materials } from '@/consts/materials'
 import { useUserContext } from '@/context/UserContext'
 
+const percentLamp = 0.15
+
 
 type GLTFResult = GLTF & {
     nodes: {
@@ -208,21 +210,33 @@ export function Streetlights(props: JSX.IntrinsicElements['group']) {
     const spotlightsRef = useRef([])
     const groupRef = useRef(null);
     // Setup spotlight untuk semua lampu sekali saja
+    // Fungsi untuk menambahkan spotlight hanya pada 20% lampu secara acak
     async function addSpotlights() {
-        const promises = groupRef.current.children.map((childGroup, index) =>
+        const childGroups = groupRef.current.children;
+        const totalLamps = childGroups.length;
+        const activeCount = Math.floor(totalLamps * percentLamp); // % dari total lampu
+
+        // Memilih indeks acak untuk lampu yang akan diaktifkan
+        let activeIndexes = new Set();
+        while (activeIndexes.size < activeCount) {
+            const randomIndex = Math.floor(Math.random() * totalLamps);
+            activeIndexes.add(randomIndex);
+        }
+
+        const promises = childGroups.map((childGroup, index) =>
             new Promise((resolve) => {
-                const lampMesh = childGroup.children.find((child) => child.name.includes('_1'));
-                if (lampMesh && !spotlightsRef.current[index]) {
-                    const spotlight = new THREE.SpotLight(0xffffe0, 3, 50, Math.PI / 1.75, 0.2, 1.5);
-                    spotlight.position.set(lampMesh.position.x + 0.1, lampMesh.position.y + 1, lampMesh.position.z - 0.2);
-                    spotlight.target.position.set(lampMesh.position.x, lampMesh.position.y, lampMesh.position.z - 3);
-                    childGroup.add(spotlight);
-                    childGroup.add(spotlight.target);
-                    spotlightsRef.current[index] = spotlight; // Menyimpan spotlight ke dalam ref
-                    resolve(undefined);
-                } else {
-                    resolve(undefined);
+                if (activeIndexes.has(index)) {
+                    const lampMesh = childGroup.children.find((child) => child.name.includes('_1'));
+                    if (lampMesh && !spotlightsRef.current[index]) {
+                        const spotlight = new THREE.SpotLight(0xffffe0, 3, 50, Math.PI / 1.75, 0.2, 1.5);
+                        spotlight.position.set(lampMesh.position.x + 0.1, lampMesh.position.y + 1, lampMesh.position.z - 0.2);
+                        spotlight.target.position.set(lampMesh.position.x, lampMesh.position.y, lampMesh.position.z - 3);
+                        childGroup.add(spotlight);
+                        childGroup.add(spotlight.target);
+                        spotlightsRef.current[index] = spotlight; // Menyimpan spotlight ke dalam ref
+                    }
                 }
+                resolve(undefined);
             })
         );
 
