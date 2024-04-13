@@ -30,11 +30,18 @@ import { isMobile } from "react-device-detect";
 import BaseEnvironment from "./BaseEnvironment";
 import style from "@/styles/style.module.sass"
 import { Streetlights } from "./models/streetlights/Streetlights";
+import { ConfigProvider, theme } from "antd";
 
 
 const Experience = () => {
+
+    const { isNight } = useUserContext()
     return (
-        <>
+        <ConfigProvider
+            theme={{
+                algorithm: theme.defaultAlgorithm,
+            }}
+        >
             <AudioPlayer />
             <DayNightControls />
             <Sections />
@@ -47,7 +54,8 @@ const Experience = () => {
                     <Scene />
                 </Suspense>
             </Canvas>
-        </>
+
+        </ConfigProvider>
 
     )
 }
