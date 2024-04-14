@@ -11,7 +11,7 @@ import { materials } from '@/consts/materials'
 import { useUserContext } from '@/context/UserContext'
 
 
-const PERCENT_LAMP = 0.1 // Persentase lampu yang akan dinyalakan
+const PERCENT_LAMP = 0.08 // Persentase lampu yang akan dinyalakan
 const SPOTLIGHT_COLOR = 0xffffe0; // Warna cahaya
 const SPOTLIGHT_INTENSITY = 2; // Intensitas cahaya
 const SPOTLIGHT_DISTANCE = 10; // Jarak maksimal cahaya

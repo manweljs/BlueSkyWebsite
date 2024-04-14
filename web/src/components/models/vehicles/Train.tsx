@@ -8,7 +8,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import { useFrame, useThree } from '@react-three/fiber'
-import { materials } from '@/consts/materials'
+import { COLORS } from '@/consts/materials'
 import { useUserContext } from '@/context/UserContext'
 
 type GLTFResult = GLTF & {
@@ -28,6 +28,28 @@ interface GLTFAction extends THREE.AnimationClip {
   name: ActionName
 }
 type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicElements['mesh']>>
+
+
+const materials = {
+  TrainBody: new THREE.MeshStandardMaterial({
+    color: new THREE.Color(COLORS.Base),
+    roughness: 1,
+  }),
+
+  TrainWindow: new THREE.MeshStandardMaterial({
+    color: new THREE.Color(COLORS.Glass),
+    roughness: 0.0,
+    metalness: 0.1,
+  }),
+
+  TrainWindowNight: new THREE.MeshStandardMaterial({
+    color: new THREE.Color(COLORS.GlassNight),
+    emissive: new THREE.Color(COLORS.GlassNight),
+    emissiveIntensity: .5,
+    roughness: 0.2,
+    metalness: 0,
+  }),
+};
 
 export function Train(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
@@ -90,8 +112,8 @@ export function Train(props: JSX.IntrinsicElements['group']) {
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <group name="Train001" position={[26.793, 0.529, -86.874]} rotation={[-0.001, 0, -0.014]} scale={0.596}>
-          <mesh name="Plane099" geometry={nodes.Plane099.geometry} material={materials.Base} />
-          <mesh name="Plane099_1" geometry={nodes.Plane099_1.geometry} material={isNight ? materials.GlassNight : materials.Glass} />
+          <mesh name="Plane099" geometry={nodes.Plane099.geometry} material={materials.TrainBody} />
+          <mesh name="Plane099_1" geometry={nodes.Plane099_1.geometry} material={isNight ? materials.TrainWindowNight : materials.TrainWindow} />
         </group>
       </group>
     </group>

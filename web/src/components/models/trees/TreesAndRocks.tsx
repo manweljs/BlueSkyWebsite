@@ -7,6 +7,7 @@ import * as THREE from 'three'
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { materials } from '@/consts/materials'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -408,17 +409,16 @@ type GLTFResult = GLTF & {
     Stone: THREE.MeshStandardMaterial
     Tree: THREE.MeshStandardMaterial
     Wood: THREE.MeshStandardMaterial
-    ['Soft Green']: THREE.MeshStandardMaterial
+    Leaf: THREE.MeshStandardMaterial
     Base: THREE.MeshStandardMaterial
     Water: THREE.MeshPhysicalMaterial
-    CoconutTree: THREE.MeshStandardMaterial
   }
 }
 
 type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicElements['mesh']>>
 
 export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
-  const { nodes, materials } = useGLTF('/models/trees/TreesAndRocks.glb') as GLTFResult
+  const { nodes } = useGLTF('/models/trees/TreesAndRocks.glb') as GLTFResult
   return (
     <group {...props} dispose={null}>
       <mesh name="rock023" castShadow geometry={nodes.rock023.geometry} material={materials.Stone} position={[57.278, -1.009, 4.302]} rotation={[2.526, 1.128, -Math.PI / 2]} scale={0.628} />
@@ -649,363 +649,363 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane307_1" castShadow geometry={nodes.Plane307_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree256" position={[-31.961, -0.045, 45.823]} rotation={[0, 0, -0.008]} scale={1.477}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree004" position={[-38.375, 0.313, -6.901]} rotation={[0, 0, -0.008]} scale={1.742}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree013" position={[38.139, 1.757, 9.759]} rotation={[0, 0, -0.008]} scale={1.869}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree070" position={[60.891, 7.214, -26.517]} rotation={[0, 0, -0.008]} scale={1.762}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree078" position={[35.452, 0.084, -47.355]} rotation={[0, 0, -0.008]} scale={1.695}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree082" position={[-76.462, 16.11, -29.003]} rotation={[0, 0, -0.008]} scale={1.683}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree086" position={[-75.479, 12.659, 50.596]} rotation={[0, 0, -0.008]} scale={1.81}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree160" position={[-69.603, 12.195, 64.462]} rotation={[0, 0, -0.008]} scale={1.569}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree180" position={[-39.014, 0.407, -12.44]} rotation={[0, 0, -0.008]} scale={1.813}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree184" position={[37.573, 1.319, 5.874]} rotation={[0, 0, -0.008]} scale={1.631}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree271" position={[68.453, 16.832, -66.281]} rotation={[0, 0, -0.008]} scale={1.844}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree275" position={[64.552, 6.433, -20.982]} rotation={[0, 0, -0.008]} scale={1.771}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree279" position={[-70.185, 16.152, -35.379]} rotation={[0, 0, -0.008]} scale={1.612}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree283" position={[-73.012, 17.073, -34.399]} rotation={[0, 0, -0.008]} scale={1.586}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree287" position={[-62.38, 13.813, -60.158]} rotation={[0, 0, -0.008]} scale={1.688}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree291" position={[37.529, 0.283, -48.525]} rotation={[0, 0, -0.008]} scale={1.855}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree295" position={[36.861, 0.898, 1.272]} rotation={[0, 0, -0.008]} scale={1.74}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree299" position={[37.776, 1.114, -1.553]} rotation={[0, 0, -0.008]} scale={1.806}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree060" position={[-10.398, 0.641, 2.53]} rotation={[0.043, 0, 0]} scale={1.477}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree061" position={[-10.59, 0.689, -3.753]} rotation={[-0.055, 0, 0]} scale={1.477}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree" position={[8.903, 0.452, 14.658]} scale={1.223}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree052" position={[-4.991, 0.547, -6.892]} scale={1.219}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree053" position={[-4.42, 0.547, -5.629]} scale={1.679}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree055" position={[2.517, 0.452, 13.48]} scale={1.223}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree056" position={[12.834, 0.452, 13.787]} scale={1.134}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree057" position={[6.843, 0.452, 15.112]} scale={1.223}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree058" position={[10.699, 0.452, 15.265]} scale={1.223}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree059" position={[6.098, 0.452, 13.699]} scale={1.572}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree071" position={[-9.586, 0.547, 27.611]} scale={1.477}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree072" position={[-8.196, 0.547, 26.816]} scale={1.477}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree093" position={[15.721, 0.472, 29.259]} scale={1.215}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree095" position={[17.127, 0.472, 30.215]} scale={1.215}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree099" position={[4.41, 0.615, -39.714]} scale={0.759}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree118" position={[17.433, 0.663, -34.633]} scale={1.078}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree124" position={[-9.891, 0.487, 47.538]} scale={1.127}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree125" position={[-13.774, 0.63, 52.306]} scale={0.837}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree129" position={[-13.966, 0.487, 46.368]} scale={1.091}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree130" position={[-5.35, 0.487, 46.324]} scale={1.477}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree136" position={[-16.459, 0.487, 46.237]} scale={1.091}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree137" position={[-4.162, 0.615, 41.129]} scale={0.999}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree138" position={[-17.11, 0.63, 41.05]} rotation={[Math.PI, 0, Math.PI]} scale={0.795}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree151" position={[-1.257, 0.626, 8.948]} rotation={[Math.PI, 0, Math.PI]} scale={0.956}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree156" position={[20.076, 0.674, -32.839]} scale={1.001}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree157" position={[13.39, 0.674, -31.855]} scale={1.398}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree158" position={[13.305, 0.674, -39.331]} scale={0.97}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree162" position={[21.01, 0.657, 33.914]} rotation={[0, -1.571, 0]} scale={1.033}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree163" position={[21.278, 0.657, 27.496]} rotation={[0, -1.571, 0]} scale={1.186}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree164" position={[21.254, 0.657, 26.432]} rotation={[0, -1.571, 0]} scale={0.819}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree170" position={[-3.036, 0.518, -51.365]} scale={1.155}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree171" position={[-19.327, 0.518, -50.377]} scale={1.046}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree172" position={[-20.715, 0.518, -49.551]} scale={1.32}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree173" position={[-19.706, 0.518, -48.291]} scale={1.046}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree189" position={[18.018, 0.518, -20.66]} scale={1.158}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree193" position={[20.648, 0.518, -15.962]} scale={0.918}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree199" position={[20.939, 0.625, -4.425]} rotation={[0, 1.571, 0]} scale={1.419}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree204" position={[16.021, 0.497, -1.765]} scale={1.004}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree205" position={[15.304, 0.497, -6.117]} scale={1.133}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree207" position={[16.171, 0.497, -0.552]} scale={0.929}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree212" position={[-16.81, 0.538, -38.819]} scale={1.108}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree214" position={[-16.771, 0.538, -34.628]} scale={1.168}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree215" position={[-15.267, 0.538, -28.207]} scale={1.082}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree216" position={[-21.81, 0.626, -37.452]} rotation={[0, -1.571, 0]} scale={1.06}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree227" position={[-68.774, 15.043, 30.156]} rotation={[0, 0, 0.023]} scale={1.108}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree228" position={[-70.073, 14.753, 42.347]} rotation={[0.017, 0, 0.015]} scale={1.477}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree229" position={[-69.915, 14.963, 17.005]} rotation={[0, 0, 0.023]} scale={1.477}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree230" position={[-69.125, 14.682, 15.511]} rotation={[0, 0, 0.023]} scale={1.477}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree232" position={[-68.69, 15.452, 24.079]} rotation={[-0.001, 0, 0.023]} scale={1.012}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree240" position={[-71.825, 15.098, 33.628]} rotation={[0.068, 0, 0.029]} scale={1.31}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree246" position={[-72.31, 15.2, 38.919]} rotation={[0.051, 0, 0.042]} scale={1.477}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree247" position={[-73.331, 15.327, 35.275]} rotation={[0.051, 0, 0.059]} scale={1.477}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree254" position={[-33.114, -0.033, 45.186]} rotation={[0.002, 0, -0.01]} scale={1.477}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree255" position={[-36.8, -0.035, 50.783]} rotation={[0.003, 0, -0.001]} scale={1.477}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree411" position={[67.751, 6.015, -16.908]} rotation={[0, 0, -0.008]} scale={1.581}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree415" position={[54.966, 5.266, -14.462]} rotation={[0, 0, -0.008]} scale={1.843}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree419" position={[57.504, 5.533, -10.236]} rotation={[0, 0, -0.008]} scale={1.785}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree423" position={[67.112, 5.515, -3.989]} rotation={[0, 0, -0.008]} scale={1.764}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree427" position={[83.122, 14.734, -53.669]} rotation={[0, 0, -0.008]} scale={1.813}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree431" position={[67.77, 5.553, -6.239]} rotation={[0, 0, -0.008]} scale={1.752}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree435" position={[56.238, 5.346, -9.576]} rotation={[0, 0, -0.008]} scale={1.643}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree451" position={[78.58, 13.133, -46.851]} rotation={[0, 0, -0.008]} scale={1.741}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree459" position={[67.134, 1.207, 12.294]} rotation={[0, 0, -0.008]} scale={1.703}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree463" position={[50.608, 0.621, 23.66]} rotation={[0, 0, -0.008]} scale={1.6}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree467" position={[56.933, 0.769, 20.491]} rotation={[0, 0, -0.008]} scale={1.803}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree475" position={[65.745, 0.776, 21.221]} rotation={[0, 0, -0.008]} scale={1.805}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree483" position={[48.515, 0.566, 22.554]} rotation={[0, 0, -0.008]} scale={1.748}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree487" position={[47.247, 1.571, 8.801]} rotation={[0, 0, -0.008]} scale={1.726}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree491" position={[67.264, 1.671, 9.249]} rotation={[0, 0, -0.008]} scale={1.619}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree495" position={[57.9, 10.234, -42.708]} rotation={[0, 0, -0.008]} scale={1.857}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree499" position={[55.779, 9.627, -42.268]} rotation={[0, 0, -0.008]} scale={1.577}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree503" position={[60.881, 13.519, -51.34]} rotation={[0, 0, -0.008]} scale={1.596}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials.Leaf} />
         <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree257" position={[-27.908, -0.096, 45.673]} scale={0.091}>
@@ -1180,10 +1180,7 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane313" castShadow geometry={nodes.Plane313.geometry} material={materials.Tree} />
         <mesh name="Plane313_1" castShadow geometry={nodes.Plane313_1.geometry} material={materials.Wood} />
       </group>
-      <group name="tree080" position={[-70.017, 12.339, -27.918]} scale={0.112}>
-        <mesh name="Plane313" castShadow geometry={nodes.Plane313.geometry} material={materials.Tree} />
-        <mesh name="Plane313_1" castShadow geometry={nodes.Plane313_1.geometry} material={materials.Wood} />
-      </group>
+
       <group name="tree084" position={[-71.276, 11.76, 54.534]} scale={0.106}>
         <mesh name="Plane313" castShadow geometry={nodes.Plane313.geometry} material={materials.Tree} />
         <mesh name="Plane313_1" castShadow geometry={nodes.Plane313_1.geometry} material={materials.Wood} />
@@ -1524,7 +1521,7 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane078_1" castShadow geometry={nodes.Plane078_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree075" position={[-17.068, 0.547, 28.13]} scale={0.821}>
-        <mesh name="Icosphere002" castShadow geometry={nodes.Icosphere002.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere002" castShadow geometry={nodes.Icosphere002.geometry} material={materials.Leaf} />
         <mesh name="Icosphere002_1" castShadow geometry={nodes.Icosphere002_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree090" position={[14.055, 0.426, 31.635]} scale={0.05}>
@@ -1556,31 +1553,31 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane152_1" castShadow geometry={nodes.Plane152_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree100" position={[3.506, 0.615, -40.341]} scale={0.759}>
-        <mesh name="Icosphere003" castShadow geometry={nodes.Icosphere003.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere003" castShadow geometry={nodes.Icosphere003.geometry} material={materials.Leaf} />
         <mesh name="Icosphere003_1" castShadow geometry={nodes.Icosphere003_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree101" position={[-3.778, 0.615, -40.341]} scale={0.759}>
-        <mesh name="Icosphere005" castShadow geometry={nodes.Icosphere005.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere005" castShadow geometry={nodes.Icosphere005.geometry} material={materials.Leaf} />
         <mesh name="Icosphere005_1" castShadow geometry={nodes.Icosphere005_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree102" position={[-1.981, 0.615, -40.341]} scale={0.759}>
-        <mesh name="Icosphere006" castShadow geometry={nodes.Icosphere006.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere006" castShadow geometry={nodes.Icosphere006.geometry} material={materials.Leaf} />
         <mesh name="Icosphere006_1" castShadow geometry={nodes.Icosphere006_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree103" position={[0.702, 0.615, -40.341]} scale={0.759}>
-        <mesh name="Icosphere007" castShadow geometry={nodes.Icosphere007.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere007" castShadow geometry={nodes.Icosphere007.geometry} material={materials.Leaf} />
         <mesh name="Icosphere007_1" castShadow geometry={nodes.Icosphere007_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree104" position={[-0.818, 0.615, -41.062]} scale={0.759}>
-        <mesh name="Icosphere008" castShadow geometry={nodes.Icosphere008.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere008" castShadow geometry={nodes.Icosphere008.geometry} material={materials.Leaf} />
         <mesh name="Icosphere008_1" castShadow geometry={nodes.Icosphere008_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree105" position={[2.125, 0.615, -41.062]} scale={0.759}>
-        <mesh name="Icosphere009" castShadow geometry={nodes.Icosphere009.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere009" castShadow geometry={nodes.Icosphere009.geometry} material={materials.Leaf} />
         <mesh name="Icosphere009_1" castShadow geometry={nodes.Icosphere009_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree106" position={[-4.7, 0.615, -39.345]} scale={0.759}>
-        <mesh name="Icosphere010" castShadow geometry={nodes.Icosphere010.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere010" castShadow geometry={nodes.Icosphere010.geometry} material={materials.Leaf} />
         <mesh name="Icosphere010_1" castShadow geometry={nodes.Icosphere010_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree107" position={[-4.883, 0.568, -41.037]} scale={0.067}>
@@ -1628,11 +1625,11 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane174_1" castShadow geometry={nodes.Plane174_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree119" position={[17.433, 0.663, -36.867]} scale={1.078}>
-        <mesh name="Icosphere011" castShadow geometry={nodes.Icosphere011.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere011" castShadow geometry={nodes.Icosphere011.geometry} material={materials.Leaf} />
         <mesh name="Icosphere011_1" castShadow geometry={nodes.Icosphere011_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree120" position={[18.872, 0.663, -35.966]} scale={1.078}>
-        <mesh name="Icosphere012" castShadow geometry={nodes.Icosphere012.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere012" castShadow geometry={nodes.Icosphere012.geometry} material={materials.Leaf} />
         <mesh name="Icosphere012_1" castShadow geometry={nodes.Icosphere012_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree121" position={[4.21, 0.555, -6.76]} scale={0.091}>
@@ -1696,11 +1693,11 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane196_1" castShadow geometry={nodes.Plane196_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree143" position={[17.846, 0.452, 14.658]} scale={0.939}>
-        <mesh name="Icosphere013" castShadow geometry={nodes.Icosphere013.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere013" castShadow geometry={nodes.Icosphere013.geometry} material={materials.Leaf} />
         <mesh name="Icosphere013_1" castShadow geometry={nodes.Icosphere013_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree144" position={[19.641, 0.452, 15.265]} scale={1.223}>
-        <mesh name="Icosphere013" castShadow geometry={nodes.Icosphere013.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere013" castShadow geometry={nodes.Icosphere013.geometry} material={materials.Leaf} />
         <mesh name="Icosphere013_1" castShadow geometry={nodes.Icosphere013_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree145" position={[-2.75, 0.5, 13.926]} scale={0.091}>
@@ -1712,11 +1709,11 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane198_1" castShadow geometry={nodes.Plane198_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree147" position={[-4.327, 0.452, 13.48]} scale={1.223}>
-        <mesh name="Icosphere014" castShadow geometry={nodes.Icosphere014.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere014" castShadow geometry={nodes.Icosphere014.geometry} material={materials.Leaf} />
         <mesh name="Icosphere014_1" castShadow geometry={nodes.Icosphere014_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree148" position={[-4.249, 0.452, 15.112]} scale={1.223}>
-        <mesh name="Icosphere014" castShadow geometry={nodes.Icosphere014.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere014" castShadow geometry={nodes.Icosphere014.geometry} material={materials.Leaf} />
         <mesh name="Icosphere014_1" castShadow geometry={nodes.Icosphere014_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree149" position={[16.712, 0.582, 9.046]} rotation={[Math.PI, 0, Math.PI]} scale={0.061}>
@@ -1772,11 +1769,11 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane214_1" castShadow geometry={nodes.Plane214_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree174" position={[-4.624, 0.518, -50.819]} scale={1.155}>
-        <mesh name="Icosphere015" castShadow geometry={nodes.Icosphere015.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere015" castShadow geometry={nodes.Icosphere015.geometry} material={materials.Leaf} />
         <mesh name="Icosphere015_1" castShadow geometry={nodes.Icosphere015_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree175" position={[-4.624, 0.518, -49.224]} scale={1.155}>
-        <mesh name="Icosphere016" castShadow geometry={nodes.Icosphere016.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere016" castShadow geometry={nodes.Icosphere016.geometry} material={materials.Leaf} />
         <mesh name="Icosphere016_1" castShadow geometry={nodes.Icosphere016_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree176" position={[-18.358, 0.471, -51.759]} scale={0.07}>
@@ -1804,7 +1801,7 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane224_1" castShadow geometry={nodes.Plane224_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree194" position={[20.648, 0.518, -18.997]} scale={0.918}>
-        <mesh name="Icosphere019" castShadow geometry={nodes.Icosphere019.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere019" castShadow geometry={nodes.Icosphere019.geometry} material={materials.Leaf} />
         <mesh name="Icosphere019_1" castShadow geometry={nodes.Icosphere019_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree195" position={[10.346, 0.585, -9.302]} rotation={[0, -1.571, 0]} scale={0.046}>
@@ -1844,19 +1841,19 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane236_1" castShadow geometry={nodes.Plane236_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree210" position={[15.04, 0.497, -8.012]} scale={0.886}>
-        <mesh name="Icosphere024" castShadow geometry={nodes.Icosphere024.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere024" castShadow geometry={nodes.Icosphere024.geometry} material={materials.Leaf} />
         <mesh name="Icosphere024_1" castShadow geometry={nodes.Icosphere024_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree211" position={[14.871, 0.497, -9.458]} scale={0.886}>
-        <mesh name="Icosphere025" castShadow geometry={nodes.Icosphere025.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere025" castShadow geometry={nodes.Icosphere025.geometry} material={materials.Leaf} />
         <mesh name="Icosphere025_1" castShadow geometry={nodes.Icosphere025_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree213" position={[-16.304, 0.538, -39.741]} scale={0.912}>
-        <mesh name="Icosphere026" castShadow geometry={nodes.Icosphere026.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere026" castShadow geometry={nodes.Icosphere026.geometry} material={materials.Leaf} />
         <mesh name="Icosphere026_1" castShadow geometry={nodes.Icosphere026_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree217" position={[-21.42, 0.626, -35.383]} rotation={[0, -1.571, 0]} scale={0.757}>
-        <mesh name="Icosphere027" castShadow geometry={nodes.Icosphere027.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere027" castShadow geometry={nodes.Icosphere027.geometry} material={materials.Leaf} />
         <mesh name="Icosphere027_1" castShadow geometry={nodes.Icosphere027_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree218" position={[-21.563, 0.582, -34.763]} rotation={[0, -1.571, 0]} scale={0.052}>
@@ -1900,7 +1897,7 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane284_1" castShadow geometry={nodes.Plane284_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree233" position={[-69.083, 15.472, 23.163]} rotation={[-0.001, 0, 0.023]} scale={1.012}>
-        <mesh name="Icosphere030" castShadow geometry={nodes.Icosphere030.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere030" castShadow geometry={nodes.Icosphere030.geometry} material={materials.Leaf} />
         <mesh name="Icosphere030_1" castShadow geometry={nodes.Icosphere030_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree234" position={[-72.947, 15.628, 23.678]} rotation={[0.028, 0, 0.057]} scale={0.091}>
@@ -1972,7 +1969,7 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane311_1" castShadow geometry={nodes.Plane311_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree259" position={[-33.114, -0.045, 52.64]} rotation={[0.002, 0, -0.01]} scale={1.477}>
-        <mesh name="Icosphere035" castShadow geometry={nodes.Icosphere035.geometry} material={materials['Soft Green']} />
+        <mesh name="Icosphere035" castShadow geometry={nodes.Icosphere035.geometry} material={materials.Leaf} />
         <mesh name="Icosphere035_1" castShadow geometry={nodes.Icosphere035_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree260" position={[-31.41, -0.096, 44.789]} rotation={[0, 0, -0.006]} scale={0.091}>
@@ -1980,443 +1977,443 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane312_1" castShadow geometry={nodes.Plane312_1.geometry} material={materials.Wood} />
       </group>
       <group name="tree321" position={[-50.283, -0.788, 66.438]} scale={1.913}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree324" position={[24.154, -0.665, 72.229]} scale={1.801}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree327" position={[-24.648, -0.265, 59.499]} scale={1.817}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree330" position={[-29.159, -0.236, 59.673]} scale={1.935}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree333" position={[-30.614, -0.204, 59.619]} scale={1.885}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree336" position={[-17.013, -0.27, 58.537]} scale={1.725}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree339" position={[-6.643, -0.398, 58.65]} scale={1.783}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree342" position={[11.74, -0.557, 61.907]} scale={1.904}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree345" position={[-5.623, -0.423, 58.747]} scale={1.824}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree348" position={[20.635, -0.652, 62.767]} scale={1.733}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree351" position={[-8.413, -0.096, 58.61]} scale={1.868}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree354" position={[26.573, -0.236, 73.033]} scale={1.807}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree357" position={[30.646, -0.031, 77.169]} scale={1.847}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree360" position={[29.415, -0.038, 75.574]} scale={1.848}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree363" position={[-49.62, 1.564, 61.999]} scale={1.79}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree366" position={[-56.377, 0.637, 68.562]} scale={1.828}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree369" position={[26.522, -0.096, 63.796]} scale={1.757}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree372" position={[-46.593, -0.561, 63.972]} scale={1.763}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree375" position={[27.266, -0.083, 74.296]} scale={1.942}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree378" position={[25.798, -0.096, 66.59]} scale={1.951}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree005" position={[50.725, -0.166, 79.441]} scale={1.983}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree068" position={[68.969, -0.342, 78.694]} scale={1.97}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree264" position={[88.107, 0.186, 24.654]} scale={1.637}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree267" position={[87.673, 0.121, 53.941]} scale={1.943}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree270" position={[83.686, 2.169, 18.13]} scale={1.677}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree303" position={[84.955, -0.225, 68.366]} scale={1.96}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree306" position={[85.474, 0.358, 55.639]} scale={1.436}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree381" position={[84.967, -0.439, 72.573]} scale={1.802}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree384" position={[83.11, 1.357, 31.751]} scale={1.837}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree387" position={[88.768, 0.092, 26.706]} scale={1.875}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree390" position={[87.783, -0.406, 44.789]} scale={1.828}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree393" position={[82.641, -0.308, 78.71]} scale={1.793}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree396" position={[85.759, 0.93, 17.412]} scale={1.728}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree399" position={[56.957, -0.343, 79.588]} scale={1.755}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree402" position={[89.06, 0.779, 13.017]} scale={1.535}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree405" position={[87.95, -0.436, 46.828]} scale={1.878}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree408" position={[84.115, -0.353, 68.238]} scale={1.461}>
-        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane287" castShadow geometry={nodes.Plane287.geometry} material={materials.Wood} />
         <mesh name="Plane287_1" castShadow geometry={nodes.Plane287_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree322" position={[-26.172, -0.283, 59.684]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.744}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree325" position={[21.001, -0.597, 63.643]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.953}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree328" position={[-37.238, -0.23, 59.17]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.823}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree331" position={[-36.602, -0.498, 61.707]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.989}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree334" position={[-34.124, -0.207, 59.082]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.915}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree337" position={[-18.144, -0.315, 58.878]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.907}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree340" position={[22.189, -0.376, 64.852]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.839}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree343" position={[-33.36, -0.241, 59.782]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.84}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree346" position={[12.308, -0.466, 61.389]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.802}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree349" position={[-6.095, -0.2, 58.59]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.77}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree352" position={[24.766, -0.096, 67.11]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.992}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree355" position={[29.071, -0.236, 73.743]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.813}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree358" position={[-37.714, 0.332, 57.828]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.811}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree361" position={[29.224, -0.056, 75.236]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.931}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree364" position={[-51.624, -0.397, 64.829]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.947}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree367" position={[-56.007, 0.388, 68.519]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.984}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree370" position={[-55.425, -0.171, 69.042]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.858}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree373" position={[18.959, -0.666, 64.008]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.949}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree376" position={[27.819, -0.088, 74.656]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={2.019}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree379" position={[-49.116, 0.764, 62.559]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={2.001}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree006" position={[84.919, 0.109, 50.508]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.521}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree262" position={[85.59, 0.178, 50.606]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.818}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree265" position={[68.486, -0.561, 79.457]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.501}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree268" position={[86.161, -0.031, 49.362]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.794}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree276" position={[87.213, 1.949, 12.249]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.709}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree304" position={[76.468, -0.167, 77.724]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.472}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree307" position={[85.628, 0.187, 37.016]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.973}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree382" position={[84.179, -0.215, 64.952]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.901}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree385" position={[84.809, 0.061, 46.415]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.631}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree388" position={[86.267, 0.811, 27.24]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.45}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree391" position={[87.509, -0.368, 39.334]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.748}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree394" position={[84.18, -0.693, 65.682]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.483}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree397" position={[36.321, -0.33, 78.277]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.771}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree400" position={[62.216, -0.354, 78.542]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.945}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree403" position={[84.414, 1.214, 21.812]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.805}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree406" position={[85.354, 0.051, 40.961]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.471}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree409" position={[78.069, 0.172, 78.158]} rotation={[-Math.PI, 0.427, -Math.PI]} scale={1.829}>
-        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane095" castShadow geometry={nodes.Plane095.geometry} material={materials.Wood} />
         <mesh name="Plane095_1" castShadow geometry={nodes.Plane095_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree323" position={[24.74, -0.096, 64.803]} rotation={[0, -0.981, 0]} scale={1.976}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree326" position={[-29.806, -0.088, 57.744]} rotation={[0, -0.981, 0]} scale={1.989}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree329" position={[21.257, -0.8, 65.247]} rotation={[0, -0.981, 0]} scale={1.83}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree332" position={[-31.331, -0.378, 59.008]} rotation={[0, -0.981, 0]} scale={1.753}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree335" position={[-9.677, -0.146, 60.316]} rotation={[0, -0.981, 0]} scale={1.925}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree338" position={[23.815, -0.275, 69.299]} rotation={[0, -0.981, 0]} scale={1.96}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree341" position={[11.879, -0.411, 61.057]} rotation={[0, -0.981, 0]} scale={1.874}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree344" position={[-34.376, -0.313, 58.505]} rotation={[0, -0.981, 0]} scale={2.005}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree347" position={[-18.876, -0.207, 59.131]} rotation={[0, -0.981, 0]} scale={1.825}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree350" position={[18.058, -0.476, 63.084]} rotation={[0, -0.981, 0]} scale={1.887}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree353" position={[26.186, -0.096, 65.118]} rotation={[0, -0.981, 0]} scale={1.754}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree356" position={[35.092, -0.096, 80.401]} rotation={[0, -0.981, 0]} scale={1.944}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree359" position={[-54.825, -0.51, 66.992]} rotation={[0, -0.981, 0]} scale={1.835}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree362" position={[28.974, -0.081, 76.202]} rotation={[0, -0.981, 0]} scale={1.893}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree365" position={[-52.033, -0.18, 63.914]} rotation={[0, -0.981, 0]} scale={2.015}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree368" position={[-30.877, -0.085, 57.697]} rotation={[0, -0.981, 0]} scale={1.744}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree371" position={[23.676, -1.231, 73.35]} rotation={[0, -0.981, 0]} scale={1.896}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree374" position={[19.274, -0.575, 62.408]} rotation={[0, -0.981, 0]} scale={1.763}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree377" position={[29.114, -0.056, 74.999]} rotation={[0, -0.981, 0]} scale={1.976}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree380" position={[-53.571, 1.436, 63.062]} rotation={[0, -0.981, 0]} scale={1.726}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree012" position={[84.057, -0.47, 72.427]} rotation={[0, -0.981, 0]} scale={1.606}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree263" position={[54.146, -0.55, 79.01]} rotation={[0, -0.981, 0]} scale={2.021}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree266" position={[73.41, -0.042, 79.264]} rotation={[0, -0.981, 0]} scale={1.683}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree269" position={[88.824, 0.128, 20.563]} rotation={[0, -0.981, 0]} scale={1.567}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree302" position={[80.732, -0.238, 64.684]} rotation={[0, -0.981, 0]} scale={0}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree305" position={[85.525, 0.072, 48.99]} rotation={[0, -0.981, 0]} scale={1.928}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree308" position={[70.679, 0.04, 78.063]} rotation={[0, -0.981, 0]} scale={1.956}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree383" position={[84.604, 0.019, 44.749]} rotation={[0, -0.981, 0]} scale={1.471}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree386" position={[61.387, -0.373, 78.747]} rotation={[0, -0.981, 0]} scale={1.478}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree389" position={[87.748, -0.39, 38.435]} rotation={[0, -0.981, 0]} scale={1.499}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree392" position={[71.918, -0.166, 79.485]} rotation={[0, -0.981, 0]} scale={1.994}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree395" position={[85.651, 1.054, 28.516]} rotation={[0, -0.981, 0]} scale={1.91}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree398" position={[52.052, -0.278, 81.051]} rotation={[0, -0.981, 0]} scale={1.482}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree401" position={[61.825, -0.544, 80.032]} rotation={[0, -0.981, 0]} scale={2.012}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree404" position={[86.702, 0.013, 50.981]} rotation={[0, -0.981, 0]} scale={1.676}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
       <group name="tree407" position={[83.927, 0.064, 42.222]} rotation={[0, -0.981, 0]} scale={1.98}>
-        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
+        <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
     </group>
