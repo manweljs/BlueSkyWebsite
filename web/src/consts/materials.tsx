@@ -15,6 +15,7 @@ export const COLORS = {
     Land: "#9b7653",
     Sand: "#f4c542",
     Stone: "#bebebe",
+    Coles: "#E01A22"
 };
 
 export const materials = {
@@ -24,6 +25,10 @@ export const materials = {
     }),
     Primary: new THREE.MeshStandardMaterial({
         color: new THREE.Color(COLORS.Primary),
+        roughness: 1,
+    }),
+    Coles: new THREE.MeshStandardMaterial({
+        color: new THREE.Color(COLORS.Coles),
         roughness: 1,
     }),
     Water: new THREE.MeshPhysicalMaterial({

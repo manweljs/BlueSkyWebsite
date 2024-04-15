@@ -13,6 +13,7 @@ import { useUserContext } from '@/context/UserContext'
 import style from '@/styles/style.module.sass'
 import { Tooltip } from 'antd'
 import { PositionType } from '@/types'
+import { materials } from '@/consts/materials'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -46,48 +47,19 @@ type GLTFResult = GLTF & {
 type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicElements['mesh']>>
 
 export function About(props: JSX.IntrinsicElements['group']) {
-  const { nodes, materials } = useGLTF('/models/scenes/About.glb') as GLTFResult
+  const { nodes } = useGLTF('/models/scenes/About.glb') as GLTFResult
 
+  const { isNight } = useUserContext()
 
+  const glass = isNight ? materials.GlassNight : materials.Glass
   return (
     <group {...props} dispose={null}>
       <group name="Office" position={[-15.208, 2.421, 0.196]} rotation={[0, Math.PI / 2, 0]} scale={1.288}>
         <mesh name="Plane003" castShadow geometry={nodes.Plane003.geometry} material={materials.Base} />
-        <mesh name="Plane003_1" castShadow geometry={nodes.Plane003_1.geometry} material={materials.Glass} />
+        <mesh name="Plane003_1" castShadow geometry={nodes.Plane003_1.geometry} material={glass} />
       </group>
       <mesh name="statue001" castShadow geometry={nodes.statue001.geometry} material={materials.Base} position={[-12.029, 1.458, -0.498]} rotation={[-Math.PI / 2, 1.515, Math.PI / 2]} scale={1.374} />
-      <group name="tree060" position={[-10.398, 0.641, 2.53]} rotation={[0.043, 0, 0]} scale={1.477}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
-        <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
-      </group>
-      <group name="tree061" position={[-10.59, 0.689, -3.753]} rotation={[-0.055, 0, 0]} scale={1.477}>
-        <mesh name="Icosphere004" castShadow geometry={nodes.Icosphere004.geometry} material={materials['Soft Green']} />
-        <mesh name="Icosphere004_1" castShadow geometry={nodes.Icosphere004_1.geometry} material={materials.Wood} />
-      </group>
-      <group name="tree062" position={[-20.391, 0.474, 2.382]} scale={0.101}>
-        <mesh name="Plane006" castShadow geometry={nodes.Plane006.geometry} material={materials.Tree} />
-        <mesh name="Plane006_1" castShadow geometry={nodes.Plane006_1.geometry} material={materials.Wood} />
-      </group>
-      <group name="tree063" position={[-19.1, 0.474, 2.382]} scale={0.094}>
-        <mesh name="Plane008" castShadow geometry={nodes.Plane008.geometry} material={materials.Tree} />
-        <mesh name="Plane008_1" castShadow geometry={nodes.Plane008_1.geometry} material={materials.Wood} />
-      </group>
-      <group name="tree064" position={[-17.794, 0.474, 2.382]} scale={0.101}>
-        <mesh name="Plane009" castShadow geometry={nodes.Plane009.geometry} material={materials.Tree} />
-        <mesh name="Plane009_1" castShadow geometry={nodes.Plane009_1.geometry} material={materials.Wood} />
-      </group>
-      <group name="tree065" position={[-20.391, 0.474, -3.44]} scale={0.101}>
-        <mesh name="Plane019" castShadow geometry={nodes.Plane019.geometry} material={materials.Tree} />
-        <mesh name="Plane019_1" castShadow geometry={nodes.Plane019_1.geometry} material={materials.Wood} />
-      </group>
-      <group name="tree066" position={[-19.1, 0.474, -3.44]} scale={0.101}>
-        <mesh name="Plane021" castShadow geometry={nodes.Plane021.geometry} material={materials.Tree} />
-        <mesh name="Plane021_1" castShadow geometry={nodes.Plane021_1.geometry} material={materials.Wood} />
-      </group>
-      <group name="tree067" position={[-17.794, 0.474, -3.44]} scale={0.077}>
-        <mesh name="Plane025" castShadow geometry={nodes.Plane025.geometry} material={materials.Tree} />
-        <mesh name="Plane025_1" castShadow geometry={nodes.Plane025_1.geometry} material={materials.Wood} />
-      </group>
+
     </group>
   )
 }

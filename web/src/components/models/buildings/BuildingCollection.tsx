@@ -1,12 +1,16 @@
 import React from 'react'
 import { Office } from './Office'
-import { Store } from './Store'
+import { Stores } from './Stores'
+import { Houses } from './Houses'
+import { MainBuildings } from './MainBuildings'
 
 export default function BuildingCollection() {
     return (
         <>
             <Office />
-            <Store />
+            <Stores />
+            <Houses />
+            <MainBuildings />
         </>
     )
 }

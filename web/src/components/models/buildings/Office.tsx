@@ -42,6 +42,16 @@ type GLTFResult = GLTF & {
     Plane102: THREE.Mesh
     Plane102_1: THREE.Mesh
     Plane102_2: THREE.Mesh
+
+    Plane246: THREE.Mesh
+    Plane246_1: THREE.Mesh
+    Plane247: THREE.Mesh
+    Plane247_1: THREE.Mesh
+
+    Plane453: THREE.Mesh
+    Plane453_1: THREE.Mesh
+    Plane453_2: THREE.Mesh
+
   }
   materials: {
     WindowNight: THREE.MeshStandardMaterial
@@ -67,7 +77,7 @@ export function Office(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane115_1" castShadow geometry={nodes.Plane115_1.geometry} material={materials.Base} />
         <mesh name="Plane115_2" castShadow geometry={nodes.Plane115_2.geometry} material={materials.Glass} />
       </group>
-      <group name="Office007" position={[77.474, 0.568, 56.239]} rotation={[0, -Math.PI / 2, 0]}>
+      <group name="Office007" position={[77.474, 0.568, 56.513]} rotation={[0, -Math.PI / 2, 0]}>
         <mesh name="Plane115" castShadow geometry={nodes.Plane115.geometry} material={glass} />
         <mesh name="Plane115_1" castShadow geometry={nodes.Plane115_1.geometry} material={materials.Base} />
         <mesh name="Plane115_2" castShadow geometry={nodes.Plane115_2.geometry} material={materials.Glass} />
@@ -77,12 +87,12 @@ export function Office(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane116_1" castShadow geometry={nodes.Plane116_1.geometry} material={materials.Base} />
         <mesh name="Plane116_2" castShadow geometry={nodes.Plane116_2.geometry} material={materials.Glass} />
       </group>
-      <group name="Office006" position={[69.93, 0.568, 42.534]} rotation={[0, Math.PI / 2, 0]}>
+      <group name="Office006" position={[72.79, 0.568, 43.176]} rotation={[0, Math.PI / 2, 0]}>
         <mesh name="Plane116" castShadow geometry={nodes.Plane116.geometry} material={glass} />
         <mesh name="Plane116_1" castShadow geometry={nodes.Plane116_1.geometry} material={materials.Base} />
         <mesh name="Plane116_2" castShadow geometry={nodes.Plane116_2.geometry} material={materials.Glass} />
       </group>
-      <group name="Office008" position={[-13.056, 0.474, 7.501]}>
+      <group name="Office008" position={[-13.056, 0.474, 10.278]}>
         <mesh name="Plane116" castShadow geometry={nodes.Plane116.geometry} material={glass} />
         <mesh name="Plane116_1" castShadow geometry={nodes.Plane116_1.geometry} material={materials.Base} />
         <mesh name="Plane116_2" castShadow geometry={nodes.Plane116_2.geometry} material={materials.Glass} />
@@ -92,22 +102,27 @@ export function Office(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane116_1" castShadow geometry={nodes.Plane116_1.geometry} material={materials.Base} />
         <mesh name="Plane116_2" castShadow geometry={nodes.Plane116_2.geometry} material={materials.Glass} />
       </group>
-      <group name="Office010" position={[58.374, 0.568, 49.737]} rotation={[0, -Math.PI / 2, 0]}>
+      <group name="Office010" position={[58.374, 0.568, 50.035]} rotation={[0, -Math.PI / 2, 0]} scale={[0.879, 1, 1]}>
         <mesh name="Plane116" castShadow geometry={nodes.Plane116.geometry} material={glass} />
         <mesh name="Plane116_1" castShadow geometry={nodes.Plane116_1.geometry} material={materials.Base} />
         <mesh name="Plane116_2" castShadow geometry={nodes.Plane116_2.geometry} material={materials.Glass} />
       </group>
-      <group name="Office003" position={[77.509, 0.568, 63.31]} scale={1.195}>
+      <group name="Office011" position={[-18.831, 0.568, 33.969]} rotation={[0, Math.PI / 2, 0]} scale={0.788}>
+        <mesh name="Plane116" castShadow geometry={nodes.Plane116.geometry} material={glass} />
+        <mesh name="Plane116_1" castShadow geometry={nodes.Plane116_1.geometry} material={materials.Base} />
+        <mesh name="Plane116_2" castShadow geometry={nodes.Plane116_2.geometry} material={materials.Glass} />
+      </group>
+      <group name="Office003" position={[77.509, 0.568, 63.004]} scale={1.195}>
         <mesh name="Plane133" castShadow geometry={nodes.Plane133.geometry} material={materials.Base} />
         <mesh name="Plane133_1" castShadow geometry={nodes.Plane133_1.geometry} material={materials.Glass} />
         <mesh name="Plane133_2" castShadow geometry={nodes.Plane133_2.geometry} material={glass} />
       </group>
-      <group name="Office005" position={[41.191, 0.568, 49.934]} rotation={[0, -Math.PI / 2, 0]} scale={1.309}>
+      <group name="Office005" position={[42.941, 0.568, 50.345]} rotation={[0, -Math.PI / 2, 0]} scale={1.309}>
         <mesh name="Plane133" castShadow geometry={nodes.Plane133.geometry} material={materials.Base} />
         <mesh name="Plane133_1" castShadow geometry={nodes.Plane133_1.geometry} material={materials.Glass} />
         <mesh name="Plane133_2" castShadow geometry={nodes.Plane133_2.geometry} material={glass} />
       </group>
-      <group name="office012" position={[75.963, 0.568, 41.674]} rotation={[Math.PI, 0, Math.PI]} scale={[1.153, 1.153, 1.915]}>
+      <group name="office012" position={[78.324, 0.568, 42.598]} rotation={[-Math.PI, 0.765, -Math.PI]} scale={[1.153, 1.153, 1.915]}>
         <mesh name="Plane222" castShadow geometry={nodes.Plane222.geometry} material={materials.Glass} />
         <mesh name="Plane222_1" castShadow geometry={nodes.Plane222_1.geometry} material={materials.Base} />
         <mesh name="Plane222_2" castShadow geometry={nodes.Plane222_2.geometry} material={glass} />
@@ -122,7 +137,7 @@ export function Office(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane222_1" castShadow geometry={nodes.Plane222_1.geometry} material={materials.Base} />
         <mesh name="Plane222_2" castShadow geometry={nodes.Plane222_2.geometry} material={glass} />
       </group>
-      <group name="office016" position={[69.5, 0.568, 70.649]} scale={[1.507, 1.507, 2.502]}>
+      <group name="office016" position={[68.94, 0.568, 70.649]} scale={[1.366, 1.507, 2.502]}>
         <mesh name="Plane222" castShadow geometry={nodes.Plane222.geometry} material={materials.Glass} />
         <mesh name="Plane222_1" castShadow geometry={nodes.Plane222_1.geometry} material={materials.Base} />
         <mesh name="Plane222_2" castShadow geometry={nodes.Plane222_2.geometry} material={glass} />
@@ -143,15 +158,15 @@ export function Office(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane068" castShadow geometry={nodes.Plane068.geometry} material={materials.Base} />
         <mesh name="Plane068_1" castShadow geometry={nodes.Plane068_1.geometry} material={materials.Glass} />
       </group>
-      <group name="office015" position={[48.711, 0.568, 69.554]} scale={1.118}>
+      <group name="office015" position={[48.88, 0.568, 69.554]} scale={1.118}>
         <mesh name="Plane068" castShadow geometry={nodes.Plane068.geometry} material={materials.Base} />
         <mesh name="Plane068_1" castShadow geometry={nodes.Plane068_1.geometry} material={materials.Glass} />
       </group>
-      <group name="office017" position={[78.025, 0.568, 50.821]} rotation={[0, Math.PI / 2, 0]}>
+      <group name="office017" position={[78.025, 0.568, 46.292]} rotation={[0, Math.PI / 2, 0]}>
         <mesh name="Plane068" castShadow geometry={nodes.Plane068.geometry} material={materials.Base} />
         <mesh name="Plane068_1" castShadow geometry={nodes.Plane068_1.geometry} material={materials.Glass} />
       </group>
-      <group name="office018" position={[40.511, 0.568, 42.31]} rotation={[Math.PI, 0, Math.PI]}>
+      <group name="office018" position={[40.94, 0.568, 42.31]} rotation={[Math.PI, 0, Math.PI]}>
         <mesh name="Plane068" castShadow geometry={nodes.Plane068.geometry} material={materials.Base} />
         <mesh name="Plane068_1" castShadow geometry={nodes.Plane068_1.geometry} material={materials.Glass} />
       </group>
@@ -159,12 +174,12 @@ export function Office(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane144" castShadow geometry={nodes.Plane144.geometry} material={materials.Base} />
         <mesh name="Plane144_1" castShadow geometry={nodes.Plane144_1.geometry} material={materials.Glass} />
       </group>
-      <group name="office002" position={[-13.591, 0.474, 17.136]} scale={1.58}>
+      <group name="office002" position={[-13.594, 0.474, 17.35]} rotation={[0, -0.616, 0]} scale={1.419}>
         <mesh name="Plane050" castShadow geometry={nodes.Plane050.geometry} material={materials.Base} />
         <mesh name="Plane050_1" castShadow geometry={nodes.Plane050_1.geometry} material={materials.Glass} />
         <mesh name="Plane050_2" castShadow geometry={nodes.Plane050_2.geometry} material={glass} />
       </group>
-      <group name="office014" position={[53.121, 0.568, 68.866]} scale={1.529}>
+      <group name="office014" position={[53.121, 0.568, 69.568]} scale={1.529}>
         <mesh name="Plane050" castShadow geometry={nodes.Plane050.geometry} material={materials.Base} />
         <mesh name="Plane050_1" castShadow geometry={nodes.Plane050_1.geometry} material={materials.Glass} />
         <mesh name="Plane050_2" castShadow geometry={nodes.Plane050_2.geometry} material={glass} />
@@ -179,10 +194,18 @@ export function Office(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane102_1" castShadow geometry={nodes.Plane102_1.geometry} material={materials.Base} />
         <mesh name="Plane102_2" castShadow geometry={nodes.Plane102_2.geometry} material={materials.Glass} />
       </group>
-      <group name="office013" position={[37.392, 0.568, 42.698]} scale={1.55}>
-        <mesh name="Plane102" castShadow geometry={nodes.Plane102.geometry} material={glass} />
-        <mesh name="Plane102_1" castShadow geometry={nodes.Plane102_1.geometry} material={materials.Base} />
-        <mesh name="Plane102_2" castShadow geometry={nodes.Plane102_2.geometry} material={materials.Glass} />
+      <group name="Hotel" position={[-18.292, 0.474, 13.221]} rotation={[0, -Math.PI / 2, 0]} scale={0.594}>
+        <mesh name="Plane246" castShadow geometry={nodes.Plane246.geometry} material={materials.Base} />
+        <mesh name="Plane246_1" castShadow geometry={nodes.Plane246_1.geometry} material={materials.Primary} />
+      </group>
+      <group name="Office001" position={[-18.283, 0.474, -9.466]} rotation={[-Math.PI, 0, -Math.PI]} scale={0.711}>
+        <mesh name="Plane247" castShadow geometry={nodes.Plane247.geometry} material={materials.Primary} />
+        <mesh name="Plane247_1" castShadow geometry={nodes.Plane247_1.geometry} material={materials.Base} />
+      </group>
+      <group name="Office012" position={[-1.536, 0.568, 34.321]} rotation={[Math.PI, 0, Math.PI]}>
+        <mesh name="Plane453" castShadow geometry={nodes.Plane453.geometry} material={glass} />
+        <mesh name="Plane453_1" castShadow geometry={nodes.Plane453_1.geometry} material={materials.Base} />
+        <mesh name="Plane453_2" castShadow geometry={nodes.Plane453_2.geometry} material={materials.Glass} />
       </group>
     </group>
   )

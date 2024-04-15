@@ -33,18 +33,14 @@ export function Transport(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/models/scenes/Transport.glb') as GLTFResult
   return (
     <group {...props} dispose={null}>
-      <group name="Railway_Station" position={[23.997, 1.848, 29.846]}>
-        <mesh name="Plane069" castShadow geometry={nodes.Plane069.geometry} material={materials['Grass.001']} />
-        <mesh name="Plane069_1" castShadow geometry={nodes.Plane069_1.geometry} material={materials.Base} />
-        <mesh name="Plane069_2" castShadow geometry={nodes.Plane069_2.geometry} material={materials.Primary} />
-      </group>
+
       <mesh name="Railway_Track001" geometry={nodes.Railway_Track001.geometry} material={materials.Base} position={[28.355, -0.049, -12.704]} />
       <mesh name="Railway_Track002" geometry={nodes.Railway_Track002.geometry} material={materials.Base} position={[26.772, -0.049, -12.704]} />
       <group name="GateExit" position={[27.61, 0.583, 48.604]}>
         <mesh name="Plane135" castShadow geometry={nodes.Plane135.geometry} material={materials.Primary} />
         <mesh name="Plane135_1" castShadow geometry={nodes.Plane135_1.geometry} material={materials.Base} />
       </group>
-      <group name="GateEnter" position={[27.616, 0.584, -76.15]}>
+      <group name="GateEnter" position={[27.616, 0.65, -76.15]}>
         <mesh name="Plane254" castShadow geometry={nodes.Plane254.geometry} material={materials.Primary} />
         <mesh name="Plane254_1" castShadow geometry={nodes.Plane254_1.geometry} material={materials.Base} />
       </group>

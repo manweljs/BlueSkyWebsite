@@ -8,7 +8,7 @@ export default function Scenes() {
     return (
         <>
             <About />
-            <Collaboration />
+            {/* <Collaboration /> */}
             <Transport />
             <Mining />
         </>

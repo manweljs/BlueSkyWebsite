@@ -1,5 +1,6 @@
 import { SECTION } from '@/consts';
 import React, { createContext, useContext, useState, ReactNode, useEffect, useRef } from 'react';
+import { isMobile } from 'react-device-detect';
 import * as THREE from 'three';
 import { checkIfNight } from 'utils';
 
@@ -42,7 +43,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [activeSection, setActiveSection] = useState<ActiveSectionType>(null);
     const [camera, setCamera] = useState<THREE.PerspectiveCamera | THREE.OrthographicCamera | undefined>(undefined);
     const [startExperience, setStartExperience] = useState<boolean>(false);
-    const [isNight, setIsNight] = useState<boolean>(checkIfNight());
+    const [isNight, setIsNight] = useState<boolean>(isMobile ? false : checkIfNight());
     const [streetLightLoaded, setStreetLightLoaded] = useState<boolean>(false);
     const cameraControlsRef = useRef(null)
 

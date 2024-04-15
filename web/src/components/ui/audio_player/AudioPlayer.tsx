@@ -20,16 +20,30 @@ export default function AudioPlayer() {
     });
 
     const [play, setPlay] = useState(false);
+    const [userPaused, setUserPaused] = useState(false);
 
 
     useEffect(() => {
-        if (activeSection === 1) {
-            setPlay(false);
-        } else {
-            startExperience && audio?.play();
+        // Kontrol play/pause berdasarkan startExperience dan activeSection, dengan mempertimbangkan userPaused
+        if (startExperience && activeSection !== 1 && !userPaused) {
             setPlay(true);
+        } else {
+            setPlay(false);
         }
-    }, [activeSection, startExperience]);
+    }, [startExperience, activeSection, userPaused]);
+
+
+
+    useEffect(() => {
+        // Efek untuk mengatur play atau pause pada elemen audio
+        if (audio) {
+            if (play) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    }, [audio, play]);
 
     useEffect(() => {
         // Fungsi untuk menghandle visibility change
@@ -60,9 +74,14 @@ export default function AudioPlayer() {
         };
     }, [play, audio]);
 
+    const handleUserPaused = () => {
+        setUserPaused(!userPaused);
+        setPlay(!play);
+    }
+
     return (
         <FloatButton
-            onClick={() => setPlay(!play)}
+            onClick={() => handleUserPaused()}
             className={style.button_audio}
             shape='circle'
             icon={play ? <PauseCircleOutlined /> : <PlayCircleOutlined />}
