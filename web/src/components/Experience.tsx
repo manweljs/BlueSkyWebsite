@@ -103,7 +103,7 @@ const Scene = () => {
             } else {
                 quality = 2;
             }
-            setQuality(0);
+            setQuality(quality);
             setQualitySet(true);
             console.log(`Average FPS over ${timeCheck} seconds:`, fps);
         }
