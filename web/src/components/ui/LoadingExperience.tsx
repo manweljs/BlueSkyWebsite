@@ -9,7 +9,7 @@ const waitTime = 5000;
 
 export default function LoadingExperience() {
     const [isLoading, setIsLoading] = useState(true);
-    const { setStartExperience, startExperience } = useUserContext();
+    const { setStartExperience, startExperience, loadingProgress } = useUserContext();
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
@@ -21,6 +21,7 @@ export default function LoadingExperience() {
         };
     }, []);
 
+
     return (
         <AnimatePresence>
             {!startExperience && (
@@ -30,8 +31,14 @@ export default function LoadingExperience() {
                     exit={{ opacity: 0, transition: { duration: 0.5 } }}
                 >
                     <MyIcon />
-                    {!isLoading && (
-                        <motion.div>
+                    {!isLoading && (loadingProgress === 100) && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{
+                                opacity: 1,
+                                transition: { duration: .3 }
+                            }}
+                        >
                             <Button
                                 className={style.button_enter}
                                 onClick={() => { setStartExperience(true) }}

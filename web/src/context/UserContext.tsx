@@ -1,10 +1,13 @@
 import { SECTION } from '@/consts';
+import { Quality } from '@/types';
 import React, { createContext, useContext, useState, ReactNode, useEffect, useRef } from 'react';
 import { isMobile } from 'react-device-detect';
 import * as THREE from 'three';
 import { checkIfNight } from 'utils';
 
 type ActiveSectionType = number | null | undefined;
+
+
 
 // Mendefinisikan tipe untuk konteks
 interface UserContextType {
@@ -18,7 +21,11 @@ interface UserContextType {
     isNight?: boolean
     setIsNight?: (param: boolean) => void
     streetLightLoaded?: boolean
-    setStreetLightLoaded?: (param: boolean) => void
+    setStreetLightLoaded?: (param: boolean) => void,
+    loadingProgress?: number
+    setLoadingProgress?: (param: number) => void
+    quality: Quality
+    setQuality: (param: Quality) => void
 }
 
 // Membuat context dengan tipe yang didefinisikan
@@ -45,6 +52,9 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [startExperience, setStartExperience] = useState<boolean>(false);
     const [isNight, setIsNight] = useState<boolean>(isMobile ? false : checkIfNight());
     const [streetLightLoaded, setStreetLightLoaded] = useState<boolean>(false);
+    const [loadingProgress, setLoadingProgress] = useState(0);
+    const [quality, setQuality] = useState<Quality>(2);
+
     const cameraControlsRef = useRef(null)
 
     const value = {
@@ -58,7 +68,11 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         isNight,
         setIsNight,
         streetLightLoaded,
-        setStreetLightLoaded
+        setStreetLightLoaded,
+        loadingProgress,
+        setLoadingProgress,
+        quality,
+        setQuality
     }
 
     return (

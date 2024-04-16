@@ -1,7 +1,8 @@
 "use client";
-import { Environment, PerspectiveCamera, Stars, Html, CameraControls, useProgress, PerformanceMonitor, Stats } from "@react-three/drei";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Suspense, useEffect, useRef, useState } from "react";
+
+import { PerspectiveCamera, CameraControls, useProgress, Stats } from "@react-three/drei";
+import { Canvas, useThree } from "@react-three/fiber";
+import { useEffect, useState } from "react";
 import * as THREE from "three";
 import { BlueSky } from "@/components/models/BlueSky";
 import { BlueSkyStatue } from "@/components/models/BlueSkyStatue";
@@ -14,10 +15,8 @@ import { Beach } from "./models/beach/Beach";
 import Sections from "./sections/Sections";
 import { useUserContext } from "@/context/UserContext";
 import { sectionData } from "@/consts";
-import Leva from "./Leva";
 import Scenes from "./models/scenes/Scenes";
 import AudioPlayer from "./ui/audio_player/AudioPlayer";
-
 import Markers from "./ui/markers/Markers";
 import Navbar from "./ui/navbar/Navbar";
 import ControlGuide from "./ui/ControlGuide";
@@ -31,16 +30,16 @@ import BaseEnvironment from "./BaseEnvironment";
 import style from "@/styles/style.module.sass"
 import { Streetlights } from "./models/streetlights/Streetlights";
 import { ConfigProvider, theme } from "antd";
+import { useFPS } from "./hooks/useFPS";
+import { Quality } from "@/types";
 
 
 const Experience = () => {
 
-    const { isNight } = useUserContext()
     return (
-        <ConfigProvider
-            theme={{
-                algorithm: theme.defaultAlgorithm,
-            }}
+        <ConfigProvider theme={{
+            algorithm: theme.defaultAlgorithm,
+        }}
         >
             <AudioPlayer />
             <DayNightControls />
@@ -48,29 +47,30 @@ const Experience = () => {
             <LoadingExperience />
             <Navbar />
             <ControlGuide />
+
             <Canvas shadows className="main-canvas" >
                 <Stats className={style.stats} />
-                <Suspense fallback={<LoadingModel />} >
-                    <Scene />
-                </Suspense>
+                <Scene />
             </Canvas>
 
-        </ConfigProvider>
-
+        </ConfigProvider >
     )
 }
 
-const LoadingModel = () => {
-    const { progress } = useProgress()
-    return <Html center>{progress} % loaded</Html>
-}
 
+const timeCheck = 3;
 
 const Scene = () => {
     const { camera: mainCamera } = useThree()
-    const { camera, setCamera, cameraControlsRef } = useUserContext()
+    const { camera, setCamera, cameraControlsRef, setLoadingProgress, setQuality, quality } = useUserContext()
     const [initialScene, setInitialScene] = useState(false)
+    const [qualitySet, setQualitySet] = useState(false)
 
+    const { progress } = useProgress()
+
+    useEffect(() => {
+        setLoadingProgress(progress)
+    }, [progress])
     useEffect(() => {
         if (mainCamera) {
             setCamera(mainCamera)
@@ -93,27 +93,36 @@ const Scene = () => {
     }, [cameraControlsRef.current, initialScene]);
 
 
+    useFPS((fps) => {
+        if (!qualitySet) {
+            let quality: Quality = 0;
+            if (fps <= 15) {
+                quality = 0;
+            } else if (fps > 15 && fps <= 25) {
+                quality = 1;
+            } else {
+                quality = 2;
+            }
+            setQuality(0);
+            setQualitySet(true);
+            console.log(`Average FPS over ${timeCheck} seconds:`, fps);
+        }
+    }, timeCheck * 1000);
 
     return (
         <>
             {camera &&
                 <>
-
-                    {/* {process.env.NODE_ENV === 'development' &&
-                        <Leva />
-                    } */}
                     <CameraControls
                         ref={cameraControlsRef}
                         camera={camera}
                         maxPolarAngle={1.2}
                         maxDistance={100}
                         minDistance={25}
-
                         makeDefault
                     />
 
                     <PerspectiveCamera zoom={2} />
-
 
                     <Text001 />
                     <BlueSky />
@@ -130,8 +139,7 @@ const Scene = () => {
                     <RoadAndFloors />
                     <Bloom mipmapBlur luminanceThreshold={1} />
 
-
-                    {!isMobile &&
+                    {!isMobile && quality > 1 &&
                         <EffectComposer>
                             <DepthOfField
                                 focusDistance={0.02}
@@ -141,15 +149,13 @@ const Scene = () => {
                         </EffectComposer>
                     }
 
-                    <PerformanceMonitor ms={60} />
                     <BaseEnvironment />
-
-
                 </>
             }
         </>
     )
 }
+
 
 
 export default Experience

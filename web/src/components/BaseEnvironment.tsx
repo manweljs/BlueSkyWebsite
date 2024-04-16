@@ -14,7 +14,7 @@ const directionalLightIntensity = 0.75;
 const ambientLightIntensity = 2;
 
 const BaseEnvironment = () => {
-    const { isNight } = useUserContext();
+    const { isNight, quality } = useUserContext();
 
     const speed = isNight ? 0.1 : 0.05;
     const skyRef = useRef(null);
@@ -45,6 +45,9 @@ const BaseEnvironment = () => {
 
         }
 
+        if (quality < 1) {
+            scene.fog = null;
+        }
 
         // Set the colors directly without interpolation for mobile
         if (isMobile) {
@@ -59,7 +62,7 @@ const BaseEnvironment = () => {
                 directionalLightRef.current.position.set(15, 65, targetZPosition);
             }
         }
-    }, [isNight, scene, isMobile]);
+    }, [isNight, scene, isMobile, quality]);
 
 
 

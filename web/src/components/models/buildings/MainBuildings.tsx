@@ -79,7 +79,11 @@ type GLTFResult = GLTF & {
 
 type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicElements['mesh']>>
 
-export function MainBuildings(props: JSX.IntrinsicElements['group']) {
+export function MainBuildings(props: {
+  castShadow: boolean
+}) {
+
+  const { castShadow } = props
   const { nodes } = useGLTF('/models/buildings/MainBuildings.glb') as GLTFResult
   const { isNight } = useUserContext()
 
@@ -88,97 +92,97 @@ export function MainBuildings(props: JSX.IntrinsicElements['group']) {
   return (
     <group {...props} dispose={null}>
       <group name="Coles" position={[4.876, 1.06, 31.453]} rotation={[0, Math.PI / 2, 0]} scale={0.911}>
-        <mesh name="Plane081" castShadow geometry={nodes.Plane081.geometry} material={materials.Base} />
-        <mesh name="Plane081_1" castShadow geometry={nodes.Plane081_1.geometry} material={materials.Primary} />
-        <mesh name="Plane081_2" castShadow geometry={nodes.Plane081_2.geometry} material={materials.Coles} />
-        <mesh name="Plane081_3" castShadow geometry={nodes.Plane081_3.geometry} material={materials.Glass} />
-        <mesh name="Plane081_4" castShadow geometry={nodes.Plane081_4.geometry} material={glass} />
+        <mesh name="Plane081" castShadow={castShadow} geometry={nodes.Plane081.geometry} material={materials.Base} />
+        <mesh name="Plane081_1" castShadow={castShadow} geometry={nodes.Plane081_1.geometry} material={materials.Primary} />
+        <mesh name="Plane081_2" castShadow={castShadow} geometry={nodes.Plane081_2.geometry} material={materials.Coles} />
+        <mesh name="Plane081_3" castShadow={castShadow} geometry={nodes.Plane081_3.geometry} material={materials.Glass} />
+        <mesh name="Plane081_4" castShadow={castShadow} geometry={nodes.Plane081_4.geometry} material={glass} />
       </group>
       <group name="IBM" position={[-14.17, 0.484, 31.278]} scale={[5.62, 7.668, 5.265]}>
-        <mesh name="Plane071" castShadow geometry={nodes.Plane071.geometry} material={materials.Glass} />
-        <mesh name="Plane071_1" castShadow geometry={nodes.Plane071_1.geometry} material={materials.Base} />
-        <mesh name="Plane071_2" castShadow geometry={nodes.Plane071_2.geometry} material={materials.Primary} />
+        <mesh name="Plane071" castShadow={castShadow} geometry={nodes.Plane071.geometry} material={materials.Glass} />
+        <mesh name="Plane071_1" castShadow={castShadow} geometry={nodes.Plane071_1.geometry} material={materials.Base} />
+        <mesh name="Plane071_2" castShadow={castShadow} geometry={nodes.Plane071_2.geometry} material={materials.Primary} />
       </group>
       <group name="Railway_Station" position={[23.997, 1.848, 30.094]} scale={[1, 1, 0.951]}>
-        <mesh name="Plane069" castShadow geometry={nodes.Plane069.geometry} material={materials.Grass} />
-        <mesh name="Plane069_1" castShadow geometry={nodes.Plane069_1.geometry} material={materials.Base} />
-        <mesh name="Plane069_2" castShadow geometry={nodes.Plane069_2.geometry} material={materials.Primary} />
-        <mesh name="Plane069_3" castShadow geometry={nodes.Plane069_3.geometry} material={materials.Glass} />
-        <mesh name="Plane069_4" castShadow geometry={nodes.Plane069_4.geometry} material={glass} />
+        <mesh name="Plane069" castShadow={castShadow} geometry={nodes.Plane069.geometry} material={materials.Grass} />
+        <mesh name="Plane069_1" castShadow={castShadow} geometry={nodes.Plane069_1.geometry} material={materials.Base} />
+        <mesh name="Plane069_2" castShadow={castShadow} geometry={nodes.Plane069_2.geometry} material={materials.Primary} />
+        <mesh name="Plane069_3" castShadow={castShadow} geometry={nodes.Plane069_3.geometry} material={materials.Glass} />
+        <mesh name="Plane069_4" castShadow={castShadow} geometry={nodes.Plane069_4.geometry} material={glass} />
       </group>
       <group name="Fence002" position={[2.241, 0.571, 46.436]} rotation={[0, -Math.PI / 2, 0]} scale={0.829}>
-        <mesh name="Plane142" castShadow geometry={nodes.Plane142.geometry} material={materials.Base} />
-        <mesh name="Plane142_1" castShadow geometry={nodes.Plane142_1.geometry} material={materials.Primary} />
+        <mesh name="Plane142" castShadow={castShadow} geometry={nodes.Plane142.geometry} material={materials.Base} />
+        <mesh name="Plane142_1" castShadow={castShadow} geometry={nodes.Plane142_1.geometry} material={materials.Primary} />
       </group>
       <group name="hospital003" position={[-17.243, 2.429, -20.778]} rotation={[0, Math.PI / 2, 0]} scale={[1.443, 1.443, 1.688]}>
-        <mesh name="Cube013" castShadow geometry={nodes.Cube013.geometry} material={materials.Primary} />
-        <mesh name="Cube013_1" castShadow geometry={nodes.Cube013_1.geometry} material={glass} />
-        <mesh name="Cube013_2" castShadow geometry={nodes.Cube013_2.geometry} material={materials.Base} />
+        <mesh name="Cube013" castShadow={castShadow} geometry={nodes.Cube013.geometry} material={materials.Primary} />
+        <mesh name="Cube013_1" castShadow={castShadow} geometry={nodes.Cube013_1.geometry} material={glass} />
+        <mesh name="Cube013_2" castShadow={castShadow} geometry={nodes.Cube013_2.geometry} material={materials.Base} />
       </group>
       <group name="Stadion" position={[-0.039, 0.61, -33.922]} scale={[0.568, 0.25, 0.287]}>
-        <mesh name="Plane012" castShadow geometry={nodes.Plane012.geometry} material={glass} />
-        <mesh name="Plane012_1" castShadow geometry={nodes.Plane012_1.geometry} material={materials.Base} />
-        <mesh name="Plane012_2" castShadow geometry={nodes.Plane012_2.geometry} material={materials.Tree} />
+        <mesh name="Plane012" castShadow={castShadow} geometry={nodes.Plane012.geometry} material={glass} />
+        <mesh name="Plane012_1" castShadow={castShadow} geometry={nodes.Plane012_1.geometry} material={materials.Base} />
+        <mesh name="Plane012_2" castShadow={castShadow} geometry={nodes.Plane012_2.geometry} material={materials.Tree} />
       </group>
       <group name="NDIS" position={[15.53, 0.568, -18.281]} rotation={[0, -Math.PI / 2, 0]} scale={1.18}>
-        <mesh name="Plane005" castShadow geometry={nodes.Plane005.geometry} material={glass} />
-        <mesh name="Plane005_1" castShadow geometry={nodes.Plane005_1.geometry} material={materials.Base} />
-        <mesh name="Plane005_2" castShadow geometry={nodes.Plane005_2.geometry} material={materials.Grass} />
+        <mesh name="Plane005" castShadow={castShadow} geometry={nodes.Plane005.geometry} material={glass} />
+        <mesh name="Plane005_1" castShadow={castShadow} geometry={nodes.Plane005_1.geometry} material={materials.Base} />
+        <mesh name="Plane005_2" castShadow={castShadow} geometry={nodes.Plane005_2.geometry} material={materials.Grass} />
       </group>
 
 
 
       <group name="Water_Statue" position={[-0.013, 1.31, -13.751]} scale={1.225}>
-        <mesh name="Plane015" castShadow geometry={nodes.Plane015.geometry} material={materials.Base} />
-        <mesh name="Plane015_1" castShadow geometry={nodes.Plane015_1.geometry} material={materials.Water} />
+        <mesh name="Plane015" castShadow={castShadow} geometry={nodes.Plane015.geometry} material={materials.Base} />
+        <mesh name="Plane015_1" castShadow={castShadow} geometry={nodes.Plane015_1.geometry} material={materials.Water} />
       </group>
 
       <group name="warehouse1" position={[9.561, 2.068, -52.808]} scale={[0.945, 0.829, 0.69]}>
-        <mesh name="Plane020" castShadow geometry={nodes.Plane020.geometry} material={materials.Base} />
-        <mesh name="Plane020_1" castShadow geometry={nodes.Plane020_1.geometry} material={materials.Primary} />
+        <mesh name="Plane020" castShadow={castShadow} geometry={nodes.Plane020.geometry} material={materials.Base} />
+        <mesh name="Plane020_1" castShadow={castShadow} geometry={nodes.Plane020_1.geometry} material={materials.Primary} />
       </group>
       <group name="warehouse2" position={[15.486, 2.092, -52.572]} scale={[1, 1, 0.819]}>
-        <mesh name="Plane040" castShadow geometry={nodes.Plane040.geometry} material={materials.Base} />
-        <mesh name="Plane040_1" castShadow geometry={nodes.Plane040_1.geometry} material={glass} />
-        <mesh name="Plane040_2" castShadow geometry={nodes.Plane040_2.geometry} material={materials.Primary} />
+        <mesh name="Plane040" castShadow={castShadow} geometry={nodes.Plane040.geometry} material={materials.Base} />
+        <mesh name="Plane040_1" castShadow={castShadow} geometry={nodes.Plane040_1.geometry} material={glass} />
+        <mesh name="Plane040_2" castShadow={castShadow} geometry={nodes.Plane040_2.geometry} material={materials.Primary} />
       </group>
       <group name="warehouse003" position={[2.237, 2.068, -52.808]} scale={[0.945, 0.829, 0.69]}>
-        <mesh name="Plane159" castShadow geometry={nodes.Plane159.geometry} material={materials.Base} />
-        <mesh name="Plane159_1" castShadow geometry={nodes.Plane159_1.geometry} material={materials.Primary} />
+        <mesh name="Plane159" castShadow={castShadow} geometry={nodes.Plane159.geometry} material={materials.Base} />
+        <mesh name="Plane159_1" castShadow={castShadow} geometry={nodes.Plane159_1.geometry} material={materials.Primary} />
       </group>
       <group name="Factory001" position={[-18.299, 0.65, -55.062]} scale={0.696}>
-        <mesh name="Cylinder" castShadow geometry={nodes.Cylinder.geometry} material={materials.Base} />
-        <mesh name="Cylinder_1" castShadow geometry={nodes.Cylinder_1.geometry} material={materials.Primary} />
-        <mesh name="Cylinder_2" castShadow geometry={nodes.Cylinder_2.geometry} material={materials.Glass} />
+        <mesh name="Cylinder" castShadow={castShadow} geometry={nodes.Cylinder.geometry} material={materials.Base} />
+        <mesh name="Cylinder_1" castShadow={castShadow} geometry={nodes.Cylinder_1.geometry} material={materials.Primary} />
+        <mesh name="Cylinder_2" castShadow={castShadow} geometry={nodes.Cylinder_2.geometry} material={materials.Glass} />
       </group>
       <group name="Airport" position={[-29.809, 0.568, -63.787]} scale={2.274}>
-        <mesh name="Plane016" castShadow geometry={nodes.Plane016.geometry} material={materials.Base} />
-        <mesh name="Plane016_1" castShadow geometry={nodes.Plane016_1.geometry} material={materials.Glass} />
-        <mesh name="Plane016_2" castShadow geometry={nodes.Plane016_2.geometry} material={glass} />
+        <mesh name="Plane016" castShadow={castShadow} geometry={nodes.Plane016.geometry} material={materials.Base} />
+        <mesh name="Plane016_1" castShadow={castShadow} geometry={nodes.Plane016_1.geometry} material={materials.Glass} />
+        <mesh name="Plane016_2" castShadow={castShadow} geometry={nodes.Plane016_2.geometry} material={glass} />
       </group>
       <group name="Hangar" position={[-43.478, 0.399, -60.989]} rotation={[Math.PI, 0, Math.PI]} scale={1.299}>
-        <mesh name="Plane252" castShadow geometry={nodes.Plane252.geometry} material={materials.Base} />
-        <mesh name="Plane252_1" castShadow geometry={nodes.Plane252_1.geometry} material={materials.Primary} />
+        <mesh name="Plane252" castShadow={castShadow} geometry={nodes.Plane252.geometry} material={materials.Base} />
+        <mesh name="Plane252_1" castShadow={castShadow} geometry={nodes.Plane252_1.geometry} material={materials.Primary} />
       </group>
       <group name="Hangar001" position={[-43.478, 0.399, -55.012]} rotation={[Math.PI, 0, Math.PI]} scale={1.299}>
-        <mesh name="Plane252" castShadow geometry={nodes.Plane252.geometry} material={materials.Base} />
-        <mesh name="Plane252_1" castShadow geometry={nodes.Plane252_1.geometry} material={materials.Primary} />
+        <mesh name="Plane252" castShadow={castShadow} geometry={nodes.Plane252.geometry} material={materials.Base} />
+        <mesh name="Plane252_1" castShadow={castShadow} geometry={nodes.Plane252_1.geometry} material={materials.Primary} />
       </group>
       <group name="Hangar002" position={[-43.478, 0.399, -66.839]} rotation={[Math.PI, 0, Math.PI]} scale={1.299}>
-        <mesh name="Plane252" castShadow geometry={nodes.Plane252.geometry} material={materials.Base} />
-        <mesh name="Plane252_1" castShadow geometry={nodes.Plane252_1.geometry} material={materials.Primary} />
+        <mesh name="Plane252" castShadow={castShadow} geometry={nodes.Plane252.geometry} material={materials.Base} />
+        <mesh name="Plane252_1" castShadow={castShadow} geometry={nodes.Plane252_1.geometry} material={materials.Primary} />
       </group>
       <group name="harbour" position={[14.945, 1.486, -69.53]} rotation={[Math.PI, 0, Math.PI]}>
-        <mesh name="mesh980636007002" castShadow geometry={nodes.mesh980636007002.geometry} material={materials.Base} />
-        <mesh name="mesh980636007002_1" castShadow geometry={nodes.mesh980636007002_1.geometry} material={materials.Primary} />
+        <mesh name="mesh980636007002" castShadow={castShadow} geometry={nodes.mesh980636007002.geometry} material={materials.Base} />
+        <mesh name="mesh980636007002_1" castShadow={castShadow} geometry={nodes.mesh980636007002_1.geometry} material={materials.Primary} />
       </group>
       <group name="harbour001" position={[-2.214, 1.486, -69.53]} rotation={[Math.PI, 0, Math.PI]}>
-        <mesh name="mesh980636007011" castShadow geometry={nodes.mesh980636007011.geometry} material={materials.Base} />
-        <mesh name="mesh980636007011_1" castShadow geometry={nodes.mesh980636007011_1.geometry} material={materials.Primary} />
+        <mesh name="mesh980636007011" castShadow={castShadow} geometry={nodes.mesh980636007011.geometry} material={materials.Base} />
+        <mesh name="mesh980636007011_1" castShadow={castShadow} geometry={nodes.mesh980636007011_1.geometry} material={materials.Primary} />
       </group>
       <group name="library" position={[15.549, 0.568, -35.713]} rotation={[0, -Math.PI / 2, 0]} scale={1.087}>
-        <mesh name="Plane004" castShadow geometry={nodes.Plane004.geometry} material={glass} />
-        <mesh name="Plane004_1" castShadow geometry={nodes.Plane004_1.geometry} material={materials.Base} />
+        <mesh name="Plane004" castShadow={castShadow} geometry={nodes.Plane004.geometry} material={glass} />
+        <mesh name="Plane004_1" castShadow={castShadow} geometry={nodes.Plane004_1.geometry} material={materials.Base} />
       </group>
     </group>
   )

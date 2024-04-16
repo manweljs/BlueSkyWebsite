@@ -7,6 +7,7 @@ import * as THREE from 'three'
 import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { useUserContext } from '@/context/UserContext'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -30,12 +31,16 @@ export function AirPlaneTakeOff(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
   const { nodes, materials, animations } = useGLTF('/models/vehicles/AirPlaneTakeOff.glb') as GLTFResult
   const { actions } = useAnimations(animations, group)
+  const { quality } = useUserContext()
+
   useEffect(() => {
-    actions['AirPlaneTakeOff'].play()
-    return () => {
-      actions['AirPlaneTakeOff'].stop()
+    if (quality > 1) {
+      actions['AirPlaneTakeOff'].play()
+      return () => {
+        actions['AirPlaneTakeOff'].stop()
+      }
     }
-  }, []);
+  }, [quality]);
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">

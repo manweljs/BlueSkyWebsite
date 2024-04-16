@@ -22,3 +22,5 @@ export interface ContentType {
     videoId: string
     paragraph: string[]
 }
+
+export type Quality = 0 | 1 | 2 

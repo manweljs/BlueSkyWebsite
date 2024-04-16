@@ -111,6 +111,7 @@ export function Beach(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials, animations } = useGLTF('/models/beach/Beach.glb') as GLTFResult
   const { actions } = useAnimations(animations, group)
 
+
   useEffect(() => {
     // Menyimpan semua timeout IDs untuk dibersihkan nanti
     const timeouts = [];
@@ -135,7 +136,6 @@ export function Beach(props: JSX.IntrinsicElements['group']) {
       Object.values(actions).forEach(action => action.stop());
     };
   }, [actions]);
-
 
   return (
     <group ref={group} {...props} dispose={null}>
