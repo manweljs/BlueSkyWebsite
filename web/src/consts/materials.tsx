@@ -1,19 +1,19 @@
 import * as THREE from "three";
 
 export const COLORS = {
-    Primary: "#0054db",
-    Base: "#dcefff",
-    Water: "#76b9ed",
-    Glass: "#469cff",
+    Primary: "#346de9",
+    Base: "#eaf5ff",
+    Water: "#4d96da",
+    Glass: "#3493ff",
     GlassNight: "#e9edff",
-    Grass: "#52d16e",
+    Grass: "#65c96d",
     Wood: "#8b5a2b",
     Lamp: "#fff6cf",
     Leaf: "#95F999",
     Tree: "#3d9e3d",
     Road: "#565656",
-    Land: "#9b7653",
-    Sand: "#f4c542",
+    Land: "#c5a569",
+    Sand: "#d1c5a5",
     Stone: "#bebebe",
     Coles: "#E01A22"
 };
@@ -41,8 +41,8 @@ export const materials = {
     }),
     Grass: new THREE.MeshStandardMaterial({
         color: new THREE.Color(COLORS.Grass),
-        roughness: .5,
-        metalness: 0,
+        roughness: .9,
+        metalness: 0.02,
     }),
     Glass: new THREE.MeshStandardMaterial({
         color: new THREE.Color(COLORS.Glass),
@@ -92,8 +92,8 @@ export const materials = {
     }),
     Land: new THREE.MeshStandardMaterial({
         color: new THREE.Color(COLORS.Land),
-        roughness: 1.0,
-        metalness: 0.0,
+        roughness: .8,
+        metalness: 0.05,
     }),
     Sand: new THREE.MeshStandardMaterial({
         color: new THREE.Color(COLORS.Sand),

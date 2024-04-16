@@ -7,6 +7,7 @@ import * as THREE from 'three'
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { materials } from '@/consts/materials'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -27,7 +28,7 @@ type GLTFResult = GLTF & {
 type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicElements['mesh']>>
 
 export function Island(props: JSX.IntrinsicElements['group']) {
-  const { nodes, materials } = useGLTF('/models/floors/Island.glb') as GLTFResult
+  const { nodes } = useGLTF('/models/floors/Island.glb') as GLTFResult
   return (
     <group {...props} dispose={null}>
       <mesh name="Ocean" receiveShadow geometry={nodes.Ocean.geometry} material={materials.Water} />

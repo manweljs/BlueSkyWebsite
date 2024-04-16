@@ -4,10 +4,9 @@ import * as THREE from 'three';
 import { useUserContext } from '@/context/UserContext';
 import { Stars } from '@react-three/drei';
 import { isMobile } from 'react-device-detect';
-import { is } from '@react-three/fiber/dist/declarations/src/core/utils';
 
-const daySky = "#b3e7ff";
-const dayLight = "#b4dbff";
+const daySky = "#a4cfff";
+const dayLight = "#b4d2ff";
 const nightSky = "#000b49";
 const nightLight = "#6170a1";
 const directionalLightIntensity = 0.75;
@@ -87,7 +86,7 @@ const BaseEnvironment = () => {
 
     return (
         <>
-            {isNight && <Stars radius={200} depth={30} count={500} factor={4} fade />}
+            {isNight && <Stars radius={200} depth={30} count={(quality + 1) * 250} factor={4} fade />}
             <ambientLight
                 ref={ambientLightRef}
                 color={ambientLightColorRef.current}
@@ -108,10 +107,11 @@ const BaseEnvironment = () => {
                 shadow-camera-bottom={-130}
                 color={directionalLightColorRef.current}
             />
-            <mesh ref={skyRef}>
+
+            {/* <mesh ref={skyRef}>
                 <sphereGeometry args={[800, 800, 800]} />
                 <meshBasicMaterial attach="material" color={skyColorRef.current} side={THREE.BackSide} />
-            </mesh>
+            </mesh> */}
         </>
     );
 };

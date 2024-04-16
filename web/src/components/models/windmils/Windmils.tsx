@@ -7,6 +7,7 @@ import * as THREE from 'three'
 import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { useUserContext } from '@/context/UserContext'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -45,6 +46,7 @@ export function WindMils(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
   const { nodes, materials, animations } = useGLTF('/models/windmils/Windmils.glb') as GLTFResult
   const { actions } = useAnimations(animations, group)
+  const { quality } = useUserContext()
 
   useEffect(() => {
     // Menyimpan semua timeout IDs untuk dibersihkan nanti
@@ -80,33 +82,47 @@ export function WindMils(props: JSX.IntrinsicElements['group']) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
+        {/* low quality */}
         <mesh name="WindMill" castShadow geometry={nodes.WindMill.geometry} material={materials.Base} position={[-47.844, 4.406, 56.283]} rotation={[-3.14, 0.558, -3.132]} scale={1.363}>
           <mesh name="WindMillTurbin001" castShadow geometry={nodes.WindMillTurbin001.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
-        </mesh>
-        <mesh name="WindMill001" castShadow geometry={nodes.WindMill001.geometry} material={materials.Base} position={[-45.973, 2.192, 58.52]} rotation={[-3.14, 0.602, -3.132]} scale={1.363}>
-          <mesh name="WindMillTurbin002" castShadow geometry={nodes.WindMillTurbin002.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
-        </mesh>
-        <mesh name="WindMill002" castShadow geometry={nodes.WindMill002.geometry} material={materials.Base} position={[-46.4, 4.524, 53.63]} rotation={[3.139, 0.873, -3.129]} scale={1.363}>
-          <mesh name="WindMillTurbin003" castShadow geometry={nodes.WindMillTurbin003.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
         </mesh>
         <mesh name="WindMill003" castShadow geometry={nodes.WindMill003.geometry} material={materials.Base} position={[-75.421, 15.103, 16.252]} rotation={[3.129, 1.179, -3.121]} scale={1.363}>
           <mesh name="WindMillTurbin004" castShadow geometry={nodes.WindMillTurbin004.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
         </mesh>
-        <mesh name="WindMill004" castShadow geometry={nodes.WindMill004.geometry} material={materials.Base} position={[-76.388, 15.46, 22.595]} rotation={[3.14, 0.807, -3.13]} scale={1.363}>
-          <mesh name="WindMillTurbin005" castShadow geometry={nodes.WindMillTurbin005.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
-        </mesh>
-        <mesh name="WindMill005" castShadow geometry={nodes.WindMill005.geometry} material={materials.Base} position={[-76.646, 15.485, 19.328]} rotation={[3.14, 0.807, -3.13]} scale={1.363}>
-          <mesh name="WindMillTurbin006" castShadow geometry={nodes.WindMillTurbin006.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
-        </mesh>
         <mesh name="WindMill006" castShadow geometry={nodes.WindMill006.geometry} material={materials.Base} position={[39.128, 1.164, -83.122]} rotation={[3.14, 0.807, -3.13]} scale={1.363}>
           <mesh name="WindMillTurbin007" castShadow geometry={nodes.WindMillTurbin007.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
         </mesh>
-        <mesh name="WindMill007" castShadow geometry={nodes.WindMill007.geometry} material={materials.Base} position={[39.534, 1.123, -77.55]} rotation={[3.14, 0.807, -3.13]} scale={1.363}>
-          <mesh name="WindMillTurbin008" castShadow geometry={nodes.WindMillTurbin008.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
-        </mesh>
-        <mesh name="WindMill008" castShadow geometry={nodes.WindMill008.geometry} material={materials.Base} position={[45.593, 2.932, -77.551]} rotation={[3.14, 0.807, -3.13]} scale={1.363}>
-          <mesh name="WindMillTurbin009" castShadow geometry={nodes.WindMillTurbin009.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
-        </mesh>
+
+
+        {/* med quality */}
+        {quality >= 1 &&
+          <group>
+            <mesh name="WindMill001" castShadow geometry={nodes.WindMill001.geometry} material={materials.Base} position={[-45.973, 2.192, 58.52]} rotation={[-3.14, 0.602, -3.132]} scale={1.363}>
+              <mesh name="WindMillTurbin002" castShadow geometry={nodes.WindMillTurbin002.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
+            </mesh>
+            <mesh name="WindMill004" castShadow geometry={nodes.WindMill004.geometry} material={materials.Base} position={[-76.388, 15.46, 22.595]} rotation={[3.14, 0.807, -3.13]} scale={1.363}>
+              <mesh name="WindMillTurbin005" castShadow geometry={nodes.WindMillTurbin005.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
+            </mesh>
+            <mesh name="WindMill007" castShadow geometry={nodes.WindMill007.geometry} material={materials.Base} position={[39.534, 1.123, -77.55]} rotation={[3.14, 0.807, -3.13]} scale={1.363}>
+              <mesh name="WindMillTurbin008" castShadow geometry={nodes.WindMillTurbin008.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
+            </mesh>
+          </group>
+        }
+
+        {/* high quality  */}
+        {quality === 2 &&
+          <group>
+            <mesh name="WindMill002" castShadow geometry={nodes.WindMill002.geometry} material={materials.Base} position={[-46.4, 4.524, 53.63]} rotation={[3.139, 0.873, -3.129]} scale={1.363}>
+              <mesh name="WindMillTurbin003" castShadow geometry={nodes.WindMillTurbin003.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
+            </mesh>
+            <mesh name="WindMill005" castShadow geometry={nodes.WindMill005.geometry} material={materials.Base} position={[-76.646, 15.485, 19.328]} rotation={[3.14, 0.807, -3.13]} scale={1.363}>
+              <mesh name="WindMillTurbin006" castShadow geometry={nodes.WindMillTurbin006.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
+            </mesh>
+            <mesh name="WindMill008" castShadow geometry={nodes.WindMill008.geometry} material={materials.Base} position={[45.593, 2.932, -77.551]} rotation={[3.14, 0.807, -3.13]} scale={1.363}>
+              <mesh name="WindMillTurbin009" castShadow geometry={nodes.WindMillTurbin009.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
+            </mesh>
+          </group>
+        }
       </group>
     </group>
   )

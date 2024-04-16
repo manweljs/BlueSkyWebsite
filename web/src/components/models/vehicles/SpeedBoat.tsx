@@ -8,6 +8,7 @@ import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import Smoke from '../Smoke'
+import { useUserContext } from '@/context/UserContext'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -33,11 +34,18 @@ export function SpeedBoat(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials, animations } = useGLTF('/models/vehicles/SpeedBoat.glb') as GLTFResult
   const { actions } = useAnimations(animations, group)
 
-  useEffect(() => {
-    actions['Action.001']?.play()
-    actions['Action']?.play()
+  const { quality } = useUserContext()
 
-  }, []);
+  useEffect(() => {
+    if (quality > 1) {
+      actions['Action.001']?.play()
+      actions['Action']?.play()
+    } else {
+      actions['Action.001']?.stop()
+      actions['Action']?.stop()
+    }
+
+  }, [quality]);
 
   return (
     <group ref={group} {...props} dispose={null}>

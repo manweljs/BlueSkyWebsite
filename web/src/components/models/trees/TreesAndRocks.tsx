@@ -4,7 +4,7 @@ Command: npx gltfjsx@6.2.16 public/models/trees/TreesAndRocks.glb -o src/compone
 */
 
 import * as THREE from 'three'
-import React, { useRef } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import { materials } from '@/consts/materials'
@@ -422,10 +422,13 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
   const { nodes } = useGLTF('/models/trees/TreesAndRocks.glb') as GLTFResult
 
   const { quality } = useUserContext()
-  const castShadow = (quality >= 2) ? true : false
+  const castShadow = quality >= 2;
 
-  return (
-    <group {...props} dispose={null}>
+  const [selectedChildren, setSelectedChildren] = useState([]);
+  const [percentage, setPercentage] = useState(1);
+
+  const dataOld = (
+    <>
       <mesh name="rock023" castShadow={castShadow} geometry={nodes.rock023.geometry} material={materials.Stone} position={[57.278, -1.009, 4.302]} rotation={[2.526, 1.128, -Math.PI / 2]} scale={0.628} />
       <mesh name="rock039" castShadow={castShadow} geometry={nodes.rock039.geometry} material={materials.Stone} position={[63.832, 1.471, 3.474]} rotation={[-0.409, 1.429, Math.PI / 2]} />
       <mesh name="rock044" castShadow={castShadow} geometry={nodes.rock044.geometry} material={materials.Stone} position={[62.459, 4.649, -13.436]} rotation={[-0.12, 0, 0.685]} />
@@ -2421,8 +2424,32 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
         <mesh name="Plane303" castShadow={castShadow} geometry={nodes.Plane303.geometry} material={materials.Wood} />
         <mesh name="Plane303_1" castShadow={castShadow} geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
       </group>
+    </>
+  )
+
+  const childrenArray = React.Children.toArray(dataOld.props.children);
+  const selectRandomChildren = (percentage) => {
+    const count = Math.ceil(childrenArray.length * (percentage));
+    const shuffled = [...childrenArray].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  };
+
+  // Efek untuk memilih children ketika komponen dimount atau persentase berubah
+  useEffect(() => {
+    setSelectedChildren(selectRandomChildren(percentage)); // Mengatur persentase di sini
+  }, [percentage]); // Deps array kosong agar hanya dijalankan sekali saat mount
+
+  useEffect(() => {
+    const percent = quality === 2 ? 1 : quality === 1 ? 0.5 : 0.25;
+    setPercentage(percent)
+  }, [quality]);
+
+  return (
+    <group {...props} dispose={null}>
+      {selectedChildren}
     </group>
   )
+
 }
 
 useGLTF.preload('/models/trees/TreesAndRocks.glb')

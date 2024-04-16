@@ -7,6 +7,7 @@ import * as THREE from 'three'
 import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { useUserContext } from '@/context/UserContext'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -110,6 +111,7 @@ export function Beach(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
   const { nodes, materials, animations } = useGLTF('/models/beach/Beach.glb') as GLTFResult
   const { actions } = useAnimations(animations, group)
+  const { quality } = useUserContext()
 
 
   useEffect(() => {
@@ -140,6 +142,20 @@ export function Beach(props: JSX.IntrinsicElements['group']) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
+        <mesh name="WindMill009" castShadow geometry={nodes.WindMill009.geometry} material={materials.Base} position={[42.254, -0.291, 80.966]} rotation={[-3.14, 0.602, -3.132]} scale={1.363}>
+          <mesh name="WindMillTurbin010" castShadow geometry={nodes.WindMillTurbin010.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
+        </mesh>
+        {quality >= 1 &&
+          <mesh name="WindMill010" castShadow geometry={nodes.WindMill010.geometry} material={materials.Base} position={[40.642, -0.244, 75.942]} rotation={[-3.14, 0.602, -3.132]} scale={1.363}>
+            <mesh name="WindMillTurbin011" castShadow geometry={nodes.WindMillTurbin011.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
+          </mesh>
+        }
+        {quality > 1 &&
+          <mesh name="WindMill011" castShadow geometry={nodes.WindMill011.geometry} material={materials.Base} position={[46.014, -0.312, 79.633]} rotation={[-3.14, 0.602, -3.132]} scale={1.363}>
+            <mesh name="WindMillTurbin012" castShadow geometry={nodes.WindMillTurbin012.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
+          </mesh>
+        }
+
         <mesh name="boat" castShadow geometry={nodes.boat.geometry} material={materials.Base} position={[3.274, -0.859, 74.756]} scale={1.528} />
         <mesh name="boat001" castShadow geometry={nodes.boat001.geometry} material={materials.Base} position={[13.667, -0.859, 83.746]} rotation={[0, 0.917, 0]} scale={1.202} />
         <mesh name="boat002" castShadow geometry={nodes.boat002.geometry} material={materials.Base} position={[-28.459, -0.859, 71.485]} scale={1.202} />
@@ -384,17 +400,8 @@ export function Beach(props: JSX.IntrinsicElements['group']) {
           <mesh name="Plane303" castShadow geometry={nodes.Plane303.geometry} material={materials.CoconutTree} />
           <mesh name="Plane303_1" castShadow geometry={nodes.Plane303_1.geometry} material={materials.Tree} />
         </group>
-        <mesh name="Road001" castShadow geometry={nodes.Road001.geometry} material={materials.Base} position={[0, -4.519, -0.108]} rotation={[0, 0, -Math.PI]} scale={[-25.869, -11.423, -56.849]} />
         <mesh name="boat004" castShadow geometry={nodes.boat004.geometry} material={materials.Base} position={[10.722, -0.859, 83.118]} rotation={[0, 0.917, 0]} scale={1.202} />
-        <mesh name="WindMill009" castShadow geometry={nodes.WindMill009.geometry} material={materials.Base} position={[42.254, -0.291, 80.966]} rotation={[-3.14, 0.602, -3.132]} scale={1.363}>
-          <mesh name="WindMillTurbin010" castShadow geometry={nodes.WindMillTurbin010.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
-        </mesh>
-        <mesh name="WindMill010" castShadow geometry={nodes.WindMill010.geometry} material={materials.Base} position={[40.642, -0.244, 75.942]} rotation={[-3.14, 0.602, -3.132]} scale={1.363}>
-          <mesh name="WindMillTurbin011" castShadow geometry={nodes.WindMillTurbin011.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
-        </mesh>
-        <mesh name="WindMill011" castShadow geometry={nodes.WindMill011.geometry} material={materials.Base} position={[46.014, -0.312, 79.633]} rotation={[-3.14, 0.602, -3.132]} scale={1.363}>
-          <mesh name="WindMillTurbin012" castShadow geometry={nodes.WindMillTurbin012.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
-        </mesh>
+
         <group name="BeachChairSet" position={[-6.552, -0.713, 63.408]} rotation={[0.169, 0, -0.004]} scale={0.261}>
           <mesh name="Plane314" castShadow geometry={nodes.Plane314.geometry} material={materials.Base} />
           <mesh name="Plane314_1" castShadow geometry={nodes.Plane314_1.geometry} material={materials.Primary} />

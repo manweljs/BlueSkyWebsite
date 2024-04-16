@@ -11,7 +11,8 @@ import { materials } from '@/consts/materials'
 import { useUserContext } from '@/context/UserContext'
 
 
-const PERCENT_LAMP = 0.08 // Persentase lampu yang akan dinyalakan
+// Persentase lampu yang akan dinyalakan
+const PERCENT_LAMP = 0.08;
 const SPOTLIGHT_COLOR = 0xffffe0; // Warna cahaya
 const SPOTLIGHT_INTENSITY = 2; // Intensitas cahaya
 const SPOTLIGHT_DISTANCE = 10; // Jarak maksimal cahaya
@@ -213,7 +214,9 @@ type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicE
 export function Streetlights(props: JSX.IntrinsicElements['group']) {
     const { nodes } = useGLTF('/models/streetlights/Streetlights.glb') as GLTFResult
 
-    const { isNight, setStreetLightLoaded } = useUserContext()
+    const { isNight, setStreetLightLoaded, streetLightLoaded, quality } = useUserContext()
+
+
     const spotlightsRef = useRef([])
     const groupRef = useRef(null);
     // Setup spotlight untuk semua lampu sekali saja
@@ -261,11 +264,11 @@ export function Streetlights(props: JSX.IntrinsicElements['group']) {
 
     // Panggil fungsi async ketika komponen dimount
     useEffect(() => {
-        if (groupRef.current) {
+        if (groupRef.current && !streetLightLoaded) {
 
             addSpotlights();
         }
-    }, []); // Hanya dijalankan sekali pada saat komponen dimount
+    }, [streetLightLoaded, quality]); // Hanya dijalankan sekali pada saat komponen dimount
 
     // Kontrol visibilitas spotlight berdasarkan waktu siang atau malam
     useEffect(() => {

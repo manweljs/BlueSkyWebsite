@@ -1,6 +1,6 @@
 "use client";
 
-import { PerspectiveCamera, CameraControls, useProgress, Stats } from "@react-three/drei";
+import { PerspectiveCamera, CameraControls, useProgress, Stats, Html } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
 import { useEffect, useState } from "react";
 import * as THREE from "three";
@@ -35,7 +35,7 @@ import { Quality } from "@/types";
 
 
 const Experience = () => {
-
+    const { quality, isNight } = useUserContext()
     return (
         <ConfigProvider theme={{
             algorithm: theme.defaultAlgorithm,
@@ -47,7 +47,21 @@ const Experience = () => {
             <LoadingExperience />
             <Navbar />
             <ControlGuide />
-
+            <div
+                style={{
+                    width: '100px',
+                    height: '100px',
+                    color: isNight ? "white" : '#242424',
+                    position: 'fixed',
+                    top: 60,
+                    left: 10,
+                    zIndex: 1000,
+                    fontSize: '.8rem',
+                }}>
+                <div>
+                    <p>Quality : {quality}</p>
+                </div>
+            </div>
             <Canvas shadows className="main-canvas" >
                 <Stats className={style.stats} />
                 <Scene />
@@ -109,6 +123,10 @@ const Scene = () => {
         }
     }, timeCheck * 1000);
 
+
+
+
+
     return (
         <>
             {camera &&
@@ -138,6 +156,8 @@ const Scene = () => {
                     <TreesAndRocks />
                     <RoadAndFloors />
                     <Bloom mipmapBlur luminanceThreshold={1} />
+
+
 
                     {!isMobile && quality > 1 &&
                         <EffectComposer>
