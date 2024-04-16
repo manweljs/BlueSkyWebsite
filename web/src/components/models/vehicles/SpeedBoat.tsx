@@ -7,7 +7,6 @@ import * as THREE from 'three'
 import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
-import Smoke from '../Smoke'
 import { useUserContext } from '@/context/UserContext'
 
 type GLTFResult = GLTF & {
