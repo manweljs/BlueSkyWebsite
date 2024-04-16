@@ -44,10 +44,12 @@ export function AirPlaneTakeOff(props: JSX.IntrinsicElements['group']) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
-        <group name="airplane" position={[158.768, 30.858, -111]} rotation={[-2.725, -1.271, 3.05]}>
-          <mesh name="Cube003" geometry={nodes.Cube003.geometry} material={materials.Base} castShadow />
-          <mesh name="Cube003_1" geometry={nodes.Cube003_1.geometry} material={materials.Primary} castShadow />
-        </group>
+        {quality > 1 &&
+          <group name="airplane" position={[158.768, 30.858, -111]} rotation={[-2.725, -1.271, 3.05]}>
+            <mesh name="Cube003" geometry={nodes.Cube003.geometry} material={materials.Base} castShadow />
+            <mesh name="Cube003_1" geometry={nodes.Cube003_1.geometry} material={materials.Primary} castShadow />
+          </group>
+        }
       </group>
     </group>
   )

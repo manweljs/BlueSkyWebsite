@@ -4,6 +4,7 @@ import { Stores } from './Stores'
 import { Houses } from './Houses'
 import { MainBuildings } from './MainBuildings'
 import { useUserContext } from '@/context/UserContext'
+import { BlueSkyStatue } from './BlueSkyStatue'
 
 export default function BuildingCollection() {
 
@@ -16,6 +17,7 @@ export default function BuildingCollection() {
             <Stores castShadow={castShadow} />
             <Houses castShadow={castShadow} />
             <MainBuildings castShadow={castShadow} />
+            <BlueSkyStatue />
         </>
     )
 }

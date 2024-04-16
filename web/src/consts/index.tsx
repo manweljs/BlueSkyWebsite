@@ -181,7 +181,7 @@ export const sectionData = [
         title: "Concert",
         lookAt: {
             pos: [20, 9, 30],
-            target: [6.5, 5, 48]
+            target: [6.5, 5, 38]
         },
         icon: {
             url: "/img/concert.png",

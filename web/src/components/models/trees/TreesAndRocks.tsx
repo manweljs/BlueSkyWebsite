@@ -2440,7 +2440,7 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
   }, [percentage]); // Deps array kosong agar hanya dijalankan sekali saat mount
 
   useEffect(() => {
-    const percent = quality === 2 ? 1 : quality === 1 ? 0.5 : 0.25;
+    const percent = quality === 2 ? 1 : quality === 1 ? 0.75 : 0.5;
     setPercentage(percent)
   }, [quality]);
 

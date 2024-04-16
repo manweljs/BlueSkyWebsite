@@ -18,7 +18,7 @@ export default function ControlGuide() {
                     animate={{
                         y: startExperience ? 0 : 500,
                         opacity: 1,
-                        transition: { duration: 0.5, type: "spring", delay: .5 }
+                        transition: { duration: 0.75, type: "spring", delay: 2 }
                     }}
                     exit={{ y: 500, opacity: 0, transition: { duration: 0.5, type: "spring" } }}
                 >

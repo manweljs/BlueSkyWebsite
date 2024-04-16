@@ -5,8 +5,10 @@ import { AirPlaneBoarding } from './AirPlaneBoarding'
 import { AirPlaneTakeOff } from './AirPlaneTakeOff'
 import { CarBox } from './CarBox'
 import { SpeedBoat } from './SpeedBoat'
+import { useUserContext } from '@/context/UserContext'
 
 export default function VehicleCollection() {
+    const { quality } = useUserContext();
     return (
         <group>
             <Bus />

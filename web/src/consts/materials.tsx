@@ -12,13 +12,26 @@ export const COLORS = {
     Leaf: "#95F999",
     Tree: "#3d9e3d",
     Road: "#565656",
-    Land: "#c5a569",
-    Sand: "#d1c5a5",
+    Land: "#d6b788",
+    Sand: "#ccc4ae",
     Stone: "#bebebe",
-    Coles: "#E01A22"
+    Coles: "#E01A22",
+    Logo: "#02488f",
 };
 
 export const materials = {
+    Logo: new THREE.MeshStandardMaterial({
+        color: new THREE.Color(COLORS.Logo),
+        roughness: 0.3,
+        metalness: 0.2,
+
+    }),
+    LogoNight: new THREE.MeshStandardMaterial({
+        color: new THREE.Color(COLORS.Logo),
+        emissive: new THREE.Color("#77adff"),
+        emissiveIntensity: 1,
+
+    }),
     Base: new THREE.MeshStandardMaterial({
         color: new THREE.Color(COLORS.Base),
         roughness: 1,
@@ -36,7 +49,7 @@ export const materials = {
         roughness: 0.1,
         metalness: 0.0,
         transparent: true,
-        opacity: 0.8,
+        opacity: 0.9,
         reflectivity: 0.9,
     }),
     Grass: new THREE.MeshStandardMaterial({

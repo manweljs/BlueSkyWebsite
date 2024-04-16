@@ -9,6 +9,7 @@ import { useGLTF, useHelper } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import { materials } from '@/consts/materials'
 import { useUserContext } from '@/context/UserContext'
+import { useControls } from 'leva'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -23,52 +24,54 @@ type GLTFResult = GLTF & {
 
 type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicElements['mesh']>>
 
-const lightColor = "#acdaff";
-const lightIntensity = 1.5;
+const lightColor = "#0084ff";
+const lightIntensity = 2;
 
 export function Text001(props: JSX.IntrinsicElements['group']) {
   const { nodes } = useGLTF('/models/texts/Text001.glb') as GLTFResult
   const { isNight } = useUserContext()
   const spotlightRef = useRef(null);
-  const spotlight2Ref = useRef(null);
+
+  const { quality } = useUserContext();
+
+
+  // useHelper(spotlightRef, THREE.SpotLightHelper);
+
+  // const { posX, posY, posZ, targetX, targetY, targetZ, distance } = useControls('Text Spotlight', {
+  //   posX: { value: -35, min: -100, max: 100 },
+  //   posY: { value: 0, min: 0, max: 100 },
+  //   posZ: { value: -24.879, min: -100, max: 100 },
+
+  //   targetX: { value: -100, min: -100, max: 100 },
+  //   targetY: { value: 8, min: 0, max: 100 },
+  //   targetZ: { value: -40, min: -100, max: 100 },
+  //   distance: { value: 50, min: 0, max: 100 }
+
+  // }, { collapsed: true });
 
 
   useEffect(() => {
     if (spotlightRef.current) {
-      spotlightRef.current.target.position.set(-100, 40, -10);
-      spotlight2Ref.current.target.position.set(-81, 25, -70);
+      spotlightRef.current.target.position.set(-100, 8, -40);
       spotlightRef.current.target.updateMatrixWorld();
-      spotlight2Ref.current.target.updateMatrixWorld();
+
     }
   }, [spotlightRef.current]);
-
-
   return (
     <group {...props} dispose={null}>
       <mesh name="TextBlueSkyCreation" castShadow geometry={nodes.TextBlueSkyCreation.geometry} material={materials.Base} position={[-64.903, 9.534, -32.665]} />
-      <mesh name="textlamp" castShadow geometry={nodes.textlamp.geometry} material={materials.Base}
-        position={[-55.702, 7.116, -24.879]} scale={0.067} />
-      <mesh name="textlamp001" castShadow geometry={nodes.textlamp001.geometry} material={materials.Base}
-        position={[-55.265, 7.13, -26.483]} rotation={[0, Math.PI / 4, 0]} scale={0.067} />
+
       <spotLight
         ref={spotlightRef}
-        position={[-55.702, 7.2, -24.879]}
+        position={[-35, 0, -25]}
         intensity={isNight ? lightIntensity : 0}
-        angle={Math.PI / 3}
-        penumbra={0.2}
+        angle={Math.PI / 2.8}
+        penumbra={0.5}
         decay={0}
-        distance={40}
+        distance={50}
         color={lightColor}
-      />
-      <spotLight
-        ref={spotlight2Ref}
-        position={[-55, 7.2, -26]}
-        intensity={isNight ? lightIntensity : 0}
-        angle={Math.PI / 3}
-        penumbra={0.2}
-        decay={0}
-        distance={40}
-        color={lightColor}
+        castShadow={quality > 1}
+
       />
     </group>
   )

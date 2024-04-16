@@ -5,7 +5,6 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { useEffect, useState } from "react";
 import * as THREE from "three";
 import { BlueSky } from "@/components/models/BlueSky";
-import { BlueSkyStatue } from "@/components/models/BlueSkyStatue";
 import { Island } from "./models/floors/Island";
 import VehicleCollection from "./models/vehicles/VehicleCollection";
 import BuildingCollection from "./models/buildings/BuildingCollection";
@@ -47,21 +46,6 @@ const Experience = () => {
             <LoadingExperience />
             <Navbar />
             <ControlGuide />
-            <div
-                style={{
-                    width: '100px',
-                    height: '100px',
-                    color: isNight ? "white" : '#242424',
-                    position: 'fixed',
-                    top: 60,
-                    left: 10,
-                    zIndex: 1000,
-                    fontSize: '.8rem',
-                }}>
-                <div>
-                    <p>Quality : {quality}</p>
-                </div>
-            </div>
             <Canvas shadows className="main-canvas" >
                 <Stats className={style.stats} />
                 <Scene />
@@ -72,7 +56,7 @@ const Experience = () => {
 }
 
 
-const timeCheck = 3;
+const timeCheck = 5;
 
 const Scene = () => {
     const { camera: mainCamera } = useThree()
@@ -109,22 +93,19 @@ const Scene = () => {
 
     useFPS((fps) => {
         if (!qualitySet) {
-            let quality: Quality = 0;
+            let q: Quality = 0;
             if (fps <= 15) {
-                quality = 0;
+                q = 0;
             } else if (fps > 15 && fps <= 25) {
-                quality = 1;
+                q = 1;
             } else {
-                quality = 2;
+                q = 2;
             }
-            setQuality(quality);
+            setQuality(q);
             setQualitySet(true);
-            console.log(`Average FPS over ${timeCheck} seconds:`, fps);
+            console.log(`Highest FPS over ${timeCheck} seconds:`, fps);
         }
     }, timeCheck * 1000);
-
-
-
 
 
     return (
@@ -144,7 +125,6 @@ const Scene = () => {
 
                     <Text001 />
                     <BlueSky />
-                    <BlueSkyStatue />
                     <VehicleCollection />
                     <BuildingCollection />
                     <WindMils />

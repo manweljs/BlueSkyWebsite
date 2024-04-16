@@ -26,6 +26,9 @@
 .ant-drawer{
   z-index: 9999999999;
 }
+.ant-drawer-mask{
+  background: transparent!important;
+}
 
 h2{
   font-size: 2.5rem

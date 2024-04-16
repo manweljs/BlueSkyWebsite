@@ -94,7 +94,7 @@ const BaseEnvironment = () => {
             />
             <directionalLight
                 ref={directionalLightRef}
-                castShadow
+                castShadow={quality >= 1}
                 position={[15, 65, 50]}
                 intensity={directionalLightIntensity}
                 shadow-mapSize-width={1024}

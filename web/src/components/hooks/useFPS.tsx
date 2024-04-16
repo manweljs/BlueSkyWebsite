@@ -4,35 +4,41 @@ export const useFPS = (callback, duration = 10000) => {
     const requestRef = useRef(null);
     const previousTimeRef = useRef(null);
     const framesRef = useRef(0);
-    const [averageFPS, setAverageFPS] = useState(null);
+    const [highestFPS, setHighestFPS] = useState(null);
+    const startTimeRef = useRef(null);
 
     useEffect(() => {
-        const startTime = performance.now(); // Catat waktu mulai
-
         const animate = (time) => {
-            if (previousTimeRef.current != null) {
-                framesRef.current += 1; // Hitung frame
+            if (previousTimeRef.current !== null) {
+                const deltaTime = time - previousTimeRef.current; // Hitung selisih waktu antara frame terakhir dan saat ini
+                const fps = 1000 / deltaTime; // Hitung FPS untuk frame ini
 
-                const elapsedTime = time - startTime;
+                setHighestFPS(prevHighest => {
+                    return prevHighest === null || fps > prevHighest ? fps : prevHighest;
+                }); // Perbarui nilai FPS tertinggi jika perlu
+
+                framesRef.current += 1; // Tambahkan hitungan frame
+
+                const elapsedTime = time - startTimeRef.current;
                 if (elapsedTime >= duration) {
-                    // Jika durasi yang ditentukan tercapai
-                    const fps = framesRef.current / (elapsedTime / 1000); // Hitung rata-rata FPS
-                    setAverageFPS(fps); // Set rata-rata FPS
-                    callback(fps); // Panggil callback dengan rata-rata FPS
+                    callback(highestFPS); // Panggil callback dengan FPS tertinggi
                     cancelAnimationFrame(requestRef.current); // Hentikan animasi
                     return; // Keluar dari fungsi untuk menghentikan loop
                 }
+            } else {
+                startTimeRef.current = time; // Atur waktu mulai pada frame pertama
             }
-            previousTimeRef.current = time;
-            requestRef.current = requestAnimationFrame(animate);
-        }
+
+            previousTimeRef.current = time; // Perbarui waktu untuk frame terakhir
+            requestRef.current = requestAnimationFrame(animate); // Jadwalkan frame berikutnya
+        };
 
         requestRef.current = requestAnimationFrame(animate);
 
         return () => {
-            cancelAnimationFrame(requestRef.current);
+            cancelAnimationFrame(requestRef.current); // Bersihkan pada unmount
         };
-    }, [callback, duration]);
+    }, [callback, duration]); // Pastikan untuk mengikutsertakan semua dependencies di sini
 
-    return averageFPS;
+    return highestFPS;
 }
