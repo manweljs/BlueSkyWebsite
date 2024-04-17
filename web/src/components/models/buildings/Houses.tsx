@@ -130,18 +130,18 @@ export function Houses(props: {
         <mesh name="Plane273" castShadow={castShadow} geometry={nodes.Plane273.geometry} material={materials.Base} />
         <mesh name="Plane273_1" castShadow={castShadow} geometry={nodes.Plane273_1.geometry} material={materials.Primary} />
         <mesh name="Plane273_2" castShadow={castShadow} geometry={nodes.Plane273_2.geometry} material={glass} />
-        <mesh name="Plane273_3" castShadow={castShadow} geometry={nodes.Plane273_3.geometry} material={materials.Glass} />
+        <mesh name="Plane273_3" castShadow={castShadow} geometry={nodes.Plane273_3.geometry} material={materials.Grass} />
       </group>
       <group name="House031" position={[36.956, 0.568, 44.04]} rotation={[Math.PI, 0, Math.PI]}>
         <mesh name="Plane273" castShadow={castShadow} geometry={nodes.Plane273.geometry} material={materials.Base} />
         <mesh name="Plane273_1" castShadow={castShadow} geometry={nodes.Plane273_1.geometry} material={materials.Primary} />
         <mesh name="Plane273_2" castShadow={castShadow} geometry={nodes.Plane273_2.geometry} material={glass} />
-        <mesh name="Plane273_3" castShadow={castShadow} geometry={nodes.Plane273_3.geometry} material={materials.Glass} />
+        <mesh name="Plane273_3" castShadow={castShadow} geometry={nodes.Plane273_3.geometry} material={materials.Grass} />
       </group>
       <group name="House022" position={[37.343, 0.568, 48.35]} scale={0.889}>
         <mesh name="Plane337" castShadow={castShadow} geometry={nodes.Plane337.geometry} material={materials.Base} />
         <mesh name="Plane337_1" castShadow={castShadow} geometry={nodes.Plane337_1.geometry} material={materials.Primary} />
-        <mesh name="Plane337_2" castShadow={castShadow} geometry={nodes.Plane337_2.geometry} material={materials.Glass} />
+        <mesh name="Plane337_2" castShadow={castShadow} geometry={nodes.Plane337_2.geometry} material={materials.Grass} />
         <mesh name="Plane337_3" castShadow={castShadow} geometry={nodes.Plane337_3.geometry} material={glass} />
       </group>
       <group name="House028" position={[57.215, 0.568, 43.076]} rotation={[Math.PI, 0, Math.PI]} scale={[1, 1, 0.651]}>
