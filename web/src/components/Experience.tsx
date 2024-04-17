@@ -33,6 +33,8 @@ import { useFPS } from "./hooks/useFPS";
 import { Quality } from "@/types";
 
 
+const timeCheck = 5;
+
 const Experience = () => {
     const { quality, isNight } = useUserContext()
     return (
@@ -56,7 +58,6 @@ const Experience = () => {
 }
 
 
-const timeCheck = 5;
 
 const Scene = () => {
     const { camera: mainCamera } = useThree()
@@ -91,21 +92,23 @@ const Scene = () => {
     }, [cameraControlsRef.current, initialScene]);
 
 
-    useFPS((fps) => {
-        if (!qualitySet) {
-            let q: Quality = 0;
-            if (fps <= 15) {
-                q = 0;
-            } else if (fps > 15 && fps <= 25) {
-                q = 1;
-            } else {
-                q = 2;
-            }
-            setQuality(q);
-            setQualitySet(true);
-            console.log(`Highest FPS over ${timeCheck} seconds:`, fps);
+    useFPS((fps: number) => {
+        let q: Quality = 0;
+        if (fps <= 15) {
+            q = 0;
+        } else if (isMobile) {
+            q = 1;
+        } else if (fps > 15 && fps <= 25) {
+            q = 1;
+        } else {
+            q = 2;
         }
-    }, timeCheck * 1000);
+        setQuality(q);
+        // setQualitySet(true);
+        // console.log(`Highest FPS over ${timeCheck} seconds:`, fps);
+    }, timeCheck * 1000, true);
+
+
 
 
     return (

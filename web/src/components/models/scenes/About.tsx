@@ -54,11 +54,6 @@ export function About(props: JSX.IntrinsicElements['group']) {
   const glass = isNight ? materials.GlassNight : materials.Glass
   return (
     <group {...props} dispose={null}>
-      <group name="Office" position={[-15.208, 2.421, 0.196]} rotation={[0, Math.PI / 2, 0]} scale={1.288}>
-        <mesh name="Plane003" castShadow geometry={nodes.Plane003.geometry} material={materials.Base} />
-        <mesh name="Plane003_1" castShadow geometry={nodes.Plane003_1.geometry} material={glass} />
-      </group>
-      <mesh name="statue001" castShadow geometry={nodes.statue001.geometry} material={materials.Base} position={[-12.029, 1.458, -0.498]} rotation={[-Math.PI / 2, 1.515, Math.PI / 2]} scale={1.374} />
 
     </group>
   )

@@ -33,17 +33,7 @@ export function Collaboration(props: JSX.IntrinsicElements['group']) {
 
   return (
     <group {...props} dispose={null}>
-      <group name="Coles" position={[4.876, 1.06, 31.453]} rotation={[0, Math.PI / 2, 0]} scale={0.911}>
-        <mesh name="Plane081" castShadow geometry={nodes.Plane081.geometry} material={materials.Base} />
-        <mesh name="Plane081_1" castShadow geometry={nodes.Plane081_1.geometry} material={materials.Primary} />
-        <mesh name="Plane081_2" castShadow geometry={nodes.Plane081_2.geometry} material={materials.Coles} />
-        <mesh name="Plane081_3" castShadow geometry={nodes.Plane081_3.geometry} material={materials.Glass} />
-      </group>
-      <group name="IBM" position={[-14.17, 0.484, 31.278]} scale={[5.62, 7.668, 5.265]}>
-        <mesh name="Plane071" castShadow geometry={nodes.Plane071.geometry} material={materials.Glass} />
-        <mesh name="Plane071_1" castShadow geometry={nodes.Plane071_1.geometry} material={materials.Base} />
-        <mesh name="Plane071_2" castShadow geometry={nodes.Plane071_2.geometry} material={materials.Primary} />
-      </group>
+
     </group>
   )
 }
