@@ -2444,6 +2444,8 @@ export function TreesAndRocks(props: JSX.IntrinsicElements['group']) {
     setPercentage(percent)
   }, [quality]);
 
+
+
   return (
     <group {...props} dispose={null}>
       {selectedChildren}

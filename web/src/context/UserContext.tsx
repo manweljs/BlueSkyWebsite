@@ -1,4 +1,3 @@
-import { SECTION } from '@/consts';
 import { Quality, UserPreference } from '@/types';
 import React, { createContext, useContext, useState, ReactNode, useEffect, useRef } from 'react';
 import { isMobile } from 'react-device-detect';
@@ -28,6 +27,10 @@ interface UserContextType {
     setQuality: (param: Quality) => void
     qualitySet: boolean
     setQualitySet: (param: boolean) => void
+    deviceFPSRate?: number
+    setDeviceFPSRate?: (param: number | undefined) => void
+    userPreference: UserPreference
+    setUserPreference: (param: UserPreference) => void
 }
 
 // Membuat context dengan tipe yang didefinisikan
@@ -56,8 +59,13 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [streetLightLoaded, setStreetLightLoaded] = useState<boolean>(false);
     const [loadingProgress, setLoadingProgress] = useState(0);
     const [quality, setQuality] = useState<Quality>(2);
-    const [userPreference, setUserPreference] = useState<UserPreference>("quality");
+    const [userPreference, setUserPreference] = useState<UserPreference>(undefined);
     const [qualitySet, setQualitySet] = useState(false)
+    const [deviceFPSRate, setDeviceFPSRate] = useState<number | undefined>(undefined)
+
+    useEffect(() => {
+        handleUserPreferenceChange(userPreference)
+    }, [userPreference]);
 
     const cameraControlsRef = useRef(null)
 
@@ -80,7 +88,9 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         userPreference,
         setUserPreference,
         qualitySet,
-        setQualitySet
+        setQualitySet,
+        deviceFPSRate,
+        setDeviceFPSRate
     }
 
     return (
@@ -89,5 +99,10 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         </UserContext.Provider>
     );
 };
+
+
+const handleUserPreferenceChange = (preference: UserPreference) => {
+    console.log('userPreference', preference)
+}
 
 

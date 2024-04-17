@@ -35,13 +35,11 @@ export function AirPlaneBoarding(props: JSX.IntrinsicElements['group']) {
     const { quality } = useUserContext()
 
     useEffect(() => {
-        if (quality > 1) {
-            actions['AirPlaneBoarding'].play()
-            return () => {
-                actions['AirPlaneBoarding'].stop()
-            }
+        actions['AirPlaneBoarding'].play()
+        return () => {
+            actions['AirPlaneBoarding'].stop()
         }
-    }, [quality]);
+    }, []);
     return (
         <group ref={group} {...props} dispose={null}>
             <group name="Scene">

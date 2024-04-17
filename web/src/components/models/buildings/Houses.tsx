@@ -147,31 +147,31 @@ export function Houses(props: {
       <group name="House028" position={[57.215, 0.568, 43.076]} rotation={[Math.PI, 0, Math.PI]} scale={[1, 1, 0.651]}>
         <mesh name="Plane337" castShadow={castShadow} geometry={nodes.Plane337.geometry} material={materials.Base} />
         <mesh name="Plane337_1" castShadow={castShadow} geometry={nodes.Plane337_1.geometry} material={materials.Primary} />
-        <mesh name="Plane337_2" castShadow={castShadow} geometry={nodes.Plane337_2.geometry} material={materials.Glass} />
+        <mesh name="Plane337_2" castShadow={castShadow} geometry={nodes.Plane337_2.geometry} material={materials.Grass} />
         <mesh name="Plane337_3" castShadow={castShadow} geometry={nodes.Plane337_3.geometry} material={glass} />
       </group>
       <group name="House025" position={[69.786, 0.568, 66.412]} rotation={[0, -Math.PI / 2, 0]} scale={[1, 1, 0.745]}>
         <mesh name="Plane337" castShadow={castShadow} geometry={nodes.Plane337.geometry} material={materials.Base} />
         <mesh name="Plane337_1" castShadow={castShadow} geometry={nodes.Plane337_1.geometry} material={materials.Primary} />
-        <mesh name="Plane337_2" castShadow={castShadow} geometry={nodes.Plane337_2.geometry} material={materials.Glass} />
+        <mesh name="Plane337_2" castShadow={castShadow} geometry={nodes.Plane337_2.geometry} material={materials.Grass} />
         <mesh name="Plane337_3" castShadow={castShadow} geometry={nodes.Plane337_3.geometry} material={glass} />
       </group>
       <group name="House023" position={[37.993, 0.568, 65.518]} rotation={[0, -Math.PI / 2, 0]}>
         <mesh name="Plane339" castShadow={castShadow} geometry={nodes.Plane339.geometry} material={materials.Base} />
         <mesh name="Plane339_1" castShadow={castShadow} geometry={nodes.Plane339_1.geometry} material={materials.Primary} />
-        <mesh name="Plane339_2" castShadow={castShadow} geometry={nodes.Plane339_2.geometry} material={materials.Glass} />
+        <mesh name="Plane339_2" castShadow={castShadow} geometry={nodes.Plane339_2.geometry} material={materials.Grass} />
         <mesh name="Plane339_3" castShadow={castShadow} geometry={nodes.Plane339_3.geometry} material={glass} />
       </group>
       <group name="House026" position={[69.697, 0.568, 49.264]} rotation={[0, -Math.PI / 2, 0]} scale={[1, 1, 0.937]}>
         <mesh name="Plane339" castShadow={castShadow} geometry={nodes.Plane339.geometry} material={materials.Base} />
         <mesh name="Plane339_1" castShadow={castShadow} geometry={nodes.Plane339_1.geometry} material={materials.Primary} />
-        <mesh name="Plane339_2" castShadow={castShadow} geometry={nodes.Plane339_2.geometry} material={materials.Glass} />
+        <mesh name="Plane339_2" castShadow={castShadow} geometry={nodes.Plane339_2.geometry} material={materials.Grass} />
         <mesh name="Plane339_3" castShadow={castShadow} geometry={nodes.Plane339_3.geometry} material={glass} />
       </group>
       <group name="House030" position={[76.681, 0.568, 50.012]} rotation={[0, Math.PI / 2, 0]} scale={[1, 1, 0.827]}>
         <mesh name="Plane339" castShadow={castShadow} geometry={nodes.Plane339.geometry} material={materials.Base} />
         <mesh name="Plane339_1" castShadow={castShadow} geometry={nodes.Plane339_1.geometry} material={materials.Primary} />
-        <mesh name="Plane339_2" castShadow={castShadow} geometry={nodes.Plane339_2.geometry} material={materials.Glass} />
+        <mesh name="Plane339_2" castShadow={castShadow} geometry={nodes.Plane339_2.geometry} material={materials.Grass} />
         <mesh name="Plane339_3" castShadow={castShadow} geometry={nodes.Plane339_3.geometry} material={glass} />
       </group>
       <group name="Chruch" position={[71.226, 0.568, 54.739]} rotation={[0, -Math.PI / 2, 0]}>
@@ -181,19 +181,19 @@ export function Houses(props: {
         <mesh name="Plane268_3" castShadow={castShadow} geometry={nodes.Plane268_3.geometry} material={materials.Grass} />
       </group>
       <group name="House024" position={[69.822, 0.569, 60.186]} rotation={[0, -Math.PI / 2, 0]}>
-        <mesh name="Plane348" castShadow={castShadow} geometry={nodes.Plane348.geometry} material={materials.Glass} />
+        <mesh name="Plane348" castShadow={castShadow} geometry={nodes.Plane348.geometry} material={materials.Grass} />
         <mesh name="Plane348_1" castShadow={castShadow} geometry={nodes.Plane348_1.geometry} material={materials.Base} />
         <mesh name="Plane348_2" castShadow={castShadow} geometry={nodes.Plane348_2.geometry} material={materials.Primary} />
         <mesh name="Plane348_3" castShadow={castShadow} geometry={nodes.Plane348_3.geometry} material={glass} />
       </group>
       <group name="House029" position={[77.515, 0.569, 68.876]} rotation={[0, Math.PI / 2, 0]}>
-        <mesh name="Plane348" castShadow={castShadow} geometry={nodes.Plane348.geometry} material={materials.Glass} />
+        <mesh name="Plane348" castShadow={castShadow} geometry={nodes.Plane348.geometry} material={materials.Grass} />
         <mesh name="Plane348_1" castShadow={castShadow} geometry={nodes.Plane348_1.geometry} material={materials.Base} />
         <mesh name="Plane348_2" castShadow={castShadow} geometry={nodes.Plane348_2.geometry} material={materials.Primary} />
         <mesh name="Plane348_3" castShadow={castShadow} geometry={nodes.Plane348_3.geometry} material={glass} />
       </group>
       <group name="House027" position={[41.865, 0.569, 60.94]} rotation={[Math.PI, 0, Math.PI]}>
-        <mesh name="Plane348" castShadow={castShadow} geometry={nodes.Plane348.geometry} material={materials.Glass} />
+        <mesh name="Plane348" castShadow={castShadow} geometry={nodes.Plane348.geometry} material={materials.Grass} />
         <mesh name="Plane348_1" castShadow={castShadow} geometry={nodes.Plane348_1.geometry} material={materials.Base} />
         <mesh name="Plane348_2" castShadow={castShadow} geometry={nodes.Plane348_2.geometry} material={materials.Primary} />
         <mesh name="Plane348_3" castShadow={castShadow} geometry={nodes.Plane348_3.geometry} material={glass} />

@@ -86,7 +86,7 @@ const BaseEnvironment = () => {
 
     return (
         <>
-            {isNight && <Stars radius={200} depth={30} count={(quality + 1) * 250} factor={4} fade />}
+            {isNight && <Stars radius={100} depth={30} count={500} factor={4} fade />}
             <ambientLight
                 ref={ambientLightRef}
                 color={ambientLightColorRef.current}

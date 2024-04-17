@@ -12,7 +12,7 @@ import { Text001 } from "./models/texts/Text001";
 import { Beach } from "./models/beach/Beach";
 import Sections from "./sections/Sections";
 import { useUserContext } from "@/context/UserContext";
-import { sectionData, timeCheck } from "@/consts";
+import { sectionData, preloadingTime } from "@/consts";
 import Scenes from "./models/scenes/Scenes";
 import AudioPlayer from "./ui/audio_player/AudioPlayer";
 import Markers from "./ui/markers/Markers";
@@ -36,6 +36,48 @@ import ModeControls from "./ui/ModeControls";
 
 
 const Experience = () => {
+
+    const { userPreference, setQuality } = useUserContext()
+    const [run, setRun] = useState(true);
+
+    useEffect(() => {
+        console.log('userPreference changed', userPreference)
+        setRun(userPreference === undefined)
+    }, [userPreference]);
+
+    useFPS((fps: number) => {
+        console.log('fps', fps)
+        handleQualitySetup(fps)
+    }, run);
+
+    const handleQualitySetup = (fps: number) => {
+        if (!userPreference || !fps) return
+
+        if (userPreference === 'quality') {
+            setQuality(2)
+            return
+        }
+
+        if (userPreference === 'performance') {
+            setQuality(0)
+            return
+        }
+
+        if (userPreference === 'auto') {
+            let q: Quality;
+            if (fps <= 15) {
+                q = 0;
+            } else if (isMobile) {
+                q = 1;
+            } else if (fps > 15 && fps <= 25) {
+                q = 1;
+            } else {
+                q = 2;
+            }
+            setQuality(q);
+        }
+
+    }
 
 
     return (
@@ -63,7 +105,7 @@ const Experience = () => {
 
 const Scene = () => {
     const { camera: mainCamera } = useThree()
-    const { camera, setCamera, cameraControlsRef, setLoadingProgress, setQuality, quality, qualitySet, setQualitySet } = useUserContext()
+    const { camera, setCamera, cameraControlsRef, setLoadingProgress, setQuality, quality, qualitySet, setQualitySet, userPreference } = useUserContext()
     const [initialScene, setInitialScene] = useState(false)
 
 
@@ -93,24 +135,8 @@ const Scene = () => {
         }
     }, [cameraControlsRef.current, initialScene]);
 
-    useFPS((fps: number) => {
-        if (!qualitySet) {
-            let q: Quality = 0;
 
-            if (fps <= 15) {
-                q = 0;
-            } else if (isMobile) {
-                q = 1;
-            } else if (fps > 15 && fps <= 25) {
-                q = 1;
-            } else {
-                q = 2;
-            }
-            setQuality(q);
-            setQualitySet(true);
-            console.log(`Highest FPS over ${timeCheck} seconds:`, fps);
-        }
-    });
+
 
 
     return (
@@ -145,7 +171,10 @@ const Scene = () => {
 
 
                     {!isMobile && quality > 1 &&
-                        <EffectComposer>
+                        <EffectComposer
+                            depthBuffer
+                            autoClear
+                        >
                             <DepthOfField
                                 focusDistance={0.02}
                                 focalLength={0.15}

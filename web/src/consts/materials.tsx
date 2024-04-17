@@ -2,8 +2,10 @@ import * as THREE from "three";
 
 export const COLORS = {
     Primary: "#346de9",
-    Base: "#eaf5ff",
+    Base: "#d8eafa",
+    Floor: "#e5f2fd",
     Water: "#4d96da",
+    Road: "#c6d8eb",
     Glass: "#3493ff",
     GlassNight: "#e9edff",
     Grass: "#65c96d",
@@ -11,7 +13,6 @@ export const COLORS = {
     Lamp: "#fff6cf",
     Leaf: "#95F999",
     Tree: "#3d9e3d",
-    Road: "#565656",
     Land: "#d6b788",
     Sand: "#ccc4ae",
     Stone: "#bebebe",
@@ -32,14 +33,24 @@ export const materials = {
         emissiveIntensity: 1,
 
     }),
-    Base: new THREE.MeshStandardMaterial({
-        color: new THREE.Color(COLORS.Base),
-        roughness: 1,
-    }),
     Primary: new THREE.MeshStandardMaterial({
         color: new THREE.Color(COLORS.Primary),
         roughness: 1,
     }),
+    Base: new THREE.MeshStandardMaterial({
+        color: new THREE.Color(COLORS.Base),
+        roughness: 1,
+    }),
+    Floor: new THREE.MeshStandardMaterial({
+        color: new THREE.Color(COLORS.Floor),
+        roughness: 1,
+    }),
+
+    Road: new THREE.MeshStandardMaterial({
+        color: new THREE.Color(COLORS.Road),
+        roughness: 1,
+    }),
+
     Coles: new THREE.MeshStandardMaterial({
         color: new THREE.Color(COLORS.Coles),
         roughness: 1,
@@ -97,11 +108,6 @@ export const materials = {
         color: new THREE.Color(COLORS.Stone),
         roughness: 0.9,
         metalness: 0.0,
-    }),
-    Road: new THREE.MeshStandardMaterial({
-        color: new THREE.Color(COLORS.Road),
-        roughness: 0.9,
-        metalness: 0.1,
     }),
     Land: new THREE.MeshStandardMaterial({
         color: new THREE.Color(COLORS.Land),

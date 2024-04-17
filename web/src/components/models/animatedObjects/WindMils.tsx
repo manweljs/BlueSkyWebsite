@@ -4,9 +4,10 @@ Command: npx gltfjsx@6.2.16 public/models/animatedObjects/WindMils.glb -o src/co
 */
 
 import * as THREE from 'three'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { useUserContext } from '@/context/UserContext'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -47,12 +48,41 @@ interface GLTFAction extends THREE.AnimationClip {
 }
 type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicElements['mesh']>>
 
-const delay = 200
+const delay = 0
 
 export function WindMils(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
   const { nodes, materials, animations } = useGLTF('/models/animatedObjects/WindMils.glb') as GLTFResult
   const { actions } = useAnimations(animations, group)
+  const { quality } = useUserContext()
+  const groupRef = useRef(null)
+
+  const windmilList = (
+    <>
+
+    </>)
+
+
+  const [selectedChildren, setSelectedChildren] = useState([]);
+  const [percentage, setPercentage] = useState(1);
+
+
+  const childrenArray = React.Children.toArray(windmilList.props.children);
+  const selectRandomChildren = (percentage) => {
+    const count = Math.ceil(childrenArray.length * (percentage));
+    const shuffled = [...childrenArray].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  };
+
+  // Efek untuk memilih children ketika komponen dimount atau persentase berubah
+  useEffect(() => {
+    setSelectedChildren(selectRandomChildren(percentage)); // Mengatur persentase di sini
+  }, [percentage]);
+
+  useEffect(() => {
+    const percent = quality > 0 ? 1 : 0.5
+    setPercentage(percent)
+  }, [quality]);
 
   const actionNames = [
     'WindMilTurbin.007', 'WindMilTurbin.008', 'WindMilTurbin.009',
@@ -61,30 +91,28 @@ export function WindMils(props: JSX.IntrinsicElements['group']) {
     'WindMilTurbin.004', 'WindMilTurbin.005', 'WindMilTurbin.001'
   ];
 
+
   const playAnimationsInSequence = () => {
-    actionNames.forEach((name, index) => {
-      setTimeout(() => {
-        actions[name].reset().play();
-      }, index * delay);
-    });
+    if (groupRef.current) {
+      actionNames.map((name, index) => {
+        actions[name].play();
+      });
+
+    }
   };
 
   useEffect(() => {
-
     playAnimationsInSequence();
-  }, [actions, delay]);
+  }, [quality]);
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Windmils">
+      <group name="Windmils" ref={groupRef}>
         <mesh name="WindMill006_1" castShadow receiveShadow geometry={nodes.WindMill006_1.geometry} material={materials.Base} position={[39.128, 1.164, -83.122]} rotation={[3.14, 0.807, -3.13]} scale={1.363}>
           <mesh name="WindMillTurbin007_1" castShadow receiveShadow geometry={nodes.WindMillTurbin007_1.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
         </mesh>
         <mesh name="WindMill007_1" castShadow receiveShadow geometry={nodes.WindMill007_1.geometry} material={materials.Base} position={[39.534, 1.123, -77.55]} rotation={[3.14, 0.807, -3.13]} scale={1.363}>
           <mesh name="WindMillTurbin008_1" castShadow receiveShadow geometry={nodes.WindMillTurbin008_1.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
-        </mesh>
-        <mesh name="WindMill008_1" castShadow receiveShadow geometry={nodes.WindMill008_1.geometry} material={materials.Base} position={[45.593, 2.932, -77.551]} rotation={[3.14, 0.807, -3.13]} scale={1.363}>
-          <mesh name="WindMillTurbin009_1" castShadow receiveShadow geometry={nodes.WindMillTurbin009_1.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
         </mesh>
         <mesh name="WindMill009_1" castShadow receiveShadow geometry={nodes.WindMill009_1.geometry} material={materials.Base} position={[42.801, -0.29, 80.17]} rotation={[-3.14, 0.602, -3.132]} scale={1.363}>
           <mesh name="WindMillTurbin010_1" castShadow receiveShadow geometry={nodes.WindMillTurbin010_1.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
@@ -92,17 +120,11 @@ export function WindMils(props: JSX.IntrinsicElements['group']) {
         <mesh name="WindMill010_1" castShadow receiveShadow geometry={nodes.WindMill010_1.geometry} material={materials.Base} position={[38.841, -0.248, 78.563]} rotation={[-3.14, 0.602, -3.132]} scale={1.363}>
           <mesh name="WindMillTurbin011_1" castShadow receiveShadow geometry={nodes.WindMillTurbin011_1.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
         </mesh>
-        <mesh name="WindMill011_1" castShadow receiveShadow geometry={nodes.WindMill011_1.geometry} material={materials.Base} position={[46.014, -0.312, 79.633]} rotation={[-3.14, 0.602, -3.132]} scale={1.363}>
-          <mesh name="WindMillTurbin012_1" castShadow receiveShadow geometry={nodes.WindMillTurbin012_1.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
-        </mesh>
         <mesh name="WindMill001_1" castShadow receiveShadow geometry={nodes.WindMill001_1.geometry} material={materials.Base} position={[-45.973, 2.192, 58.52]} rotation={[-Math.PI, 0.749, -Math.PI]} scale={1.363}>
           <mesh name="WindMillTurbin002_1" castShadow receiveShadow geometry={nodes.WindMillTurbin002_1.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
         </mesh>
         <mesh name="WindMill002_1" castShadow receiveShadow geometry={nodes.WindMill002_1.geometry} material={materials.Base} position={[-46.4, 4.524, 53.63]} rotation={[3.139, 0.873, -3.129]} scale={1.363}>
           <mesh name="WindMillTurbin003_1" castShadow receiveShadow geometry={nodes.WindMillTurbin003_1.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
-        </mesh>
-        <mesh name="WindMill003_1" castShadow receiveShadow geometry={nodes.WindMill003_1.geometry} material={materials.Base} position={[-75.421, 15.103, 16.252]} rotation={[3.129, 1.179, -3.121]} scale={1.363}>
-          <mesh name="WindMillTurbin004_1" castShadow receiveShadow geometry={nodes.WindMillTurbin004_1.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
         </mesh>
         <mesh name="WindMill004_1" castShadow receiveShadow geometry={nodes.WindMill004_1.geometry} material={materials.Base} position={[-76.388, 15.46, 22.595]} rotation={[3.14, 0.807, -3.13]} scale={1.363}>
           <mesh name="WindMillTurbin005_1" castShadow receiveShadow geometry={nodes.WindMillTurbin005_1.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
@@ -110,6 +132,17 @@ export function WindMils(props: JSX.IntrinsicElements['group']) {
         <mesh name="WindMill005_1" castShadow receiveShadow geometry={nodes.WindMill005_1.geometry} material={materials.Base} position={[-76.646, 15.485, 19.328]} rotation={[3.14, 0.807, -3.13]} scale={1.363}>
           <mesh name="WindMillTurbin006_1" castShadow receiveShadow geometry={nodes.WindMillTurbin006_1.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
         </mesh>
+        <mesh name="WindMill008_1" castShadow receiveShadow geometry={nodes.WindMill008_1.geometry} material={materials.Base} position={[45.593, 2.932, -77.551]} rotation={[3.14, 0.807, -3.13]} scale={1.363}>
+          <mesh name="WindMillTurbin009_1" castShadow receiveShadow geometry={nodes.WindMillTurbin009_1.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
+        </mesh>
+        <mesh name="WindMill011_1" castShadow receiveShadow geometry={nodes.WindMill011_1.geometry} material={materials.Base} position={[46.014, -0.312, 79.633]} rotation={[-3.14, 0.602, -3.132]} scale={1.363}>
+          <mesh name="WindMillTurbin012_1" castShadow receiveShadow geometry={nodes.WindMillTurbin012_1.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
+        </mesh>
+
+        <mesh name="WindMill003_1" castShadow receiveShadow geometry={nodes.WindMill003_1.geometry} material={materials.Base} position={[-75.421, 15.103, 16.252]} rotation={[3.129, 1.179, -3.121]} scale={1.363}>
+          <mesh name="WindMillTurbin004_1" castShadow receiveShadow geometry={nodes.WindMillTurbin004_1.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
+        </mesh>
+
         <mesh name="WindMill012_1" castShadow receiveShadow geometry={nodes.WindMill012_1.geometry} material={materials.Base} position={[-48.654, 5.197, 56.167]} rotation={[-3.14, 0.602, -3.132]} scale={1.363}>
           <mesh name="WindMillTurbin013_1" castShadow receiveShadow geometry={nodes.WindMillTurbin013_1.geometry} material={materials.Base} position={[0.001, 2.724, 0.342]} />
         </mesh>

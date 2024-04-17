@@ -4,22 +4,29 @@ import { AnimatePresence, delay, motion } from 'framer-motion'
 import style from '@/styles/style.module.sass'
 import { Button } from 'antd';
 import { useUserContext } from '@/context/UserContext';
-import { timeCheck } from '@/consts';
+import { preloadingTime } from '@/consts';
+import { UserPreference } from '@/types';
 
 
 export default function LoadingExperience() {
     const [isLoading, setIsLoading] = useState(true);
-    const { setStartExperience, startExperience, loadingProgress, qualitySet } = useUserContext();
+    const { setStartExperience, startExperience, loadingProgress, qualitySet, setUserPreference } = useUserContext();
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             setIsLoading(false);
-        }, timeCheck * 1000);
+        }, preloadingTime * 1000);
 
         return () => {
             clearTimeout(timeoutId);
         };
-    }, [timeCheck]);
+    }, [preloadingTime]);
+
+    const handleStartExperience = (preference: UserPreference) => {
+        console.log('preference', preference)
+        setUserPreference(preference)
+        setStartExperience(true)
+    }
 
 
     return (
@@ -27,26 +34,46 @@ export default function LoadingExperience() {
             {!startExperience && (
                 <motion.div className={style.loading_experience}
                     initial={{ opacity: 1 }}
-                    animate={{ opacity: qualitySet ? .95 : 1 }}
+                    animate={{ opacity: !isLoading && (loadingProgress === 100) ? .95 : 1 }}
                     exit={{ opacity: 0, transition: { duration: 0.5 } }}
                 >
                     <MyIcon />
-                    {!isLoading && (loadingProgress === 100) && qualitySet && (
+                    {!isLoading && (loadingProgress === 100) && (
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{
                                 opacity: 1,
                                 transition: { duration: .3 }
                             }}
+                            className={style.exp_options}
                         >
-                            <Button
-                                className={style.button_enter}
-                                onClick={() => { setStartExperience(true) }}
-                                shape="round"
-                                ghost
-                            >
-                                Enter
-                            </Button>
+                            <p>Select your experience preference</p>
+                            <div className={style.button_container}>
+                                <Button
+                                    className={style.button_enter}
+                                    onClick={() => { handleStartExperience("quality") }}
+                                    shape="round"
+                                    ghost
+                                >
+                                    Quality
+                                </Button>
+                                <Button
+                                    className={style.button_enter}
+                                    onClick={() => { handleStartExperience("auto") }}
+                                    shape="round"
+                                    ghost
+                                >
+                                    Automatic
+                                </Button>
+                                <Button
+                                    className={style.button_enter}
+                                    onClick={() => { handleStartExperience("performance") }}
+                                    shape="round"
+                                    ghost
+                                >
+                                    Performance
+                                </Button>
+                            </div>
                         </motion.div>
                     )}
                 </motion.div>
@@ -62,7 +89,7 @@ const strokeAnimation = {
         opacity: 1,
         transition: {
             pathLength: {
-                duration: timeCheck,
+                duration: preloadingTime,
                 ease: "easeInOut",
                 delay: 1
             },

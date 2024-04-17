@@ -11,7 +11,7 @@ export const ICON_SIZE = 100
 
 export const PRIMARY_COLOR = "#02488f"
 
-export const timeCheck = 5;
+export const preloadingTime = 4;
 
 export const sectionData = [
 

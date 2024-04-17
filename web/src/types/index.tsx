@@ -25,4 +25,4 @@ export interface ContentType {
 
 export type Quality = 0 | 1 | 2
 
-export type UserPreference = "performance" | "auto" | "quality"
+export type UserPreference = "performance" | "auto" | "quality" | undefined
