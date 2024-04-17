@@ -13,7 +13,7 @@ import { WindMils } from "./models/windmils/Windmils";
 import { Beach } from "./models/beach/Beach";
 import Sections from "./sections/Sections";
 import { useUserContext } from "@/context/UserContext";
-import { sectionData } from "@/consts";
+import { sectionData, timeCheck } from "@/consts";
 import Scenes from "./models/scenes/Scenes";
 import AudioPlayer from "./ui/audio_player/AudioPlayer";
 import Markers from "./ui/markers/Markers";
@@ -34,10 +34,10 @@ import { Quality } from "@/types";
 import ModeControls from "./ui/ModeControls";
 
 
-const timeCheck = 5;
 
 const Experience = () => {
-    const { quality, isNight } = useUserContext()
+
+
     return (
         <ConfigProvider theme={{
             algorithm: theme.defaultAlgorithm,
@@ -63,9 +63,9 @@ const Experience = () => {
 
 const Scene = () => {
     const { camera: mainCamera } = useThree()
-    const { camera, setCamera, cameraControlsRef, setLoadingProgress, setQuality, quality } = useUserContext()
+    const { camera, setCamera, cameraControlsRef, setLoadingProgress, setQuality, quality, qualitySet, setQualitySet } = useUserContext()
     const [initialScene, setInitialScene] = useState(false)
-    const [qualitySet, setQualitySet] = useState(false)
+
 
     const { progress } = useProgress()
 
@@ -93,24 +93,24 @@ const Scene = () => {
         }
     }, [cameraControlsRef.current, initialScene]);
 
-
     useFPS((fps: number) => {
-        let q: Quality = 0;
-        if (fps <= 15) {
-            q = 0;
-        } else if (isMobile) {
-            q = 1;
-        } else if (fps > 15 && fps <= 25) {
-            q = 1;
-        } else {
-            q = 2;
+        if (!qualitySet) {
+            let q: Quality = 0;
+
+            if (fps <= 15) {
+                q = 0;
+            } else if (isMobile) {
+                q = 1;
+            } else if (fps > 15 && fps <= 25) {
+                q = 1;
+            } else {
+                q = 2;
+            }
+            setQuality(q);
+            setQualitySet(true);
+            console.log(`Highest FPS over ${timeCheck} seconds:`, fps);
         }
-        // setQuality(q);
-        // setQualitySet(true);
-        // console.log(`Highest FPS over ${timeCheck} seconds:`, fps);
-    }, timeCheck * 1000, true);
-
-
+    });
 
 
     return (

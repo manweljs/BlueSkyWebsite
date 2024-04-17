@@ -1,50 +1,49 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export const useFPS = (callback, duration = 5000, run = true) => {
     const requestRef = useRef(null);
     const previousTimeRef = useRef(null);
-    const [highestFPS, setHighestFPS] = useState(0);
+    const highestFPSRef = useRef(0);
     const startTimeRef = useRef(null);
 
-    const animate = (time) => {
-        if (previousTimeRef.current !== null && run) {
-            const deltaTime = time - previousTimeRef.current;
-            const fps = 1000 / deltaTime;
-            setHighestFPS(prevHighest => (fps > prevHighest ? fps : prevHighest));
-        }
-        previousTimeRef.current = time;
-        if (run) {
-            requestRef.current = requestAnimationFrame(animate);
-        }
-    };
-
     useEffect(() => {
-        if (run) {
-            startTimeRef.current = performance.now();
-            requestRef.current = requestAnimationFrame(animate);
+        if (!run) {
+            if (requestRef.current) {
+                cancelAnimationFrame(requestRef.current);
+            }
+            return;
         }
+
+        startTimeRef.current = performance.now(); // Reset start time when run becomes true
+
+        const animate = (time) => {
+            if (previousTimeRef.current !== null) {
+                const deltaTime = time - previousTimeRef.current;
+                if (deltaTime > 0) { // Ensure deltaTime is positive to avoid division by zero
+                    const fps = 1000 / deltaTime;
+                    highestFPSRef.current = Math.max(highestFPSRef.current, fps);
+                }
+            }
+
+            if (time - startTimeRef.current < duration) {
+                previousTimeRef.current = time;
+                requestRef.current = requestAnimationFrame(animate);
+            } else {
+                // Once the duration is over, call the callback and reset the highest FPS
+                callback(highestFPSRef.current);
+                highestFPSRef.current = 0; // Reset highest FPS for the next measurement period
+                startTimeRef.current = null; // Clear the start time
+            }
+        };
+
+        requestRef.current = requestAnimationFrame(animate);
 
         return () => {
             if (requestRef.current) {
                 cancelAnimationFrame(requestRef.current);
             }
         };
-    }, [run]);
+    }, [callback, duration, run]);
 
-    useEffect(() => {
-        if (!run) {
-            return;
-        }
-
-        const intervalId = setInterval(() => {
-            callback(highestFPS);  // Call the callback with the highest FPS after each duration
-            setHighestFPS(0);  // Reset highest FPS
-        }, duration);
-
-        return () => {
-            clearInterval(intervalId);
-        };
-    }, [run, duration, callback]);
-
-    return highestFPS;
+    return highestFPSRef.current;
 };
