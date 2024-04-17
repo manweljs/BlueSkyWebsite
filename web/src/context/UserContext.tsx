@@ -26,6 +26,8 @@ interface UserContextType {
     setLoadingProgress?: (param: number) => void
     quality: Quality
     setQuality: (param: Quality) => void
+    qualitySet: boolean
+    setQualitySet: (param: boolean) => void
 }
 
 // Membuat context dengan tipe yang didefinisikan
@@ -55,6 +57,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [loadingProgress, setLoadingProgress] = useState(0);
     const [quality, setQuality] = useState<Quality>(2);
     const [userPreference, setUserPreference] = useState<UserPreference>("quality");
+    const [qualitySet, setQualitySet] = useState(false)
 
     const cameraControlsRef = useRef(null)
 
@@ -75,7 +78,9 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         quality,
         setQuality,
         userPreference,
-        setUserPreference
+        setUserPreference,
+        qualitySet,
+        setQualitySet
     }
 
     return (

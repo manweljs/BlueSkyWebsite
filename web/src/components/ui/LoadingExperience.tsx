@@ -4,22 +4,22 @@ import { AnimatePresence, delay, motion } from 'framer-motion'
 import style from '@/styles/style.module.sass'
 import { Button } from 'antd';
 import { useUserContext } from '@/context/UserContext';
+import { timeCheck } from '@/consts';
 
-const waitTime = 5000;
 
 export default function LoadingExperience() {
     const [isLoading, setIsLoading] = useState(true);
-    const { setStartExperience, startExperience, loadingProgress } = useUserContext();
+    const { setStartExperience, startExperience, loadingProgress, qualitySet } = useUserContext();
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             setIsLoading(false);
-        }, waitTime);
+        }, timeCheck * 1000);
 
         return () => {
             clearTimeout(timeoutId);
         };
-    }, []);
+    }, [timeCheck]);
 
 
     return (
@@ -27,11 +27,11 @@ export default function LoadingExperience() {
             {!startExperience && (
                 <motion.div className={style.loading_experience}
                     initial={{ opacity: 1 }}
-                    animate={{ opacity: !isLoading ? .95 : 1 }}
+                    animate={{ opacity: qualitySet ? .95 : 1 }}
                     exit={{ opacity: 0, transition: { duration: 0.5 } }}
                 >
                     <MyIcon />
-                    {!isLoading && (loadingProgress === 100) && (
+                    {!isLoading && (loadingProgress === 100) && qualitySet && (
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{
@@ -62,7 +62,7 @@ const strokeAnimation = {
         opacity: 1,
         transition: {
             pathLength: {
-                duration: waitTime / 1000,
+                duration: timeCheck,
                 ease: "easeInOut",
                 delay: 1
             },
