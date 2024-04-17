@@ -31,6 +31,7 @@ import { Streetlights } from "./models/streetlights/Streetlights";
 import { ConfigProvider, theme } from "antd";
 import { useFPS } from "./hooks/useFPS";
 import { Quality } from "@/types";
+import ModeControls from "./ui/ModeControls";
 
 
 const timeCheck = 5;
@@ -47,6 +48,7 @@ const Experience = () => {
             <Sections />
             <LoadingExperience />
             <Navbar />
+            <ModeControls />
             <ControlGuide />
             <Canvas shadows className="main-canvas" >
                 <Stats className={style.stats} />
@@ -103,7 +105,7 @@ const Scene = () => {
         } else {
             q = 2;
         }
-        setQuality(q);
+        // setQuality(q);
         // setQualitySet(true);
         // console.log(`Highest FPS over ${timeCheck} seconds:`, fps);
     }, timeCheck * 1000, true);

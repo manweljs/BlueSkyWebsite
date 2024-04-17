@@ -14,9 +14,9 @@ export default function Navbar() {
             <div className={style.logo}>
                 <img src={logoUrl} alt="logo" />
             </div>
-            <div className={style.quality_info} style={{ color: isNight ? "white" : "black" }}>
+            {/* <div className={style.quality_info} style={{ color: isNight ? "white" : "black" }}>
                 <p>{q} Mode</p>
-            </div>
+            </div> */}
 
         </div>
     )
