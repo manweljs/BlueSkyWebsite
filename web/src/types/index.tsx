@@ -23,4 +23,6 @@ export interface ContentType {
     paragraph: string[]
 }
 
-export type Quality = 0 | 1 | 2 
+export type Quality = 0 | 1 | 2
+
+export type UserPreference = "performance" | "auto" | "quality"

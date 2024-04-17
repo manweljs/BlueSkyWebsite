@@ -9,7 +9,6 @@ import { Island } from "./models/floors/Island";
 import VehicleCollection from "./models/vehicles/VehicleCollection";
 import BuildingCollection from "./models/buildings/BuildingCollection";
 import { Text001 } from "./models/texts/Text001";
-import { WindMils } from "./models/windmils/Windmils";
 import { Beach } from "./models/beach/Beach";
 import Sections from "./sections/Sections";
 import { useUserContext } from "@/context/UserContext";
@@ -31,6 +30,7 @@ import { Streetlights } from "./models/streetlights/Streetlights";
 import { ConfigProvider, theme } from "antd";
 import { useFPS } from "./hooks/useFPS";
 import { Quality } from "@/types";
+import AnimatedObjects from "./models/animatedObjects";
 
 
 const timeCheck = 5;
@@ -130,7 +130,7 @@ const Scene = () => {
                     <BlueSky />
                     <VehicleCollection />
                     <BuildingCollection />
-                    <WindMils />
+                    <AnimatedObjects />
                     <Beach />
                     <Island />
                     <Streetlights />

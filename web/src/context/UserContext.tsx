@@ -1,5 +1,5 @@
 import { SECTION } from '@/consts';
-import { Quality } from '@/types';
+import { Quality, UserPreference } from '@/types';
 import React, { createContext, useContext, useState, ReactNode, useEffect, useRef } from 'react';
 import { isMobile } from 'react-device-detect';
 import * as THREE from 'three';
@@ -54,6 +54,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [streetLightLoaded, setStreetLightLoaded] = useState<boolean>(false);
     const [loadingProgress, setLoadingProgress] = useState(0);
     const [quality, setQuality] = useState<Quality>(2);
+    const [userPreference, setUserPreference] = useState<UserPreference>("quality");
 
     const cameraControlsRef = useRef(null)
 
@@ -72,7 +73,9 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         loadingProgress,
         setLoadingProgress,
         quality,
-        setQuality
+        setQuality,
+        userPreference,
+        setUserPreference
     }
 
     return (
