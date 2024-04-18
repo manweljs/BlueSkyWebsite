@@ -7,6 +7,7 @@ import * as THREE from 'three'
 import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { materials } from '@/consts/materials'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -28,7 +29,7 @@ type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicE
 
 export function Bus(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
-  const { nodes, materials, animations } = useGLTF('/models/vehicles/Bus.glb') as GLTFResult
+  const { nodes, animations } = useGLTF('/models/animatedObjects/Bus.glb') as GLTFResult
   const { actions } = useAnimations(animations, group)
 
   useEffect(() => {
@@ -42,7 +43,7 @@ export function Bus(props: JSX.IntrinsicElements['group']) {
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <group name="Bus" position={[-7.08, 0.619, -16.216]} rotation={[0, -0.009, 0]} scale={2.079}>
-          <mesh name="Plane018" geometry={nodes.Plane018.geometry} material={materials.Primary} castShadow />
+          <mesh name="Plane018" geometry={nodes.Plane018.geometry} material={materials.Glass} castShadow />
           <mesh name="Plane018_1" geometry={nodes.Plane018_1.geometry} material={materials.Base} castShadow />
         </group>
       </group>
@@ -50,4 +51,4 @@ export function Bus(props: JSX.IntrinsicElements['group']) {
   )
 }
 
-useGLTF.preload('/models/vehicles/Bus.glb')
+useGLTF.preload('/models/animatedObjects/Bus.glb')

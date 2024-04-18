@@ -8,6 +8,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import { useUserContext } from '@/context/UserContext'
+import { materials } from '@/consts/materials'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -52,7 +53,7 @@ const delay = 0
 
 export function WindMils(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
-  const { nodes, materials, animations } = useGLTF('/models/animatedObjects/WindMils.glb') as GLTFResult
+  const { nodes, animations } = useGLTF('/models/animatedObjects/WindMils.glb') as GLTFResult
   const { actions } = useAnimations(animations, group)
   const { quality } = useUserContext()
   const groupRef = useRef(null)

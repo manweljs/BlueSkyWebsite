@@ -6,10 +6,10 @@ import { Stars } from '@react-three/drei';
 import { isMobile } from 'react-device-detect';
 
 const daySky = "#a4cfff";
-const dayLight = "#b4d2ff";
+const dayLight = "#aed1ff";
 const nightSky = "#000b49";
 const nightLight = "#6170a1";
-const directionalLightIntensity = 0.75;
+const directionalLightIntensity = .75;
 const ambientLightIntensity = 2;
 
 const BaseEnvironment = () => {

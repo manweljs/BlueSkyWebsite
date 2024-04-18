@@ -156,15 +156,15 @@ export function MainBuildings(props: {
       </group>
       <group name="Hangar" position={[-43.478, 0.399, -60.989]} rotation={[Math.PI, 0, Math.PI]} scale={1.299}>
         <mesh name="Plane252" castShadow geometry={nodes.Plane252.geometry} material={materials.Base} />
-        <mesh name="Plane252_1" castShadow geometry={nodes.Plane252_1.geometry} material={materials.Primary} />
+        <mesh name="Plane252_1" castShadow geometry={nodes.Plane252_1.geometry} material={glass} />
       </group>
       <group name="Hangar001" position={[-43.478, 0.399, -55.012]} rotation={[Math.PI, 0, Math.PI]} scale={1.299}>
         <mesh name="Plane252" castShadow geometry={nodes.Plane252.geometry} material={materials.Base} />
-        <mesh name="Plane252_1" castShadow geometry={nodes.Plane252_1.geometry} material={materials.Primary} />
+        <mesh name="Plane252_1" castShadow geometry={nodes.Plane252_1.geometry} material={glass} />
       </group>
       <group name="Hangar002" position={[-43.478, 0.399, -66.839]} rotation={[Math.PI, 0, Math.PI]} scale={1.299}>
         <mesh name="Plane252" castShadow geometry={nodes.Plane252.geometry} material={materials.Base} />
-        <mesh name="Plane252_1" castShadow geometry={nodes.Plane252_1.geometry} material={materials.Primary} />
+        <mesh name="Plane252_1" castShadow geometry={nodes.Plane252_1.geometry} material={glass} />
       </group>
       <group name="harbour" position={[14.945, 1.486, -69.53]} rotation={[Math.PI, 0, Math.PI]}>
         <mesh name="mesh980636007002" castShadow geometry={nodes.mesh980636007002.geometry} material={materials.Base} />

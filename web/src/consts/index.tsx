@@ -13,6 +13,15 @@ export const PRIMARY_COLOR = "#02488f"
 
 export const preloadingTime = 4;
 
+
+export enum Controls {
+    forward = 'forward',
+    backward = 'backward',
+    left = 'left',
+    right = 'right',
+    jump = 'jump',
+}
+
 export const sectionData = [
 
     {
@@ -354,3 +363,4 @@ export const sectionData = [
         }
     },
 ]
+

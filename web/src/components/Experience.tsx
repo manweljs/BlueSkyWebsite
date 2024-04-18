@@ -1,18 +1,17 @@
 "use client";
 
-import { PerspectiveCamera, CameraControls, useProgress, Stats, Html } from "@react-three/drei";
+import { PerspectiveCamera, CameraControls, useProgress, Stats, Html, KeyboardControls } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
 import { useEffect, useState } from "react";
 import * as THREE from "three";
 import { BlueSky } from "@/components/models/BlueSky";
 import { Island } from "./models/floors/Island";
-import VehicleCollection from "./models/vehicles/VehicleCollection";
 import BuildingCollection from "./models/buildings/BuildingCollection";
 import { Text001 } from "./models/texts/Text001";
 import { Beach } from "./models/beach/Beach";
 import Sections from "./sections/Sections";
 import { useUserContext } from "@/context/UserContext";
-import { sectionData, preloadingTime } from "@/consts";
+import { sectionData, preloadingTime, Controls } from "@/consts";
 import Scenes from "./models/scenes/Scenes";
 import AudioPlayer from "./ui/audio_player/AudioPlayer";
 import Markers from "./ui/markers/Markers";
@@ -27,11 +26,14 @@ import { isMobile } from "react-device-detect";
 import BaseEnvironment from "./BaseEnvironment";
 import style from "@/styles/style.module.sass"
 import { Streetlights } from "./models/streetlights/Streetlights";
-import { ConfigProvider, theme } from "antd";
+import { Col, ConfigProvider, theme } from "antd";
 import { useFPS } from "./hooks/useFPS";
 import { Quality } from "@/types";
 import AnimatedObjects from "./models/animatedObjects";
 import ModeControls from "./ui/ModeControls";
+import { Adventurer } from "./models/player/Adventurer";
+import { MeshCollider, Physics, RigidBody } from "@react-three/rapier";
+import { BusPlayer } from "./models/player/BusPlayer";
 
 
 
@@ -92,10 +94,20 @@ const Experience = () => {
             <Navbar />
             <ModeControls />
             <ControlGuide />
-            <Canvas shadows className="main-canvas" >
-                <Stats className={style.stats} />
-                <Scene />
-            </Canvas>
+            <KeyboardControls
+                map={[
+                    { name: Controls.forward, keys: ["ArrowUp", "w", "W"] },
+                    { name: Controls.backward, keys: ["ArrowDown", "s", "S"] },
+                    { name: Controls.left, keys: ["ArrowLeft", "a", "A"] },
+                    { name: Controls.right, keys: ["ArrowRight", "d", "D"] },
+                    { name: Controls.jump, keys: ["Space"] },
+                ]}
+            >
+                <Canvas shadows className="main-canvas" >
+                    <Stats className={style.stats} />
+                    <Scene />
+                </Canvas>
+            </KeyboardControls>
 
         </ConfigProvider >
     )
@@ -130,7 +142,7 @@ const Scene = () => {
                 ...sectionData[0].lookAt.target,
 
             )
-            cameraControlsRef.current.zoom(camera.zoom / 3, true)
+            cameraControlsRef.current.zoom(camera.zoom / 4, true)
             setInitialScene(true)
         }
     }, [cameraControlsRef.current, initialScene]);
@@ -148,16 +160,14 @@ const Scene = () => {
                         camera={camera}
                         maxPolarAngle={1.2}
                         maxDistance={100}
-                        minDistance={25}
+                        minDistance={10}
                         makeDefault
                     />
 
-                    <PerspectiveCamera zoom={2} />
+                    <PerspectiveCamera zoom={2.5} />
 
                     <Text001 />
                     <BlueSky />
-                    <VehicleCollection />
-                    <BuildingCollection />
                     <AnimatedObjects />
                     <Beach />
                     <Island />
@@ -165,10 +175,17 @@ const Scene = () => {
                     <Scenes />
                     <Markers />
                     <TreesAndRocks />
-                    <RoadAndFloors />
+
+                    <Physics gravity={[0, -9.81, 0]} >
+                        <BuildingCollection />
+
+                        <RigidBody type="fixed" colliders="trimesh">
+                            <RoadAndFloors />
+                        </RigidBody>
+
+                        {/* <BusPlayer /> */}
+                    </Physics>
                     <Bloom mipmapBlur luminanceThreshold={1} />
-
-
 
                     {!isMobile && quality > 1 &&
                         <EffectComposer

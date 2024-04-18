@@ -7,6 +7,7 @@ import * as THREE from 'three'
 import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { materials } from '@/consts/materials'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -28,7 +29,7 @@ type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicE
 
 export function CarBox(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
-  const { nodes, materials, animations } = useGLTF('/models/vehicles/CarBox.glb') as GLTFResult
+  const { nodes, animations } = useGLTF('/models/animatedObjects/CarBox.glb') as GLTFResult
   const { actions } = useAnimations(animations, group)
 
   useEffect(() => {
@@ -49,4 +50,4 @@ export function CarBox(props: JSX.IntrinsicElements['group']) {
   )
 }
 
-useGLTF.preload('/models/vehicles/CarBox.glb')
+useGLTF.preload('/models/animatedObjects/CarBox.glb')

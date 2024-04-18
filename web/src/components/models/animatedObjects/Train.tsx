@@ -53,7 +53,7 @@ const materials = {
 
 export function Train(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
-  const { nodes, animations } = useGLTF('/models/vehicles/Train.glb') as GLTFResult
+  const { nodes, animations } = useGLTF('/models/animatedObjects/Train.glb') as GLTFResult
   const { actions } = useAnimations(animations, group)
   const { scene, gl } = useThree()
 
@@ -120,4 +120,4 @@ export function Train(props: JSX.IntrinsicElements['group']) {
   )
 }
 
-useGLTF.preload('/models/vehicles/Train.glb')
+useGLTF.preload('/models/animatedObjects/Train.glb')
