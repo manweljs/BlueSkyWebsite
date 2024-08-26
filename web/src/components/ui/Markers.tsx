@@ -1,13 +1,19 @@
-import { ICON_SIZE, PRIMARY_COLOR, sectionData } from '@/consts'
+import { ICON_SIZE, PRIMARY_COLOR } from '@/consts'
 import { PositionType, SectionType } from '@/types'
 import React, { useRef, useState } from 'react'
-import { Tooltip } from 'antd'
+// import { Tooltip } from 'antd'
 import Image from 'next/image'
 import { useUserContext } from '@/context/UserContext'
-import style from '@/styles/style.module.sass'
+import s from './Ui.module.sass'
 import * as THREE from 'three'
 import { Html } from '@react-three/drei'
 import { motion } from 'framer-motion'
+import { sectionData } from '@/components/sections/Sections'
+import { Tooltip } from 'antd'
+import { font } from '@/Wrapper'
+import { cls } from '@/utils'
+import { FIcon } from './FIcon'
+
 
 export default function Markers() {
     const { setActiveSection, activeSection } = useUserContext()
@@ -29,16 +35,26 @@ export default function Markers() {
                             animate={{ opacity: (activeSection > 0 && activeSection !== index) ? 0 : 1 }}
                             transition={{ duration: 0.3 }}
                         >
-                            <Tooltip title={section.title} color={PRIMARY_COLOR}>
-                                <div className={style.section_icon}
+                            <Tooltip
+                                title={section.title}
+                                color={PRIMARY_COLOR}
+                                arrow={false}
+                                overlayClassName={cls(s.marker_tooltip, font.className)}
+                            >
+                                <div className={s.marker_icon}
                                     onClick={() => setActiveSection(index)}
                                 >
-                                    <Image
+                                    {/* <Image
                                         src={section.icon.url}
                                         width={ICON_SIZE}
                                         height={ICON_SIZE}
                                         onClick={() => setActiveSection(index)}
                                         alt={key}
+                                    /> */}
+                                    <FIcon
+                                        name={section.icon.name}
+                                        size={110}
+                                        pointer
                                     />
                                 </div>
                             </Tooltip>

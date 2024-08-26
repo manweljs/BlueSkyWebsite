@@ -11,7 +11,7 @@ export interface SectionType {
         target: PositionType
     },
     icon: {
-        url: string
+        name: string
         position: PositionType
     },
     contents?: ContentType

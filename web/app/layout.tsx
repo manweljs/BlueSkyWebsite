@@ -1,22 +1,25 @@
 import { Layout } from '@/components/dom/Layout'
-import '@/global.css'
+import "antd/dist/reset.css"
+import s from "@/styles/style.module.sass"
+import Wrapper from './Wrapper'
+import dynamic from 'next/dynamic'
+
+import { cls } from '@/utils'
+
 
 export const metadata = {
-  title: 'Bluesky',
-  description: 'A minimal starter for Nextjs + React-three-fiber and Threejs.',
+  title: 'BlueSky Creations',
+  description: 'Optimal decision making, making the uncertain more certain.',
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en' className='antialiased'>
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
+    <html lang='en' className={cls(s.bluesky)}>
       <head />
       <body>
-        {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
-        <Layout>{children}</Layout>
+        <Wrapper>
+          {children}
+        </Wrapper>
       </body>
     </html>
   )

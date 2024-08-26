@@ -1,6 +1,6 @@
 import React from 'react'
 import s from "./Ui.module.sass"
-import { cls } from 'utils'
+import { cls } from '@/utils'
 
 interface Props {
     name: string

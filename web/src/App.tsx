@@ -8,9 +8,9 @@ export default function APP() {
     //     frameLoop: "always",
     // });
     return (
-        <UserProvider>
-            <Experience />
-        </UserProvider>
+
+        <Experience />
+
     )
 
 }

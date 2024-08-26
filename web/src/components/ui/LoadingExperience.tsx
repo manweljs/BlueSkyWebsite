@@ -28,13 +28,15 @@ export default function LoadingExperience() {
         setStartExperience(true)
     }
 
+    console.log('loadingProgress', loadingProgress)
+    const backgroundColor = (!isLoading && loadingProgress === 100) ? 'var(--primary-90)' : 'var(--primary)'
 
     return (
         <AnimatePresence>
             {!startExperience && (
                 <motion.div className={style.loading_experience}
-                    initial={{ opacity: 1 }}
-                    animate={{ opacity: !isLoading && (loadingProgress === 100) ? .95 : 1 }}
+                    initial={{ backgroundColor: 'var(--primary)' }}
+                    animate={{ backgroundColor }}
                     exit={{ opacity: 0, transition: { duration: 0.5 } }}
                 >
                     <MyIcon />

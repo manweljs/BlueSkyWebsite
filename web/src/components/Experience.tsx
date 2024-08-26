@@ -66,14 +66,18 @@ const Experience = () => {
 
 
     return (
-        <ConfigProvider theme={{
-            algorithm: theme.defaultAlgorithm,
-        }}
-        >
+        <React.Fragment>
             <AudioPlayerOption />
             <DayNightOption />
-            <QualityOption />
-            <PlayerModeOption />
+            {process.env.NEXT_PUBLIC_MODE === 'development' &&
+                <>
+                    <Stats className={style.stats} />
+                    <QualityOption />
+                </>
+
+            }
+
+            {/* <PlayerModeOption /> */}
             <ControlGuide />
 
             <Sections />
@@ -81,11 +85,9 @@ const Experience = () => {
             <Navbar />
 
             <Canvas shadows className="main-canvas" >
-                <Stats className={style.stats} />
                 <Scene />
             </Canvas>
-
-        </ConfigProvider >
+        </React.Fragment>
     )
 }
 

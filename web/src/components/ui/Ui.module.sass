@@ -1,4 +1,4 @@
-
+@use '../../styles/style.module' as *
 .ficon
     display: flex
     align-items: center
@@ -26,3 +26,61 @@
     z-index: 999999999
     bottom: 8rem
     left: 2rem
+
+.drawer
+    z-index: 99999
+    position: fixed
+
+.drawer_content
+    background-color: transparent
+
+.drawer_mask
+    background: transparent!important
+
+.marker_icon
+    background-color: var(--primary)
+    border-radius: 50%
+    border: 8px solid white
+    padding: 4rem
+    position: relative
+    transition: all .3s
+    color: white
+
+    img
+        filter: invert(1)
+
+.marker_icon:hover
+    background-color: var(--base)
+    color: var(--primary)!important
+    animation: pulse 3s infinite
+    border-color: var(--primary)
+
+    img
+        filter: invert(100) sepia(100) saturate(100) hue-rotate(147deg)
+
+.marker_tooltip
+    z-index: 999999999
+    padding: 1rem
+
+    :global
+        .ant-tooltip-inner
+            min-width: 150px
+            padding: 1rem
+            font-size: 1.1rem
+            border: 2px solid var(--base)!important
+            border-radius: 1rem
+            text-align: center
+            text-transform: uppercase
+
+@keyframes pulse
+    0%
+        box-shadow: 0 0 0 0 var(--primary-90), 0 0 0 0 var(--primary-90)
+
+    40%
+        box-shadow: 0 0 0 8rem transparent, 0 0 0 0 var(--primary-90)
+
+    80%
+        box-shadow: 0 0 0 8rem transparent, 0 0 0 6rem transparent
+
+    100%
+        box-shadow: 0 0 0 0 transparent, 0 0 0 6rem transparent

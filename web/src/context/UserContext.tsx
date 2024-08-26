@@ -2,7 +2,8 @@ import { Quality, UserPreference } from '@/types';
 import React, { createContext, useContext, useState, ReactNode, useEffect, useRef } from 'react';
 import { isMobile } from 'react-device-detect';
 import * as THREE from 'three';
-import { checkIfNight } from 'utils';
+import { checkIfNight } from '@/utils';
+import { CameraControls } from '@react-three/drei';
 
 type ActiveSectionType = number | null | undefined;
 

@@ -9,9 +9,8 @@ import BuildingCollection from "./models/buildings/BuildingCollection";
 import { Text001 } from "./models/texts/Text001";
 import { Beach } from "./models/beach/Beach";
 import { useUserContext } from "@/context/UserContext";
-import { sectionData } from "@/consts";
 import Scenes from "./models/scenes/Scenes";
-import Markers from "./ui/markers/Markers";
+import Markers from "./ui/Markers";
 import { Bloom, DepthOfField, EffectComposer } from "@react-three/postprocessing";
 import { TreesAndRocks } from "./models/trees/TreesAndRocks";
 import { RoadAndFloors } from "./models/floors/RoadAndFloors";
@@ -21,6 +20,7 @@ import { Streetlights } from "./models/streetlights/Streetlights";
 import AnimatedObjects from "./models/animatedObjects";
 import { Physics, RigidBody } from "@react-three/rapier";
 import CarPlayer, { controls, spawn } from "./models/player/CarPlayer";
+import { sectionData } from "./sections/Sections";
 
 export const Scene = () => {
     const { camera: mainCamera } = useThree()
@@ -32,6 +32,7 @@ export const Scene = () => {
     useEffect(() => {
         setLoadingProgress(progress)
     }, [progress])
+
     useEffect(() => {
         if (mainCamera) {
             setCamera(mainCamera)
@@ -62,7 +63,7 @@ export const Scene = () => {
     }, [cameraControlsRef.current, initialScene]);
 
     useEffect(() => {
-        if (!playerMode) {
+        if (!playerMode && initialScene) {
             resetCamera()
         }
     }, [playerMode]);
@@ -81,6 +82,7 @@ export const Scene = () => {
                         maxDistance={100}
                         minDistance={10}
                         makeDefault
+                        dampingFactor={2}
                     />
                     <Markers />
                 </>
