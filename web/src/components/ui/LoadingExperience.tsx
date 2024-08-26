@@ -10,7 +10,7 @@ import { UserPreference } from '@/types';
 
 export default function LoadingExperience() {
     const [isLoading, setIsLoading] = useState(true);
-    const { setStartExperience, startExperience, loadingProgress, qualitySet, setUserPreference } = useUserContext();
+    const { setStartExperience, startExperience, loadingProgress, setUserPreference } = useUserContext();
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {

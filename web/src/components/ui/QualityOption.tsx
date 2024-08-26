@@ -10,7 +10,7 @@ const options = [
     { value: 2, label: "High" },
 ]
 
-export default function ModeControls() {
+export function QualityOption() {
 
     const { setQuality, quality } = useUserContext()
 

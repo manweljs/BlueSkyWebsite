@@ -4,9 +4,9 @@ import { useUserContext } from '@/context/UserContext';
 import { FloatButton } from 'antd';
 import React, { useEffect, useState } from 'react'
 import { PauseCircleOutlined, PlayCircleOutlined } from '@ant-design/icons';
-import style from '@/styles/style.module.sass'
+import s from './Ui.module.sass'
 
-export default function AudioPlayer() {
+export function AudioPlayerOption() {
 
     const num = Math.floor(Math.random() * 7) + 1;
     const audioUrl = `/audio/audio0${num}.mp3`;
@@ -82,7 +82,7 @@ export default function AudioPlayer() {
     return (
         <FloatButton
             onClick={() => handleUserPaused()}
-            className={style.button_audio}
+            className={s.button_audio}
             shape='circle'
             icon={play ? <PauseCircleOutlined /> : <PlayCircleOutlined />}
         />

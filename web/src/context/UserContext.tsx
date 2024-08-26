@@ -11,26 +11,28 @@ type ActiveSectionType = number | null | undefined;
 // Mendefinisikan tipe untuk konteks
 interface UserContextType {
     activeSection: ActiveSectionType
-    setActiveSection: (param: ActiveSectionType) => void
+    setActiveSection: React.Dispatch<React.SetStateAction<ActiveSectionType>>
     camera: THREE.PerspectiveCamera | THREE.OrthographicCamera | undefined
-    setCamera: (param: THREE.PerspectiveCamera | THREE.OrthographicCamera) => void
+    setCamera: React.Dispatch<React.SetStateAction<THREE.PerspectiveCamera | THREE.OrthographicCamera | undefined>>
     cameraControlsRef?: any
     startExperience?: boolean
-    setStartExperience?: (param: boolean) => void
+    setStartExperience?: React.Dispatch<React.SetStateAction<boolean>>
     isNight?: boolean
-    setIsNight?: (param: boolean) => void
+    setIsNight?: React.Dispatch<React.SetStateAction<boolean>>
     streetLightLoaded?: boolean
-    setStreetLightLoaded?: (param: boolean) => void,
+    setStreetLightLoaded?: React.Dispatch<React.SetStateAction<boolean>>,
     loadingProgress?: number
-    setLoadingProgress?: (param: number) => void
+    setLoadingProgress?: React.Dispatch<React.SetStateAction<number>>
     quality: Quality
-    setQuality: (param: Quality) => void
+    setQuality: React.Dispatch<React.SetStateAction<Quality>>
     qualitySet: boolean
-    setQualitySet: (param: boolean) => void
+    setQualitySet: React.Dispatch<React.SetStateAction<boolean>>
     deviceFPSRate?: number
-    setDeviceFPSRate?: (param: number | undefined) => void
+    setDeviceFPSRate?: React.Dispatch<React.SetStateAction<number | undefined>>
     userPreference: UserPreference
-    setUserPreference: (param: UserPreference) => void
+    setUserPreference: React.Dispatch<React.SetStateAction<UserPreference>>
+    playerMode: boolean
+    setPlayerMode: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 // Membuat context dengan tipe yang didefinisikan
@@ -62,6 +64,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [userPreference, setUserPreference] = useState<UserPreference>(undefined);
     const [qualitySet, setQualitySet] = useState(false)
     const [deviceFPSRate, setDeviceFPSRate] = useState<number | undefined>(undefined)
+    const [playerMode, setPlayerMode] = useState(false)
 
     useEffect(() => {
         handleUserPreferenceChange(userPreference)
@@ -90,7 +93,9 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         qualitySet,
         setQualitySet,
         deviceFPSRate,
-        setDeviceFPSRate
+        setDeviceFPSRate,
+        playerMode,
+        setPlayerMode
     }
 
     return (
