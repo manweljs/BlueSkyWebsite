@@ -7,12 +7,7 @@ import * as THREE from 'three'
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
-import Image from 'next/image'
-import { ICON_SIZE, PRIMARY_COLOR, SECTION, sectionData } from '@/consts'
 import { useUserContext } from '@/context/UserContext'
-import style from '@/styles/style.module.sass'
-import { Tooltip } from 'antd'
-import { PositionType } from '@/types'
 import { materials } from '@/consts/materials'
 
 type GLTFResult = GLTF & {
