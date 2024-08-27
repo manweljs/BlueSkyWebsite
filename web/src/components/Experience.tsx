@@ -3,7 +3,7 @@
 import { Stats } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React, { useEffect, useState } from "react";
-import Sections from "./sections/Sections";
+// import Sections from "./sections/Sections";
 import { useUserContext } from "@/context/UserContext";
 import { AudioPlayerOption } from "./ui/AudioPlayerOption";
 import Navbar from "./ui/navbar/Navbar";
@@ -19,6 +19,8 @@ import { QualityOption } from "./ui/QualityOption";
 import { Scene } from "./Scene";
 import PlayerModeOption from "./ui/PlayerModeOption";
 
+import dynamic from "next/dynamic";
+const Sections = dynamic(() => import('./sections/Sections'), { ssr: false })
 
 const Experience = () => {
 

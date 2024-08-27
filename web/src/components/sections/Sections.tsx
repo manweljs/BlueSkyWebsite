@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from 'react'
 import { useUserContext } from '@/context/UserContext'
 import SectionBody from './SectionBody'
@@ -33,8 +34,10 @@ export default function Sections() {
         setShowDrawer(false);
     }, [activeSection]);
 
+    const drawerWidth = window.innerWidth > 1600 ? 900 : 800;
+
     return (
-        <Drawer open={showDrawer} onClose={handleClose} width={800} >
+        <Drawer open={showDrawer} onClose={handleClose} width={drawerWidth} >
             {activeSection > 0 &&
                 sectionData[activeSection].children
             }

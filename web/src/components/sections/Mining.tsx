@@ -3,72 +3,88 @@ import s from "./Section.module.sass"
 import { cls } from '@/utils';
 import Image from 'next/image';
 import { FIcon } from '../ui/FIcon';
+import Motion from '../ui/Motion';
 
 export default function Mining() {
     return (
         <div className={cls(s.section, s.mining)}>
-            <h1>{content.title}</h1>
+            <Motion.Slide direction="up" delay={.3}>
+                <h1>{content.title}</h1>
+            </Motion.Slide>
 
-            <section className={s.case_study}>
-                <h2>{content.caseStudy.title}</h2>
-                <div className={s.image}>
-                    <Image src={content.caseStudy.img} alt={content.title} width={800} height={400} />
-                </div>
-                <p>{content.caseStudy.summary}</p>
-            </section>
+            <Motion.Slide direction='up' delay={.8}>
+                <section className={s.case_study}>
+                    <h2>{content.caseStudy.title}</h2>
 
-            <section>
-                <h2>Challenges</h2>
-                <div className={s.challenges}>
-                    {content.challenges.map((challenge, index) => (
-                        <div key={index} className={s.challenge}>
-                            <h4>{challenge.title}</h4>
-                            <p>{challenge.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </section>
+                    <div className={s.image}>
+                        <Image src={content.caseStudy.img} alt={content.title} width={800} height={400} />
+                    </div>
+                    <p>{content.caseStudy.summary}</p>
+                </section>
+            </Motion.Slide>
 
-            <section>
-                <h2>Solution</h2>
-                <p>{content.solution.description}</p>
-                <ul>
-                    {content.solution.factors.map((factor, index) => (
-                        <li key={index}>{factor}</li>
-                    ))}
-                </ul>
-            </section>
-
-            <section>
-                <h2>Results</h2>
-                <div className={s.results}>
-                    {content.results.outcomes.map((outcome, index) => (
-                        <div key={index} className={s.result} >
-                            <div className={s.mb3}>
-                                <FIcon name={outcome.icon} size={30} primary />
+            <Motion.Slide direction='up' delay={1.5}>
+                <section>
+                    <h2>Challenges</h2>
+                    <div className={s.challenges}>
+                        {content.challenges.map((challenge, index) => (
+                            <div key={index} className={s.challenge}>
+                                <h4>{challenge.title}</h4>
+                                <p>{challenge.description}</p>
                             </div>
-                            <h4>{outcome.title}</h4>
-                            <p>{outcome.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </section>
+                        ))}
+                    </div>
+                </section>
+            </Motion.Slide>
 
-            <section>
-                <h2>{content.modelFeatures.title}</h2>
-                <ul>
-                    {content.modelFeatures.features.map((feature, index) => (
-                        <li key={index}>{feature}</li>
-                    ))}
-                </ul>
+            <Motion.Slide direction='up' amount={.3}>
+                <section>
+                    <h2>Solution</h2>
+                    <p>{content.solution.description}</p>
+                    <ul>
+                        {content.solution.factors.map((factor, index) => (
+                            <li key={index}>{factor}</li>
+                        ))}
+                    </ul>
+                </section>
+            </Motion.Slide>
 
-            </section>
+            <Motion.Slide direction='up' amount={.3}>
+                <section>
+                    <h2>Results</h2>
+                    <div className={s.results}>
+                        {content.results.outcomes.map((outcome, index) => (
+                            <div key={index} className={s.result} >
+                                <div className={s.mb3}>
+                                    <FIcon name={outcome.icon} size={30} primary />
+                                </div>
+                                <h4>{outcome.title}</h4>
+                                <p>{outcome.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </Motion.Slide>
 
-            <section>
-                <h2>{content.developmentProcess.title}</h2>
-                <p>{content.developmentProcess.description}</p>
+            <Motion.Slide direction='up' amount={.3}>
+                <section>
+                    <h2>{content.modelFeatures.title}</h2>
+                    <ul>
+                        {content.modelFeatures.features.map((feature, index) => (
+                            <li key={index}>{feature}</li>
+                        ))}
+                    </ul>
 
-            </section>
+                </section>
+            </Motion.Slide>
+
+            <Motion.Slide direction='up' amount={.3}>
+                <section>
+                    <h2>{content.developmentProcess.title}</h2>
+                    <p>{content.developmentProcess.description}</p>
+
+                </section>
+            </Motion.Slide>
 
 
         </div>

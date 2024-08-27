@@ -58,7 +58,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [activeSection, setActiveSection] = useState<ActiveSectionType>(null);
     const [camera, setCamera] = useState<THREE.PerspectiveCamera | THREE.OrthographicCamera | undefined>(undefined);
     const [startExperience, setStartExperience] = useState<boolean>(false);
-    const [isNight, setIsNight] = useState<boolean>(isMobile ? false : checkIfNight());
+    const [isNight, setIsNight] = useState<boolean>(false);
     const [streetLightLoaded, setStreetLightLoaded] = useState<boolean>(false);
     const [loadingProgress, setLoadingProgress] = useState(0);
     const [quality, setQuality] = useState<Quality>(2);
@@ -72,6 +72,15 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     }, [userPreference]);
 
     const cameraControlsRef = useRef(null)
+
+    useEffect(() => {
+        const isNight = checkIfNight()
+        if (isMobile) {
+            setIsNight(false)
+            return
+        }
+        setIsNight(isNight)
+    }, [isMobile]);
 
     const value = {
         activeSection,
