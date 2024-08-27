@@ -1,6 +1,7 @@
 import React from 'react'
 import { Drawer as AntdDrawer, DrawerProps } from 'antd'
 import s from "./Ui.module.sass"
+import Motion from './Motion';
 
 interface Props extends DrawerProps {
     children: React.ReactNode;

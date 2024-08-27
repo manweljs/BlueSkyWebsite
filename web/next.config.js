@@ -16,6 +16,9 @@ const nextConfig = {
   // compiler: {
   //   styledComponents: true,
   // },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
   output: 'standalone',
   reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
   images: {},
