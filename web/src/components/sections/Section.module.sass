@@ -1,5 +1,39 @@
 @use '../../styles/style.module' as *
 
-.drawer
-    z-index: 99999
-    position: fixed
+.section
+    width: 100%
+
+    section
+        padding: 1rem 0
+
+.mining
+
+    .case_study
+        .image
+            width: 100%
+            margin-bottom: 1rem
+
+            img
+                width: 100%
+                height: auto
+                object-fit: cover
+
+    .challenges
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        gap: 1.2rem
+
+        .challenge
+            width: 100%
+            justify-content: space-between
+            align-items: center
+
+    .results
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        gap: 1.2rem
+
+        .result
+            width: 100%
+            justify-content: space-between
+            align-items: center

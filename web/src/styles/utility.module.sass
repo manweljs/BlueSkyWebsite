@@ -1,0 +1,54 @@
+// Fungsi untuk mengkonversi indeks ke ukuran rem
+@function spacing($index)
+  @if $index == 0
+    @return 0rem
+  @else
+    @return 0.25rem * $index
+
+// Mixin untuk padding
+@mixin generate-padding
+  @for $i from 0 through 10
+    @for $i from 0 through 10
+    .p#{$i}
+      padding: spacing($i)!important
+    .pt#{$i}
+      padding-top: spacing($i)!important
+    .pb#{$i}
+      padding-bottom: spacing($i)!important
+    .pl#{$i}
+      padding-left: spacing($i)!important
+    .pr#{$i}
+      padding-right: spacing($i)!important
+    .px#{$i}
+      padding-left: spacing($i)!important
+      padding-right: spacing($i)!important
+    .py#{$i}
+      padding-top: spacing($i)!important
+      padding-bottom: spacing($i)!important
+
+// Mixin untuk margin
+@mixin generate-margin
+  @for $i from 0 through 10
+    .m#{$i}
+      margin: spacing($i)!important
+    .mt#{$i}
+      margin-top: spacing($i)!important
+    .mb#{$i}
+      margin-bottom: spacing($i)!important
+    .ml#{$i}
+      margin-left: spacing($i)!important
+    .mr#{$i}
+      margin-right: spacing($i)!important
+    .mx#{$i}
+      margin-left: spacing($i)!important
+      margin-right: spacing($i)!important
+    .my#{$i}
+      margin-top: spacing($i)!important
+      margin-bottom: spacing($i)!important
+
+@include generate-padding
+@include generate-margin
+
+// .py2
+//   padding-top: 0.5rem
+//   padding-bottom: 0.5rem

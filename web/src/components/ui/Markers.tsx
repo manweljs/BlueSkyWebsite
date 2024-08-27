@@ -90,6 +90,9 @@ export const Marker = (props: {
                 sprite // Renders as sprite, but only in transform mode (default=false)
                 onClick={onClick}
                 style={{ cursor: 'pointer' }}
+                distanceFactor={10} // If set, will multiply the scale factor by this amount (default=0)
+                zIndexRange={[100, 0]}
+
             >
                 {children}
             </Html>

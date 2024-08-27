@@ -14,10 +14,18 @@ export default function Drawer({
 }: Props) {
     return (
         <AntdDrawer
+            id='drawer'
             className={s.drawer}
             open={open}
             {...props}
-            classNames={{ mask: s.drawer_mask, wrapper: s.drawer_wrapper, content: s.drawer_content }}
+            classNames={{
+                mask: s.drawer_mask,
+                wrapper: s.drawer_wrapper,
+                content: s.drawer_content,
+                header: s.drawer_header,
+                body: s.drawer_body
+            }}
+
         >
             {children}
         </AntdDrawer>
