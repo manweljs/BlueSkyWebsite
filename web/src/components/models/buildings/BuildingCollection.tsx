@@ -3,7 +3,7 @@ import { Office } from './Office'
 import { Stores } from './Stores'
 import { Houses } from './Houses'
 import { MainBuildings } from './MainBuildings'
-import { useUserContext } from '@/context/UserContext'
+import { useUserContext } from '@/hooks/UserContext'
 import { BlueSkyStatue } from './BlueSkyStatue'
 
 export default function BuildingCollection() {

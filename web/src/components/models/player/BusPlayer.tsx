@@ -8,7 +8,7 @@ import React, { useEffect, useRef } from 'react'
 import { useGLTF, useKeyboardControls } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import { useFrame } from '@react-three/fiber'
-import { useUserContext } from '@/context/UserContext'
+import { useUserContext } from '@/hooks/UserContext'
 import { Controls } from '@/consts'
 import { RigidBody } from '@react-three/rapier'
 

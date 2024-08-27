@@ -8,7 +8,7 @@ import { Island } from "./models/floors/Island";
 import BuildingCollection from "./models/buildings/BuildingCollection";
 import { Text001 } from "./models/texts/Text001";
 import { Beach } from "./models/beach/Beach";
-import { useUserContext } from "@/context/UserContext";
+import { useUserContext } from "@/hooks/UserContext";
 import Scenes from "./models/scenes/Scenes";
 import Markers from "./ui/Markers";
 import { Bloom, DepthOfField, EffectComposer } from "@react-three/postprocessing";

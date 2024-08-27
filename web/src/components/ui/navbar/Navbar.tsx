@@ -1,33 +1,45 @@
-import React, { useEffect } from 'react'
-import style from "@/styles/style.module.sass"
-import { useUserContext } from '@/context/UserContext'
+import React, { useEffect, useState } from 'react'
+import { useUserContext } from '@/hooks/UserContext'
+import NavbarMenu from './NavbarMenu'
+import s from "./Navbar.module.sass"
+import { cls } from '@/utils'
 
 
 export default function Navbar() {
-    const { quality, isNight } = useUserContext()
+    const { quality, isNight, openNav } = useUserContext()
     const q = quality === 2 ? "High" : quality === 1 ? "Medium" : "Low"
-    // const [logoUrl, setLogoUrl] = React.useState<string>("/img/bluesky-logo.svg")
+
+
 
     const logoUrl = isNight ? "/img/bluesky-logo-white.svg" : "/img/bluesky-logo.svg"
 
-    // useEffect(() => {
-    //     if (isNight) {
-    //         setLogoUrl("/img/bluesky-logo-white.svg")
-    //     } else {
-    //         setLogoUrl("/img/bluesky-logo.svg")
-    //     }
-    // }, [isNight]);
+    return (
+        <React.Fragment>
+            <NavbarMenu />
+            <div className={s.navbar}
+            >
+                <div className={s.logo}>
+                    <img src={logoUrl} alt="logo" />
+                </div>
+                <Hamburger />
+
+            </div>
+        </React.Fragment>
+    )
+}
+
+
+const Hamburger = () => {
+    const { openNav, setOpenNav } = useUserContext()
 
     return (
-        <div className={style.navbar}
+        <div className={cls(s.hamburger, openNav && s.open)}
+            onClick={() => setOpenNav(prev => !prev)}
         >
-            <div className={style.logo}>
-                <img src={logoUrl} alt="logo" />
-            </div>
-            {/* <div className={style.quality_info} style={{ color: isNight ? "white" : "black" }}>
-                <p>{q} Mode</p>
-            </div> */}
-
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     )
 }

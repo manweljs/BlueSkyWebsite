@@ -6,7 +6,7 @@ Command: npx gltfjsx@6.2.16 public/models/BlueSky.glb
 
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
-import { useUserContext } from '@/context/UserContext';
+import { useUserContext } from '@/hooks/UserContext';
 import { materials } from '@/consts/materials';
 
 

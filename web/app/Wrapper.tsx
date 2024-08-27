@@ -1,6 +1,6 @@
 "use client"
 
-import { UserProvider } from '@/context/UserContext'
+import { UserProvider } from '@/hooks/UserContext'
 import { App, ConfigProvider, theme } from 'antd'
 import React from 'react'
 import { Bai_Jamjuree } from "next/font/google";

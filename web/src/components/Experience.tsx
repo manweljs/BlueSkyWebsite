@@ -4,7 +4,7 @@ import { Stats } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React, { useEffect, useState } from "react";
 // import Sections from "./sections/Sections";
-import { useUserContext } from "@/context/UserContext";
+import { useUserContext } from "@/hooks/UserContext";
 import { AudioPlayerOption } from "./ui/AudioPlayerOption";
 import Navbar from "./ui/navbar/Navbar";
 import ControlGuide from "./ui/ControlGuide";

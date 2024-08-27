@@ -3,7 +3,7 @@ import { PositionType, SectionType } from '@/types'
 import React, { useRef, useState } from 'react'
 // import { Tooltip } from 'antd'
 import Image from 'next/image'
-import { useUserContext } from '@/context/UserContext'
+import { useUserContext } from '@/hooks/UserContext'
 import s from './Ui.module.sass'
 import * as THREE from 'three'
 import { Html } from '@react-three/drei'
@@ -16,12 +16,14 @@ import { FIcon } from './FIcon'
 
 
 export default function Markers() {
-    const { setActiveSection, activeSection } = useUserContext()
+    const { setActiveSection, activeSection, openNav } = useUserContext()
     return (
         <>
             {Object.keys(sectionData).map((key: string, index: number) => {
                 if (index === 0) return
                 const section = sectionData[index] as SectionType
+
+                const opacity = openNav ? 0 : (activeSection > 0 && activeSection !== index) ? 0 : 1
 
                 return (
 
@@ -32,7 +34,7 @@ export default function Markers() {
                     >
                         <motion.div
                             initial={{ opacity: 0 }}
-                            animate={{ opacity: (activeSection > 0 && activeSection !== index) ? 0 : 1 }}
+                            animate={{ opacity: opacity }}
                             transition={{ duration: 0.3 }}
                         >
                             <Tooltip

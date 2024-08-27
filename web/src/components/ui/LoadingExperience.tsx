@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { AnimatePresence, delay, motion } from 'framer-motion'
 import style from '@/styles/style.module.sass'
 import { Button } from 'antd';
-import { useUserContext } from '@/context/UserContext';
+import { useUserContext } from '@/hooks/UserContext';
 import { preloadingTime } from '@/consts';
 import { UserPreference } from '@/types';
 

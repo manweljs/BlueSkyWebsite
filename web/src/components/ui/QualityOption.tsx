@@ -1,7 +1,7 @@
 import React from 'react'
 import style from "@/styles/style.module.sass"
 import { Radio, Select } from 'antd'
-import { useUserContext } from '@/context/UserContext'
+import { useUserContext } from '@/hooks/UserContext'
 import { Quality } from '@/types'
 
 const options = [

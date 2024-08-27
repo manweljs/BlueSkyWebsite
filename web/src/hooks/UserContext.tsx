@@ -34,6 +34,8 @@ interface UserContextType {
     setUserPreference: React.Dispatch<React.SetStateAction<UserPreference>>
     playerMode: boolean
     setPlayerMode: React.Dispatch<React.SetStateAction<boolean>>
+    openNav: boolean
+    setOpenNav: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 // Membuat context dengan tipe yang didefinisikan
@@ -66,6 +68,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [qualitySet, setQualitySet] = useState(false)
     const [deviceFPSRate, setDeviceFPSRate] = useState<number | undefined>(undefined)
     const [playerMode, setPlayerMode] = useState(false)
+    const [openNav, setOpenNav] = useState(false)
 
     useEffect(() => {
         handleUserPreferenceChange(userPreference)
@@ -105,7 +108,9 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         deviceFPSRate,
         setDeviceFPSRate,
         playerMode,
-        setPlayerMode
+        setPlayerMode,
+        openNav,
+        setOpenNav
     }
 
     return (

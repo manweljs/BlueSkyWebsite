@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react'
-import { useUserContext } from '@/context/UserContext'
+import { useUserContext } from '@/hooks/UserContext'
 import SectionBody from './SectionBody'
 import Drawer from '@/components/ui/Drawer'
 import Mining from './Mining'

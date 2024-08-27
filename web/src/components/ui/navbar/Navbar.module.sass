@@ -1,0 +1,106 @@
+@use '../../../styles/style.module' as *
+
+.navbar
+    position: fixed
+    top: 0
+    z-index: 999
+    cursor: pointer
+    width: 100vw
+    padding: 16px
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    .navbar_end
+        position: absolute
+        border-radius: 20px
+        height: 50px
+        width: 50px
+        background-color: #fff
+
+    .quality_info
+        position: absolute
+        top: 2.5rem
+        right: 0
+        padding: 1rem
+        font-size: .8em
+        text-align: right
+
+    .logo
+        width: 220px
+
+.navbar_menu
+    position: absolute
+    top: 0
+    right: 0
+    z-index: 999
+    width: 100%
+    height: 100svh
+    background: var(--navbar-menu-bg)
+    transition: all .5s
+    backdrop-filter: blur(15px)
+    opacity: 0
+    visibility: hidden
+    overflow: hidden
+
+    &.open
+        opacity: 1
+        visibility: visible
+
+    .menu
+        height: 100%
+        ul
+            list-style: none
+            display: grid
+            grid-template-columns: repeat(3, 1fr)
+            place-content: center
+            height: 100%
+
+        li
+            font-size: 3rem
+            font-weight: 800
+            color: var(--base)
+            cursor: pointer
+            transition: .3s
+            &:hover
+                color: var(--primary)
+
+.hamburger
+    padding: 1rem
+    cursor: pointer
+    position: relative
+    width: 30px
+    height: 30px
+    margin-right: 1rem
+
+    span
+        display: block
+        background-color: var(--base)
+        width: 30px
+        height: 3px
+        border-radius: 10px
+        position: absolute
+        left: 0
+        transition: .3s
+
+        &:nth-child(1)
+            top: 4px
+        &:nth-child(2)
+            top: 15px
+        &:nth-child(3)
+            top: 15px
+        &:nth-child(4)
+            top: 26px
+
+.hamburger.open
+    span
+        &:nth-child(1)
+            top: 15px
+            scale: 0
+        &:nth-child(2)
+            transform: rotate(45deg)
+        &:nth-child(3)
+            transform: rotate(-45deg)
+        &:nth-child(4)
+            scale: 0
+            top: 15px

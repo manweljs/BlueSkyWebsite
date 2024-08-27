@@ -10,7 +10,7 @@ import { GLTF } from 'three-stdlib'
 import { RigidBody } from '@react-three/rapier'
 import { Controls } from '@/consts'
 import { useFrame } from '@react-three/fiber'
-import { useUserContext } from '@/context/UserContext'
+import { useUserContext } from '@/hooks/UserContext'
 
 type GLTFResult = GLTF & {
   nodes: {

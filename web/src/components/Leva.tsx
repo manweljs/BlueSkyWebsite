@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { useUserContext } from '@/context/UserContext'
+import { useUserContext } from '@/hooks/UserContext'
 import { useControls, button, buttonGroup, folder } from 'leva'
 import * as THREE from 'three'
 import { Bloom, DepthOfField, EffectComposer, ToneMapping } from '@react-three/postprocessing'

@@ -9,7 +9,7 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import { useFrame, useThree } from '@react-three/fiber'
 import { COLORS } from '@/consts/materials'
-import { useUserContext } from '@/context/UserContext'
+import { useUserContext } from '@/hooks/UserContext'
 
 type GLTFResult = GLTF & {
   nodes: {

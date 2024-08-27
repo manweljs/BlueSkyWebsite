@@ -8,7 +8,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import { materials } from '@/consts/materials'
-import { useUserContext } from '@/context/UserContext'
+import { useUserContext } from '@/hooks/UserContext'
 
 type GLTFResult = GLTF & {
   nodes: {

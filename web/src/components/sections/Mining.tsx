@@ -4,6 +4,7 @@ import { cls } from '@/utils';
 import Image from 'next/image';
 import { FIcon } from '../ui/FIcon';
 import Motion from '../ui/Motion';
+import { Button } from 'antd';
 
 export default function Mining() {
     return (
@@ -78,11 +79,17 @@ export default function Mining() {
                 </section>
             </Motion.Slide>
 
-            <Motion.Slide direction='up' amount={.3}>
-                <section>
+            <Motion.Slide direction='up' amount={.3} className={s.mb5}>
+                <section >
                     <h2>{content.developmentProcess.title}</h2>
                     <p>{content.developmentProcess.description}</p>
-
+                    <Button
+                        href='https://meta-optimize.com/'
+                        target='_blank'
+                        type='primary'
+                        size='large'
+                        shape='round'
+                    >Learn more about the solution</Button>
                 </section>
             </Motion.Slide>
 

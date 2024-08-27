@@ -1,6 +1,6 @@
 "use client";
 import Experience from "./components/Experience";
-import { UserProvider } from "./context/UserContext";
+import { UserProvider } from "./hooks/UserContext";
 
 export default function APP() {
 
