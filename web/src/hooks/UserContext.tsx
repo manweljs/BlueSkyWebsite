@@ -4,6 +4,7 @@ import { isMobile } from 'react-device-detect';
 import * as THREE from 'three';
 import { checkIfNight } from '@/utils';
 import { CameraControls } from '@react-three/drei';
+import { useRouter } from 'next/navigation';
 
 type ActiveSectionType = number | null | undefined;
 
@@ -36,6 +37,7 @@ interface UserContextType {
     setPlayerMode: React.Dispatch<React.SetStateAction<boolean>>
     openNav: boolean
     setOpenNav: React.Dispatch<React.SetStateAction<boolean>>
+    navigate: (path: string, blank?: boolean) => void
 }
 
 // Membuat context dengan tipe yang didefinisikan
@@ -69,6 +71,15 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [deviceFPSRate, setDeviceFPSRate] = useState<number | undefined>(undefined)
     const [playerMode, setPlayerMode] = useState(false)
     const [openNav, setOpenNav] = useState(false)
+
+    const router = useRouter()
+    const navigate = (path: string, blank?: boolean) => {
+        if (blank) {
+            window.open(path, '_blank')
+            return
+        }
+        router.push(path)
+    }
 
     useEffect(() => {
         handleUserPreferenceChange(userPreference)
@@ -110,7 +121,8 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         playerMode,
         setPlayerMode,
         openNav,
-        setOpenNav
+        setOpenNav,
+        navigate
     }
 
     return (

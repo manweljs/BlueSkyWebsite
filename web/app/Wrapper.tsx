@@ -4,6 +4,7 @@ import { UserProvider } from '@/hooks/UserContext'
 import { App, ConfigProvider, theme } from 'antd'
 import React from 'react'
 import { Bai_Jamjuree } from "next/font/google";
+import Navbar from '@/components/ui/navbar/Navbar';
 export const font = Bai_Jamjuree({ subsets: ["latin"], weight: ['400', '700', '600', '500'] });
 
 export default function Wrapper({ children }: { children: React.ReactNode }) {
@@ -22,6 +23,8 @@ export default function Wrapper({ children }: { children: React.ReactNode }) {
 
             >
                 <App>
+                    <Navbar />
+
                     {children}
                 </App>
             </ConfigProvider>

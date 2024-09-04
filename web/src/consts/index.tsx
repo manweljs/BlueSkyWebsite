@@ -5,7 +5,8 @@ export enum SECTION {
     OPTIMIZING = "optimizing"
 }
 
-
+export const BSBLOG_API_URL = "https://api.pluvoo.com"
+export const appId = 'dd71e5e9-1904-4500-86c7-f5b4e8f03986'
 
 export const ICON_SIZE = 100
 

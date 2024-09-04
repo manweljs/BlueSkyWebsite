@@ -4,6 +4,7 @@ import { useUserContext } from '@/hooks/UserContext'
 import SectionBody from './SectionBody'
 import Drawer from '@/components/ui/Drawer'
 import Mining from './Mining'
+import { Blog } from './Blog';
 
 export default function Sections() {
     const { activeSection, setActiveSection, cameraControlsRef } = useUserContext()
@@ -356,12 +357,13 @@ export const sectionData = [
         index: 13,
         id: "blog",
         title: "Blog",
+        children: <Blog />,
         lookAt: {
             pos: [0, 8, -20],
             target: [25, 5, -35]
         },
         icon: {
-            name: "fi-tr-train-station",
+            name: "fi-tr-quill-pen-story",
             position: [15, ICON_Y, -35]
         },
         contents: {

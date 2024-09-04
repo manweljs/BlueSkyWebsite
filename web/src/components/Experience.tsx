@@ -84,7 +84,6 @@ const Experience = () => {
 
             <Sections />
             <LoadingExperience />
-            <Navbar />
 
             <Canvas shadows className="main-canvas" >
                 <Scene />
